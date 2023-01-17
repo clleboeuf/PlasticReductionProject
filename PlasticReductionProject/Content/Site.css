@@ -28,3 +28,13 @@ textarea {
     background-color: #777;
     border-color: #fff
 }
+
+.terry-woz-ere{
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

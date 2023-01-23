@@ -11,6 +11,7 @@ namespace PlasticReductionProject.Controllers
         // GET: Alternatives
         public ActionResult Alternatives()
         {
+            ViewBag.Page = "Alternatives";
             return View();
         }
     }

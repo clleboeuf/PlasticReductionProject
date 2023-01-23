@@ -11,6 +11,7 @@ namespace PlasticReductionProject.Views.Calculator
         // GET: Calculator
         public ActionResult Calculator()
         {
+            ViewBag.Page = "Calculator";
             return View();
         }
     }

@@ -11,6 +11,7 @@ namespace PlasticReductionProject.Controllers
         // GET: Tracker
         public ActionResult Tracker()
         {
+            ViewBag.Page = "Tracker";
             return View();
         }
     }

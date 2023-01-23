@@ -24,8 +24,8 @@
         color: black
     }
 
-    .navbar-brand li a {
-        color:black
+    .selected {
+        color:white;
 
     }
 
@@ -44,13 +44,80 @@
                 @Html.ActionLink("My Plastic Footprint", "Index", "Calculator", "Tracker", "Information", "Plastic Alternatives", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</span></li>
-                    <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                    <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                    <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                    <li>@Html.ActionLink("Information", "Information", "Information")</li>
-                </ul>
+
+                @if (ViewBag.Page == "Index")
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                    </ul>
+                }
+                else if (ViewBag.Page == "Calculator")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                    </ul>
+                }
+                else if (ViewBag.Page == "Tracker")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li class="active">@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                    </ul>
+
+                }
+                else if (ViewBag.Page == "Projects")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li class="active">@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                    </ul>
+
+                }
+                else if (ViewBag.Page == "Information")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li class="active">@Html.ActionLink("Information", "Information", "Information")</li>
+                    </ul>
+
+                }
+                else if (ViewBag.Page == "Alternatives")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li class="active">@Html.ActionLink("Information", "Information", "Information")</li>
+                    </ul>
+                }
+                else
+                {                   
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                            <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                            <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                            <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                        </ul>   
+                }
                 <!-- @Html.Partial("_LoginPartial")-->
             </div>
         </div>

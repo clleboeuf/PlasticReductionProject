@@ -11,6 +11,7 @@ namespace PlasticReductionProject.Controllers
         // GET: Information
         public ActionResult Information()
         {
+            ViewBag.Page = "Information";
             return View();
         }
     }

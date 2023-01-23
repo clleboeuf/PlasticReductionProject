@@ -11,6 +11,7 @@ namespace PlasticReductionProject.Controllers
         // GET: Projects
         public ActionResult Projects()
         {
+            ViewBag.Page = "Projects";
             return View();
         }
     }

@@ -11,7 +11,7 @@ namespace PlasticReductionProject.Controllers
         public ActionResult Index()
         {
             //need to have if statement if returning
-            ViewBag.Welcome = "Welcome to My Plastic Footprint Tracker.  Please start with step 1 below.";
+            ViewBag.Welcome = "Welcome to My Plastic Footprint.  Please start with step 1 below.";
             ViewBag.Page = "Index";
             return View();
         }

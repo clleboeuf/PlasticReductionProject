@@ -3,25 +3,63 @@
 }
 
 <div class="jumbotron">
-    <h1>My Plastic Footprint</h1>
-    <br><p class="lead">@ViewBag.Welcome</p>
-        <br><br><br>
-                <table style="width:100%">
-                    <tr>
-                        <td style="width:30%">image placeholder</td>
-                        <td>image for step 1: text and link</td>
+   
+    <table style="width:100%">
 
-                    </tr>
-                    <tr>
-                        <td style="width:30%">image placeholder</td>
-                        <td>image for step 2: text and link</td>
+        <tr>
+            <td style="width:30%" align="center" valign="top">
+                <image src="../../images/plastic_footprint2.jpg" width="60%"></image>
+            </td>
+            <td valign="top">
+                <h4><em><b>Step 1 - What's your plastic footprint?</b></em></h4>
+                <p>
+                    <small>
+                        Start here to work out what your plastic footprint is.  You will be asked about the types
+                        of plastic items you use and purchase.  By answering the questions you will be able to work out
+                        if you have a high, low or average plastic footprint.
+                    </small>
+                </p>
+                <p align="right">
+                    <span class="btn btn-default" style="margin: 5px">
+                        @Html.ActionLink("Calculate my plastic footprint", "Calculator", "Calculator")
+                    </span>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td style="width:30%" align="center" valign="top">
+                <image src="../../images/ChildBeach.jpg" width="60%"></image>
+            </td>
+            <td valign="top">
+                <h4><em><b>Step 2 - Track your progress</em></b></h4>
+                <p><small>
+                    If you have completed the calculator on two different occasions you can check if your plastic footprint has changed.
+                </small>
+                </p>
+                <p align="right"><span class="btn btn-default" style="margin: 5px">@Html.ActionLink("Track your progress", "Tracker", "Tracker")</span></p>
+            </td>
+        </tr>
+        <tr>
 
-                    </tr>
-                    <tr>
-                        <td style="width:30%">image placeholder</td>
-                        <td>image for step 3: text and link</td>
+            <td style="width:30%" align="center" valign="top">
+                <image src="../../images/PickingUpPlastic.jpg" width="60%"></image>
+            </td>
+            <td valign="top">
+                <h4><em><b>Step 3 - Dig Deeper</b></em></h4>
+                <p><small>
+                    Now that you have calculated your plastic footprint, and you may have tracked your usage over time,
+                    you can find information here about how to improve your footprint, find projects you can implement in your school or community,
+                    you can also find links to find more information.
+                </small>
+                </p>
+                <p align="right">
+                    <span class="btn btn-default" style="margin: 5px">@Html.ActionLink("Find alternatives to plastic products", "Alternatives", "Alternatives")</span>
+                    <span class="btn btn-default" style="margin: 5px">@Html.ActionLink("Find Projects", "Projects", "Projects")</span>
+                    <span class="btn btn-default" style="margin: 5px">@Html.ActionLink("Find more information", "Information", "Information")</span>
 
-                    </tr>
-                </table>
+                </p>
+            </td>
+        </tr>
+    </table>
 </div>
 

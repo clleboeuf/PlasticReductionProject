@@ -195,6 +195,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\ChildBeach.jpg" />
+    <Content Include="Images\MPFLogo.png" />
     <Content Include="Images\PickingUpPlastic.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

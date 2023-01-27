@@ -28,6 +28,10 @@ namespace PlasticReductionProject.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+
+
+
+
         }
     }
 }

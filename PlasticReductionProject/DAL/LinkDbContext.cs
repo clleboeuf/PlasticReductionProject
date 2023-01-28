@@ -13,11 +13,10 @@ namespace PlasticReductionProject.DAL
         public LinkDbContext() : base("LinkDbContext")
         {
             Database.SetInitializer(new LinkDbInitializer());
-
-        
         }
 
         public DbSet<Link> Links { get; set; }
+        public DbSet<DictionaryWord> Dictionary { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

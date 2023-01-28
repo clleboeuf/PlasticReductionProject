@@ -1,11 +1,16 @@
-﻿using PlasticReductionProject.Models;
+﻿using CsvHelper;
+using Microsoft.Ajax.Utilities;
+using PlasticReductionProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Globalization;
+using System.IO;
 
 namespace PlasticReductionProject.DAL
 {
-    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<ItemDbContext>  or DropCreateDatabaseAlways<ItemDbContext>
+    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<ItemDbContext>  or DropCreateDatabaseAlways<ItemDbContext>
     {
         protected override void Seed(LinkDbContext context)
         {
@@ -18,6 +23,19 @@ namespace PlasticReductionProject.DAL
             };
             links.ForEach(i => context.Links.AddOrUpdate(i));
             context.SaveChanges();
+
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/data.csv");
+            var reader = new StreamReader(path);
+            var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            //     var dictionary = new List<DictionaryWord>();
+            var dictionary = csv.GetRecords<DictionaryWord>();
+            dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
+            context.SaveChanges();
+
+
+
         }
+
+
     }
 }

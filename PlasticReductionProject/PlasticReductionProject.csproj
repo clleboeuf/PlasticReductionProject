@@ -199,6 +199,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\ChildBeach.jpg" />
+    <Content Include="Images\LinksImages\CleanUpLogo.jpg" />
     <Content Include="Images\LinksImages\PSFlogo.jpg" />
     <Content Include="Images\LinksImages\UNEPLogo.png" />
     <Content Include="Images\LinksImages\WWFLogo.jpg" />

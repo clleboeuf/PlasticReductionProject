@@ -5,42 +5,60 @@
 }
 
 <h2>Links to further information</h2>
-<!-- add this when there is an administrator that wants to
-                work on links using the webpage
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-    -->
 <table class="table">
-
-
-    @foreach (var item in Model)
+    @if (Model.Count() > 1)
     {
+        var counter = 1;
 
         <tr>
-            <td width="10%" valign="middle">
-                <a href=@item.Url target="_blank">
-                    <img src=@item.Image.ToString() width="80%" />
-                </a>
-            </td>
-            <td>
-                <p class="h4">
-                    @Html.DisplayFor(modelItem => item.Description)
-                </p>
+            @foreach (var item in Model)
+            {
+                
+                if (counter % 2 > 0)
+                {
+                    <td width="50%" valign="middle" align="center">
+                        <a href=@item.Url target="_blank">
+                            <img src=@item.Image.ToString() width="50%" />
+                        </a>
+                        <p class="h5" align="center" style="margin: 30px">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </p>
+                        <p>
+                            <span class="btn btn-default" style="margin: 5px">
+                                <a href=@item.Url target="_blank">visit site</a>
+                            </span>
+                        </p>
+                    </td>
+                }
+                else
+                {
+                    <td width="50%" valign="bottom" align="center">
+                        <p class="h5" style="margin: 30px">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </p>
+                        <p>
+                            <a href=@item.Url target="_blank">
+                                <img src=@item.Image.ToString() width="50%" />
+                            </a>
+                        </p>
+                        <p>
+                            <span class="btn btn-default" style="margin: 5px">
+                                <a href=@item.Url target="_blank">visit site</a>
+                            </span>
+                        </p>
+                    </td>    
+                    @Html.Raw("</tr><tr>")
+                }
+                counter += 1;
+                <!-- add this when there is an administrator that wants to
+                    work on links using the webpage
 
-            </td>
-            <td>
-            </td>
-            <!-- add this when there is an administrator that wants to
-                work on links using the webpage
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-        -->
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+           }  -->
+            }
         </tr>
-}
-
-</table>
+        }
+        </table>

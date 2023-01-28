@@ -24,14 +24,19 @@ namespace PlasticReductionProject.DAL
             links.ForEach(i => context.Links.AddOrUpdate(i));
             context.SaveChanges();
 
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/data.csv");
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Dictionary.csv");
             var reader = new StreamReader(path);
             var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            //     var dictionary = new List<DictionaryWord>();
             var dictionary = csv.GetRecords<DictionaryWord>();
             dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
             context.SaveChanges();
 
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Dictionary.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var alternatives = csv.GetRecords<DictionaryWord>();
+            dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
+            context.SaveChanges();
 
 
         }

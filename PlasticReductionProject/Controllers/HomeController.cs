@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlasticReductionProject.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +9,16 @@ namespace PlasticReductionProject.Controllers
 {
     public class HomeController : Controller
     {
+
+        private LinkDbContext db = new LinkDbContext();
         public ActionResult Index()
         {
+            var ctx = new LinkDbContext();
+            ctx.Database.Initialize(true);
             //need to have if statement if returning
             ViewBag.Welcome = "Welcome to My Plastic Footprint.  Please start with step 1 below.";
             ViewBag.Page = "Index";
-            return View();
+            return View(db);
         }
 
         public ActionResult About()

@@ -27,7 +27,7 @@
 
 
 </style>
-<body>
+<body style="background-color: #DAEEFA; ">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -47,18 +47,18 @@
                         <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
                         <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
                         <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
                     </ul>
                 }
                 else if (ViewBag.Page == "Calculator")
                 {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="active">@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
-                    </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="active">@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                <li>@Html.ActionLink("Links", "Links", "Links")</li>
+            </ul>
                 }
                 else if (ViewBag.Page == "Tracker")
                 {
@@ -67,7 +67,7 @@
                         <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
                         <li class="active">@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
                         <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
                     </ul>
 
                 }
@@ -78,19 +78,19 @@
                         <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
                         <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
                         <li class="active">@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Information", "Information", "Information")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
                     </ul>
 
                 }
-                else if (ViewBag.Page == "Information")
+                else if (ViewBag.Page == "Links")
                 {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li class="active">@Html.ActionLink("Information", "Information", "Information")</li>
-                    </ul>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                <li class="active">@Html.ActionLink("Links", "Links", "Links")</li>
+            </ul>
 
                 }
                 else if (ViewBag.Page == "Alternatives")

@@ -172,14 +172,18 @@
     <Compile Include="Controllers\AlternativesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformationController.cs" />
+    <Compile Include="Controllers\LinksController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\TrackerController.cs" />
+    <Compile Include="DAL\LinkDbContext.cs" />
+    <Compile Include="DAL\LinkDbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Link.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -195,6 +199,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\ChildBeach.jpg" />
+    <Content Include="Images\LinksImages\PSFlogo.jpg" />
+    <Content Include="Images\LinksImages\UNEPLogo.png" />
+    <Content Include="Images\LinksImages\WWFLogo.jpg" />
     <Content Include="Images\MPFLogo.png" />
     <Content Include="Images\PickingUpPlastic.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -249,10 +256,14 @@
     <Content Include="Views\Projects\Projects.cshtml" />
     <Content Include="Views\Alternatives\Alternatives.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
+    <Content Include="Views\Links\Create.cshtml" />
+    <Content Include="Views\Links\Delete.cshtml" />
+    <Content Include="Views\Links\Details.cshtml" />
+    <Content Include="Views\Links\Edit.cshtml" />
+    <Content Include="Views\Links\Links.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Links\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -5,7 +5,7 @@ using System.Data.Entity.Migrations;
 
 namespace PlasticReductionProject.DAL
 {
-    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<ItemDbContext>  or DropCreateDatabaseAlways<ItemDbContext>
+    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
     {
         protected override void Seed(LinkDbContext context)
         {
@@ -26,7 +26,7 @@ namespace PlasticReductionProject.DAL
                 Name="Plastic Free Party",
                 Description="Help protect the planet while having a good time!  Why not make your next party plastic free? ",
                 LinkUrl="https://www.natgeokids.com/au/kids-club/cool-kids/general-kids-club/throw-a-plastic-free-party/",
-                Image="../Images/ProjectImages/plastic_Free_party_2.webp"},
+                Image="../Images/ProjectImages/plastic_Free_party_1.jpg"},
             new Project{
                 Name="Rubbish Audit",
                 Description="Do you know what you are throwing away? And where is this place \"away\"? Take a closer look and see if you can make greener choices ",
@@ -41,12 +41,12 @@ namespace PlasticReductionProject.DAL
                 Name="Make plastic free food wrap",
                 Description="Make you own environmentally friendly, reusable food wrap",
                 LinkUrl="https://www.theplasticfreeshop.com.au/2019/06/06/diy-beeswax-foodwraps/\r\n",
-                Image="../Images/ProjectImages/Foodwraps_med_strawberries-scaled-721x487"},
+                Image="../Images/ProjectImages/Foodwraps_med_strawberries-scaled-721x487.jpg"},
             new Project{
                 Name="Save a Beach",
                 Description="\"Small acts add up\".  Every piece of plastic you remove from a beach is one more prevented from entering our oceans ",
                 LinkUrl="https://www.4ocean.com/blogs/blog/how-to-organize-a-community-beach-cleanup",
-                Image="../Images/ProjectImages/istockphoto-1023573774-612x612"},
+                Image="../Images/ProjectImages/istockphoto-1023573774-612x612.jpg"},
 
             };
             projects.ForEach(i => context.Projects.AddOrUpdate(i));

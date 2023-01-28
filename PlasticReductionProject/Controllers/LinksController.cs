@@ -18,9 +18,6 @@ namespace PlasticReductionProject.Controllers
         public ActionResult Links()
         {
             ViewBag.Page = "Links";
-            var tester = db.Links.ToList();
-
-
             return View(db.Links.ToList());
         }
 

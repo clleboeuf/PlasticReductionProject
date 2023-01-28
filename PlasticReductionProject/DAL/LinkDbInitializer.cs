@@ -49,7 +49,7 @@ namespace PlasticReductionProject.DAL
                 Image="../Images/ProjectImages/istockphoto-1023573774-612x612"},
 
             };
-            links.ForEach(i => context.Links.AddOrUpdate(i));
+            projects.ForEach(i => context.Projects.AddOrUpdate(i));
             context.SaveChanges();
         }
     }

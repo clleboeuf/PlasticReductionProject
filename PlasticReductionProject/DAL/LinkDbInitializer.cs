@@ -27,7 +27,7 @@ namespace PlasticReductionProject.DAL
                 Name="Plastic Free Party",
                 Description="Help protect the planet while having a good time!  Why not make your next party plastic free? ",
                 LinkUrl="https://www.natgeokids.com/au/kids-club/cool-kids/general-kids-club/throw-a-plastic-free-party/",
-                Image="../Images/ProjectImages/plastic_Free_party_1.jpg"},
+                Image="../Images/ProjectImages/plastic_Free_party_1.jpeg"},
             new Project{
                 Name="Rubbish Audit",
                 Description="Do you know what you are throwing away? And where is this place \"away\"? Take a closer look and see if you can make greener choices ",

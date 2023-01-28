@@ -12,7 +12,9 @@ namespace PlasticReductionProject.DAL
     {
         public LinkDbContext() : base("LinkDbContext")
         {
-            Database.SetInitializer<LinkDbContext>(new LinkDbInitializer());
+            Database.SetInitializer(new LinkDbInitializer());
+
+        
         }
 
         public DbSet<Link> Links { get; set; }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<PlasticReductionProject.Models.PlasticAlternative>
+﻿@model IEnumerable<PlasticReductionProject.Models.Product>
+
 
 
 @{
@@ -8,16 +9,22 @@
 <h2>Here are some alternatives for popular plastic products</h2>
 
 <table>
-    <tr>
-        <td>
-            @Html.ActionLink("Fast track link to details", "AlternativesDetails", "Alternatives");
-
-
-        </td>
-
-    </tr>
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <h3>@item.Description</h3>
+            </td>
+            <td>
+                @Html.ActionLink(item.Description,"AlternativesDetails","Alternatives", new {ProductID = item.Id},null)
+            </td>
+            <td>
+                <h3>@item.Category</h3>
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.ActionLink("Fast track link to details", "AlternativesDetails", "Alternatives");
 
 

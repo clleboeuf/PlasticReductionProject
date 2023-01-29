@@ -22,5 +22,10 @@ namespace PlasticReductionProject.Models
         [Name("ForProductId")]
         public int ProductId { get; set; }
 
+        [Name("Image")]
+        public string Image { get; set; }
+
+
+
     }
 }

@@ -207,6 +207,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DictionaryWord.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Link.cs" />
@@ -240,7 +241,6 @@
     <Content Include="Images\ProjectImages\plastic_free_party_1.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Images\ProjectImages\plastic_Free_party_2.webp" />
     <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
     <Content Include="DAL\Dictionary.csv" />
     <Content Include="DAL\alternatives.csv" />

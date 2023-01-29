@@ -13,36 +13,36 @@
 12,teabag,use a,"Food, Eating",1,FALSE,,"1, 2",1.5
 13,wrapping Paper,use,Party,6,TRUE,,"1, 2, 3",80
 14,balloons,use,Party,10,FALSE,,"1, 2",3.4
-15,plastic toy,purchase a ,Party,"1, 4",TRUE,both,"1, 2, 4",700
+15,plastic toy,purchase a ,Party,1,TRUE,both,"1, 2, 4",700
 16,glitter/confetti,use,Party,6,FALSE,,"1, 2",60
 17,hair shampoo and conditioner,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6
 18,Body soap,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6
 19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44
-20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",
-21,plastic toothbrush,replace my,"Hygiene, Cleaning","1, 3, 10",TRUE,product,"1, 2, 3",18
-22,disposable razor,replace my,"Hygiene, Cleaning","1, 7, 10",FALSE,,"1, 2",8.8
-23,wet wipe,use,"Hygiene, Cleaning","2, 1",FALSE,,"1, 2",1.4
-24,sun screen,use,"Hygiene, Cleaning","10, 4",FALSE,,"1, 2",
-25,single use sanitary products,use ,"Hygiene, Cleaning","1, 4, 10",FALSE,,"1, 2",2.4
+20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7.0
+21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18
+22,disposable razor,replace my,"Hygiene, Cleaning",7,FALSE,,"1, 2",8.8
+23,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4
+24,sun screen,use,"Hygiene, Cleaning",10,FALSE,,"1, 2",30
+25,single use sanitary products,use ,"Hygiene, Cleaning",4,FALSE,,"1, 2",2.4
 26,lip balm/gloss,purchase a,"Hygiene, Cleaning",10,FALSE,,"1, 2",4.8
 27,pencil case,replace my,School Item,5,FALSE,,"1, 2",58
 28,plastic ruler,purchase a,School Item,7,TRUE,product,"1, 2, 3",26
-29,disposable pen,purchase a,School Item,"1, 7",TRUE,product,"1, 2, 3",5.78
+29,disposable pen,purchase a,School Item,1,TRUE,product,"1, 2, 3",5.78
 30,clutch pencil,purchase a,School Item,1,TRUE,product,"1, 2, 3",13.6
-31,colour textas,purchase,School Item,"1, 7",TRUE,product,"1, 2, 3",320
-32,highlighter,purchase a,School Item,"1, 7",TRUE,product,"1, 2, 3",22.5
-33,pencil eraser,purchase a,School Item,"10, 5",FALSE,,"1, 2",9.07
+31,colour textas,purchase,School Item,1,TRUE,product,"1, 2, 3",320
+32,highlighter,purchase a,School Item,1,TRUE,product,"1, 2, 3",22.5
+33,pencil eraser,purchase a,School Item,10,FALSE,,"1, 2",9.07
 34,contact or stickers to cover books,use ,School Item,5,FALSE,,"1, 2",99
 35,EFT receipt,receive,Shopping,10,FALSE,product,"1, 2, 3",0.742
-36,plastic shopping bag,require a new ,Shopping,"3, 4",TRUE,product,"1, 2, 3",5.5
+36,plastic shopping bag,require a new ,Shopping,3,TRUE,product,"1, 2, 3",5.5
 37,shoes,purchase a new set of,Clothing,5,FALSE,,"1, 2",300
 38,Sun glasses or prescription glasses,replace my,Clothing,10,TRUE,product,"1, 2, 3",37.5
-39,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",
-40,mobile phone case,replace my,Technology,"9, 10",TRUE,and packaging,"1, 2, 4",20
+39,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",200.0
+40,mobile phone case,replace my,Technology,10,TRUE,and packaging,"1, 2, 4",20
 41,charge cable,purchase a new,Technology,5,TRUE,and packaging,"1, 2, 4",13.8
 42,mobile phone,purchase a new,Technology,10,TRUE,and packaging,"1, 2, 4",25.6
-43,headphones,purchase new,Technology,"5, 9, 10",TRUE,and packaging,"1, 2, 4",187.5
+43,headphones,purchase new,Technology,5,TRUE,and packaging,"1, 2, 4",187.5
 44,cigarette lighter,purchase a,,7,FALSE,,"1, 2",25.4
-45,vape pen,purchase a,,"6, 5",FALSE,,"1, 2",250
+45,vape pen,purchase a,,6,FALSE,,"1, 2",250
 46,cigarette filter,use,,10,FALSE,,"1, 2",0.2
 47,sports equipment,replace my,,10,FALSE,,"5, 8, 2",300

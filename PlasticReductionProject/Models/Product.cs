@@ -34,6 +34,9 @@ namespace PlasticReductionProject.Models
         [Name("RecyclingType")]
         public string RecyclingFor { get; set; }
 
+        [Name("QuestionSet")]
+        public string Questions { get; set; }
+
         [Name("Mass")]
         public double Weight { get; set; }
 

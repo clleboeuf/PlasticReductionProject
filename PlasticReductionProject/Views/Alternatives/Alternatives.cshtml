@@ -16,6 +16,9 @@
                 <h3>@item.Description</h3>
             </td>
             <td>
+                @Html.ActionLink(item.Description,"AlternativesDetails","Alternatives", new {ProductID = item.Id},null)
+            </td>
+            <td>
                 <h3>@item.Category</h3>
             </td>
         </tr>

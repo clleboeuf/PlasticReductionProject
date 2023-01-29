@@ -5,30 +5,38 @@
     ViewBag.Title = "Alternatives";
 }
 
-<h2>Here are some alternatives for popular plastic products</h2>
+<h2>Here are some alternatives for This is the product In testing it is just a number @ViewBag.Product</h2>
 
 <table>
 
-    <tr>
-        <td colspan="2">
-            product name goes here this is the product Here it is just a number @ViewBag.Product
-        
-        </td>
-    </tr>
-
-    @foreach (var item in Model)
+    @if (Model.Count() > 1)
     {
+        var counter = 1;
         <tr>
-            <td>
-                @item.Description
-            </td>
-            <td>
-                The image will go here
-            </td>
+        @foreach (var item in Model)
+        {
 
+            if (counter % 2 > 0)
+            {
+
+                <td>
+                    <p>@item.Description</p>
+                    <h5>The image will go here</h5>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <h5>The image will go here</h5>
+                    <p>@item.Description</p> 
+                </td>
+                @Html.Raw("</tr><tr>")
+            }
+            counter += 1;
+        }
         </tr>
     }
 
-    </table>
+</table>
 
 

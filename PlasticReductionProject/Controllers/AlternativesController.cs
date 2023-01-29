@@ -1,4 +1,5 @@
 ﻿using PlasticReductionProject.DAL;
+using PlasticReductionProject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace PlasticReductionProject.Controllers
         {
             ViewBag.Page = "Alternatives";
 
+            List<Product> ProductList = db.Products.Where(i => i.Id == 1).ToList();
 
-
-            return View(db.Alternatives.ToList());
+            return View(ProductList);
         }
 
         public ActionResult AlternativesDetails()

@@ -21,13 +21,14 @@
 
                 <td>
                     <p>@item.Description</p>
+                    <img src=@item.Image.ToString() width="50%" />
                     <h5>The image will go here</h5>
                 </td>
             }
             else
             {
                 <td>
-                    <h5>The image will go here</h5>
+                    <h5>@item.Image</h5>
                     <p>@item.Description</p> 
                 </td>
                 @Html.Raw("</tr><tr>")

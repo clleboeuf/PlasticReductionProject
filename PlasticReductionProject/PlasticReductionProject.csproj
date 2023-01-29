@@ -228,6 +228,32 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\AlternativesImages\B2P.png" />
+    <Content Include="Images\AlternativesImages\BambooCottonBuds.jpg" />
+    <Content Include="Images\AlternativesImages\BambooCutlery.jpg" />
+    <Content Include="Images\AlternativesImages\BambooStraw.jpg" />
+    <Content Include="Images\AlternativesImages\CardboardStraw.jpg" />
+    <Content Include="Images\AlternativesImages\ClothBag.jpg" />
+    <Content Include="Images\AlternativesImages\ClothCase.jpg" />
+    <Content Include="Images\AlternativesImages\ClothWipe.jpg" />
+    <Content Include="Images\AlternativesImages\CompostableCup.jpg" />
+    <Content Include="Images\AlternativesImages\DontTakeAway.png" />
+    <Content Include="Images\AlternativesImages\EcoPen.png" />
+    <Content Include="Images\AlternativesImages\keepcup.jpg" />
+    <Content Include="Images\AlternativesImages\metalCutlery.jpg" />
+    <Content Include="Images\AlternativesImages\MetalDrinkBottle.png" />
+    <Content Include="Images\AlternativesImages\MetalPencilCase.jpg" />
+    <Content Include="Images\AlternativesImages\MetalRefillablePen_.jpg" />
+    <Content Include="Images\AlternativesImages\MetalRuler.jpg" />
+    <Content Include="Images\AlternativesImages\MetalStraw.jpg" />
+    <Content Include="Images\AlternativesImages\NaturalFibreClothing.png" />
+    <Content Include="Images\AlternativesImages\PaperLanterns.jpg" />
+    <Content Include="Images\AlternativesImages\PVCFreeEraser.jpeg" />
+    <Content Include="Images\AlternativesImages\ReusableDrinkBottle.png" />
+    <Content Include="Images\AlternativesImages\SoapBars.jpg" />
+    <Content Include="Images\AlternativesImages\WaxCloth.jpg" />
+    <Content Include="Images\AlternativesImages\WoodenRuler.jpg" />
+    <Content Include="Images\AlternativesImages\WoodGraphitePencil.png" />
     <Content Include="Images\ChildBeach.jpg" />
     <Content Include="Images\LinksImages\CleanUpLogo.jpg" />
     <Content Include="Images\LinksImages\PSFlogo.jpg" />
@@ -299,6 +325,7 @@
     <Content Include="Views\Alternatives\Alternatives.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
     <Content Include="Views\Links\Links.cshtml" />
+    <Content Include="Views\Alternatives\AlternativesDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

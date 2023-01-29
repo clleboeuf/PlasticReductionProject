@@ -245,6 +245,8 @@
     <Content Include="DAL\Dictionary.csv" />
     <Content Include="DAL\alternatives.csv" />
     <Content Include="DAL\products.csv" />
+    <Content Include="DAL\links.csv" />
+    <Content Include="DAL\projects.csv" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -295,10 +297,6 @@
     <Content Include="Views\Projects\Projects.cshtml" />
     <Content Include="Views\Alternatives\Alternatives.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
-    <Content Include="Views\Links\Create.cshtml" />
-    <Content Include="Views\Links\Delete.cshtml" />
-    <Content Include="Views\Links\Details.cshtml" />
-    <Content Include="Views\Links\Edit.cshtml" />
     <Content Include="Views\Links\Links.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -31,11 +31,18 @@ namespace PlasticReductionProject.DAL
             dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
             context.SaveChanges();
 
-            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Dictionary.csv");
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Products.csv");
             reader = new StreamReader(path);
             csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var alternatives = csv.GetRecords<DictionaryWord>();
-            dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
+            var products = csv.GetRecords<Product>();
+            products.ForEach(i => context.Products.AddOrUpdate(i));
+            context.SaveChanges();
+
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/PlasticAlternatives.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var alternatives = csv.GetRecords<PlasticAlternative>();
+            alternatives.ForEach(i => context.Alternatives.AddOrUpdate(i));
             context.SaveChanges();
 
 

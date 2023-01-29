@@ -12,14 +12,15 @@ namespace PlasticReductionProject.Models
     public class PlasticAlternative
     {
         [Key]
-        [Name("WordDictionaryId")]
+        [Name("Alernative_Id")]
         public int Id { get; set; }
 
-        [Name("WordText")]
-        public string Word { get; set; }
+        [Name("AlternativeDescription")]
+        public string Description { get; set; }
 
-        [Name("WordDefinition")]
-        public string Definition { get; set; }
+
+        [Name("ForProductId")]
+        public int ProductId { get; set; }
 
     }
 }

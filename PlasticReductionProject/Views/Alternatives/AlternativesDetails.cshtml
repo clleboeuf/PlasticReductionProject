@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PlasticReductionProject.Models.PlasticAlternative>
+
+
+@{
+    ViewBag.Title = "Alternatives";
+}
+
+<h2>Here are some alternatives for This is the product In testing it is just a number @ViewBag.Product</h2>
+
+<table>
+
+    @if (Model.Count() > 1)
+    {
+        var counter = 1;
+        <tr>
+        @foreach (var item in Model)
+        {
+
+            if (counter % 2 > 0)
+            {
+
+                <td>
+                    <p>@item.Description</p>
+                    <h5>The image will go here</h5>
+                </td>
+            }
+            else
+            {
+                <td>
+                    <h5>The image will go here</h5>
+                    <p>@item.Description</p> 
+                </td>
+                @Html.Raw("</tr><tr>")
+            }
+            counter += 1;
+        }
+        </tr>
+    }
+
+</table>
+
+

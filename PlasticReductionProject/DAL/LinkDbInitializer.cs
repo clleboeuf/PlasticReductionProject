@@ -46,7 +46,7 @@ namespace PlasticReductionProject.DAL
             new Project{
                 Name="Make plastic free food wrap",
                 Description="Make you own environmentally friendly, reusable food wrap",
-                LinkUrl="https://www.theplasticfreeshop.com.au/2019/06/06/diy-beeswax-foodwraps/\r\n",
+                LinkUrl="https://www.theplasticfreeshop.com.au/2019/06/06/diy-beeswax-foodwraps/",
                 Image="../Images/ProjectImages/Foodwraps_med_strawberries-scaled-721x487.jpg"},
             new Project{
                 Name="Save a Beach",
@@ -66,12 +66,12 @@ namespace PlasticReductionProject.DAL
             dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
             context.SaveChanges();
 
-            //path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Products.csv");
-            //reader = new StreamReader(path);
-            //csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            //var products = csv.GetRecords<Product>();
-            //products.ForEach(i => context.Products.AddOrUpdate(i));
-            //context.SaveChanges();
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/products.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var products = csv.GetRecords<Product>();
+            products.ForEach(i => context.Products.AddOrUpdate(i));
+            context.SaveChanges();
 
             path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/alternatives.csv");
             reader = new StreamReader(path);

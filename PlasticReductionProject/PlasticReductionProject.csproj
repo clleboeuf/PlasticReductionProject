@@ -207,6 +207,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DictionaryWord.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Link.cs" />
@@ -266,11 +267,13 @@
     <Content Include="Images\ProjectImages\plastic_free_party_1.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Images\ProjectImages\plastic_Free_party_2.webp" />
     <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
     <Content Include="DAL\Dictionary.csv" />
     <Content Include="DAL\alternatives.csv" />
     <Content Include="DAL\products.csv" />
+    <Content Include="DAL\links.csv" />
+    <Content Include="DAL\projects.csv" />
+    <Content Include="DAL\product_test.csv" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -321,10 +324,6 @@
     <Content Include="Views\Projects\Projects.cshtml" />
     <Content Include="Views\Alternatives\Alternatives.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
-    <Content Include="Views\Links\Create.cshtml" />
-    <Content Include="Views\Links\Delete.cshtml" />
-    <Content Include="Views\Links\Details.cshtml" />
-    <Content Include="Views\Links\Edit.cshtml" />
     <Content Include="Views\Links\Links.cshtml" />
     <Content Include="Views\Alternatives\AlternativesDetails.cshtml" />
   </ItemGroup>

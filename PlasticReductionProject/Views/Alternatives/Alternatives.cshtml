@@ -1,9 +1,23 @@
-﻿
+﻿@model IEnumerable<PlasticReductionProject.Models.PlasticAlternative>
+
+
 @{
     ViewBag.Title = "Alternatives";
 }
 
-<h2>Alternatives</h2>
+<h2>Here are some alternatives for popular plastic products</h2>
 
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Fast track link to details", "AlternativesDetails", "Alternatives");
+
+
+        </td>
+
+    </tr>
+
+
+</table>
 
 

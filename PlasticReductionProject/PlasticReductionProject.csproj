@@ -374,9 +374,11 @@
     <Content Include="Views\Information\Information.cshtml" />
     <Content Include="Views\Links\Links.cshtml" />
     <Content Include="Views\Alternatives\AlternativesDetails.cshtml" />
+    <Content Include="Views\Calculator\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Results\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -4,6 +4,13 @@
     ViewBag.Title = "Index";
 }
 
+<script>
+
+    $(".external").click(function(event) {
+   alert("You are leaving the site");
+ });
+</script>
+
 <h2>Links to further information</h2>
 <table class="table">
     @if (Model.Count() > 1)
@@ -17,7 +24,7 @@
                 if (counter % 2 > 0)
                 {
                     <td width="50%" valign="middle" align="center">
-                        <a href=@item.Url target="_blank">
+                        <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">
                             <img src=@item.Image.ToString() width="50%" />
                         </a>
                         <p class="h5" align="center" style="margin: 30px">
@@ -25,7 +32,7 @@
                         </p>
                         <p>
                             <span class="btn btn-default" style="margin: 5px">
-                                <a href=@item.Url target="_blank">visit site</a>
+                                <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">visit site</a>
                             </span>
                         </p>
                     </td>
@@ -37,13 +44,13 @@
                             @Html.DisplayFor(modelItem => item.Description)
                         </p>
                         <p>
-                            <a href=@item.Url target="_blank">
+                            <a href=@item.Url target="_blank" onClick="return confirm('This will take you to an external site')">
                                 <img src=@item.Image.ToString() width="50%" />
                             </a>
                         </p>
                         <p>
                             <span class="btn btn-default" style="margin: 5px">
-                                <a href=@item.Url target="_blank">visit site</a>
+                                <a href=@item.Url target="_blank" onClick="return confirm('This will take you to an external site')">visit site</a>
                             </span>
                         </p>
                     </td>    

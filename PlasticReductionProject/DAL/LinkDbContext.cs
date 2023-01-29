@@ -16,6 +16,7 @@ namespace PlasticReductionProject.DAL
         }
 
         public DbSet<Link> Links { get; set; }
+        public DbSet<Project> Projects { get; set; }    
         public DbSet<DictionaryWord> Dictionary { get; set; }
     //    public DbSet<Product> Products { get; set; }
         public DbSet<PlasticAlternative> Alternatives { get; set; }

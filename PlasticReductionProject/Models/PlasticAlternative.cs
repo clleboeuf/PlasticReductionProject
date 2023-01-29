@@ -12,7 +12,7 @@ namespace PlasticReductionProject.Models
     public class PlasticAlternative
     {
         [Key]
-        [Name("Alernative_Id")]
+        [Name("Alternative_Id")]
         public int Id { get; set; }
 
         [Name("AlternativeDescription")]

@@ -10,15 +10,13 @@ namespace PlasticReductionProject.Controllers
     public class HomeController : Controller
     {
 
-        private LinkDbContext db = new LinkDbContext();
         public ActionResult Index()
         {
-            var ctx = new LinkDbContext();
-            ctx.Database.Initialize(true);
+
             //need to have if statement if returning
             ViewBag.Welcome = "Welcome to My Plastic Footprint.  Please start with step 1 below.";
             ViewBag.Page = "Index";
-            return View(db);
+            return View();
         }
 
         public ActionResult About()

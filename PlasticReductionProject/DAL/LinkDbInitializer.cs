@@ -10,7 +10,7 @@ using System.IO;
 
 namespace PlasticReductionProject.DAL
 {
-    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<ItemDbContext>  or DropCreateDatabaseAlways<ItemDbContext>
+    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<ItemDbContext>  or DropCreateDatabaseAlways<ItemDbContext>
     {
         protected override void Seed(LinkDbContext context)
         {
@@ -31,14 +31,14 @@ namespace PlasticReductionProject.DAL
             dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
             context.SaveChanges();
 
-            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Products.csv");
-            reader = new StreamReader(path);
-            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var products = csv.GetRecords<Product>();
-            products.ForEach(i => context.Products.AddOrUpdate(i));
-            context.SaveChanges();
+            //path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Products.csv");
+            //reader = new StreamReader(path);
+            //csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            //var products = csv.GetRecords<Product>();
+            //products.ForEach(i => context.Products.AddOrUpdate(i));
+            //context.SaveChanges();
 
-            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/PlasticAlternatives.csv");
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/alternatives.csv");
             reader = new StreamReader(path);
             csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             var alternatives = csv.GetRecords<PlasticAlternative>();

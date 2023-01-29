@@ -16,6 +16,20 @@ namespace PlasticReductionProject.Controllers
         public ActionResult Alternatives()
         {
             ViewBag.Page = "Alternatives";
+
+
+
+            return View(db.Alternatives.ToList());
+        }
+
+        public ActionResult AlternativesDetails()
+        {
+            ViewBag.Page = "Alternatives";
+
+            var productName = db.Alternatives.ToList().FirstOrDefault();
+
+            ViewBag.Product = productName.ProductId;
+
             return View(db.Alternatives.ToList());
         }
     }

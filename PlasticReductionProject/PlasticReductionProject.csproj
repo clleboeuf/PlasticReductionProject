@@ -325,6 +325,7 @@
     <Content Include="Views\Alternatives\Alternatives.cshtml" />
     <Content Include="Views\Information\Information.cshtml" />
     <Content Include="Views\Links\Links.cshtml" />
+    <Content Include="Views\Alternatives\AlternativesDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

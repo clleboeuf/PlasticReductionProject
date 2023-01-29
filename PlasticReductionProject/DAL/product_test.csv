@@ -1,0 +1,22 @@
+﻿ProductId,ProductDescription,ProductUseVerb,ProductCategory,PlasticType,Recyclable,RecyclingType,QuestionSet,Mass
+1,plastic drinking straw,use,"Food, Eating",1,FALSE,,"1, 2",0.42
+2,disposable cup ,use,"Food, Eating",7,FALSE,,"1, 2",3.5
+3,plastic cutlery,use,"Food, Eating",1,FALSE,,"1, 2",8.4
+4,plastic drink bottle,buy drink in ,"Food, Eating",6,TRUE,,"1, 2, 3",19.7
+5,takeaway food,purchase,"Food, Eating",1,TRUE,container,"1, 2, 4",17
+6,plastic wrap,use,"Food, Eating",5,FALSE,,"1, 2",2
+7,drink carton,buy drink in ,"Food, Eating",4,TRUE,container,"1, 2, 4",53
+8,chewing gum,buy,"Food, Eating",10,FALSE,,"1, 2",15
+9,pre-frozen meal,eat ,"Food, Eating",4,TRUE,packets,"1, 2, 4",17
+10,museli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35
+11,potato chips,eat ,"Food, Eating",1,TRUE,packets,"1, 2, 4",1.755
+12,teabag,use a,"Food, Eating",1,FALSE,,"1, 2",1.5
+13,wrapping Paper,use,Party,6,TRUE,,"1, 2, 3",80
+14,balloons,use,Party,10,FALSE,,"1, 2",3.4
+15,plastic toy,purchase a ,Party,1,TRUE,both,"1, 2, 4",700
+16,glitter/confetti,use,Party,6,FALSE,,"1, 2",60
+17,hair shampoo and conditioner,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6
+18,Body soap,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6
+19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44
+20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",
+21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18

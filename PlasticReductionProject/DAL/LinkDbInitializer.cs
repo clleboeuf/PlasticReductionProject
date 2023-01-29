@@ -66,12 +66,12 @@ namespace PlasticReductionProject.DAL
             dictionary.ForEach(i => context.Dictionary.AddOrUpdate(i));
             context.SaveChanges();
 
-            //path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Products.csv");
-            //reader = new StreamReader(path);
-            //csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            //var products = csv.GetRecords<Product>();
-            //products.ForEach(i => context.Products.AddOrUpdate(i));
-            //context.SaveChanges();
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/products.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var products = csv.GetRecords<Product>();
+            products.ForEach(i => context.Products.AddOrUpdate(i));
+            context.SaveChanges();
 
             path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/alternatives.csv");
             reader = new StreamReader(path);

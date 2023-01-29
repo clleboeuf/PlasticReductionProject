@@ -247,6 +247,7 @@
     <Content Include="DAL\products.csv" />
     <Content Include="DAL\links.csv" />
     <Content Include="DAL\projects.csv" />
+    <Content Include="DAL\product_test.csv" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

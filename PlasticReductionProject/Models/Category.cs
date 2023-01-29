@@ -17,6 +17,6 @@ namespace PlasticReductionProject.Models
         [Name("Name")]
         public string Name { get; set; }
 
-        public virtual ICollection<Product> Products { get;}
+        public virtual ICollection<Product> ProductsInCategory { get;}
     }
 }

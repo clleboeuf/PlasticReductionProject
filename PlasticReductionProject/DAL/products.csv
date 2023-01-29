@@ -18,11 +18,11 @@
 17,hair shampoo and conditioner,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6
 18,Body soap,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6
 19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44
-20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",
+20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7.0
 21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18
 22,disposable razor,replace my,"Hygiene, Cleaning",7,FALSE,,"1, 2",8.8
 23,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4
-24,sun screen,use,"Hygiene, Cleaning",10,FALSE,,"1, 2",
+24,sun screen,use,"Hygiene, Cleaning",10,FALSE,,"1, 2",30
 25,single use sanitary products,use ,"Hygiene, Cleaning",4,FALSE,,"1, 2",2.4
 26,lip balm/gloss,purchase a,"Hygiene, Cleaning",10,FALSE,,"1, 2",4.8
 27,pencil case,replace my,School Item,5,FALSE,,"1, 2",58
@@ -37,7 +37,7 @@
 36,plastic shopping bag,require a new ,Shopping,3,TRUE,product,"1, 2, 3",5.5
 37,shoes,purchase a new set of,Clothing,5,FALSE,,"1, 2",300
 38,Sun glasses or prescription glasses,replace my,Clothing,10,TRUE,product,"1, 2, 3",37.5
-39,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",
+39,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",200.0
 40,mobile phone case,replace my,Technology,10,TRUE,and packaging,"1, 2, 4",20
 41,charge cable,purchase a new,Technology,5,TRUE,and packaging,"1, 2, 4",13.8
 42,mobile phone,purchase a new,Technology,10,TRUE,and packaging,"1, 2, 4",25.6

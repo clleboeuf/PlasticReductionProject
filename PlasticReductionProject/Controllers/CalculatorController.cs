@@ -29,6 +29,7 @@ namespace PlasticReductionProject.Views.Calculator
         public ActionResult Products()
         {
             ViewBag.Page = "Products";
+            
 
             List<Product> ProductList = (List<Product>)(from productID in db.Products
                                                         select productID)

@@ -23,20 +23,8 @@ namespace PlasticReductionProject.Controllers
                                                         on productID.Id equals AltProduct.ProductId
                                                         select productID)
                                                         .ToList().Distinct().ToList();
-
             return View(ProductList);
         }
-
-   //     public ActionResult AlternativesDetails()
-   //     {
-   //         ViewBag.Page = "Alternatives";
-
-   //         var productName = db.Alternatives.ToList().FirstOrDefault();
-
-   //         ViewBag.Product = productName.ProductId;
-
-   //         return View(db.Alternatives.ToList());
-   //     }
 
         public ActionResult AlternativesDetails(int ProductID)
         {
@@ -49,10 +37,6 @@ namespace PlasticReductionProject.Controllers
                                .ToList().Distinct().ToList().FirstOrDefault().Description.ToString();
 
             var productName = db.Alternatives.Where(test => test.ProductId == ProductID).ToList();
-
-         //   ViewBag.Product = productName.  .ProductId;
-
-          //  return View(db.Alternatives.ToList());
 
             return View(productName);
         }

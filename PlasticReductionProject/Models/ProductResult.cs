@@ -9,7 +9,7 @@ namespace PlasticReductionProject.Models
 
     public enum TimePeriodSelection { Day, Week, Month, Year }
 
-    public class ProductResults
+    public class ProductResult
     {
         public int Id { get; set; }
 
@@ -24,6 +24,12 @@ namespace PlasticReductionProject.Models
         public int AmountRecycled { get; set; }
 
         public int ProductId { get; set; }
+
+        public ProductResult(int _productId)
+        {
+            this.Id = _productId;   
+    
+        }
     }
 
 }

@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
+using PlasticReductionProject.DAL;
 
 namespace PlasticReductionProject.Models
 {
 
     public class CalculatorResult
     {
+        public static int count;
         public int Id { get; set; }
 
         public string Name { get; set; }
 
-        public ICollection<ProductResults> Results { get; set; }
+        public ICollection<ProductResult> Results { get; set; }
 
         public int OverallRating { get; set; }
 
@@ -44,7 +47,17 @@ namespace PlasticReductionProject.Models
             new Tuple<string, Nullable<double>>("PS", 0.0),
             new Tuple<string, Nullable<double>>("Other", 0.0) };
 
-        public CalculatorResult() { }
+        public CalculatorResult(int _numberOfProductQuestions) {
+
+            this.Id = count++;
+            Results = new Collection<ProductResult>();
+            for (int i = 0; i < _numberOfProductQuestions; i++)
+            {
+                var productResult = new ProductResult(i+1);
+                this.Results.Add(productResult);
+            }
+
+        }
 
 
 

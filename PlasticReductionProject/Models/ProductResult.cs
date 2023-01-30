@@ -13,9 +13,17 @@ namespace PlasticReductionProject.Models
     {
         public int Id { get; set; }
 
+        public FrequencySelection Usage { get; set; }   
+
+        public TimePeriodSelection PeriodUsed { get; set; } 
+
+        public TimePeriodSelection PeriodRecycled { get; set; }
+
         public int AmountUsed { get; set; }
 
         public int AmountRecycled { get; set; }
+
+        public int ProductId { get; set; }
     }
 
 }

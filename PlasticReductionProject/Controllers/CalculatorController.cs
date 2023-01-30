@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PlasticReductionProject.DAL;
+using PlasticReductionProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,8 @@ namespace PlasticReductionProject.Views.Calculator
 {
     public class CalculatorController : Controller
     {
+        private LinkDbContext db = new LinkDbContext();
+
         // GET: Calculator
         public ActionResult Calculator()
         {
@@ -20,6 +24,17 @@ namespace PlasticReductionProject.Views.Calculator
         {
             ViewBag.Page = "Report";
             return View();
+        }
+
+        public ActionResult Products()
+        {
+            ViewBag.Page = "Products";
+
+            List<Product> ProductList = (List<Product>)(from productID in db.Products
+                                                        select productID)
+                                                        .ToList().Distinct().ToList();
+
+            return View(ProductList);
         }
     }
 }

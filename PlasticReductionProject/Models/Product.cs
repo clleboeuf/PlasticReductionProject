@@ -40,5 +40,8 @@ namespace PlasticReductionProject.Models
         [Name("Mass")]
         public double Weight { get; set; }
 
+        [Name("Image")]
+        public string Image { get; set; }
+
     }
 }

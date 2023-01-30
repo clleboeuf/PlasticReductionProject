@@ -23,19 +23,6 @@ namespace PlasticReductionProject.Models
         // to create a Plastic table seeded from plastics.csv for scoring so eventually instead of the string we could have an in
         // with PlasticId in it.  
         //
-        //  You can create a PlasticScores array as follows:
-        //
-        //    PlasticScores =
-        //           { new Tuple<string, Nullable<double>>("PET", 0.0),
-        //    new Tuple<string, Nullable<double>>("PET", 0.0),
-        //    new Tuple<string, Nullable<double>>("HDPE", 0.0),
-        //    new Tuple<string, Nullable<double>>("PVC", 0.0),
-        //    new Tuple<string, Nullable<double>>("LDPE", 0.0),
-        //    new Tuple<string, Nullable<double>>("PP", 0.0),
-        //    new Tuple<string, Nullable<double>>("PS", 0.0),
-        //    new Tuple<string, Nullable<double>>("Other", 0.0) }
-        //
-
 
         Tuple<string, Nullable<double>>[] PlasticScores { get; set; } =
             { new Tuple<string, Nullable<double>>("PET", 0.0),
@@ -58,8 +45,6 @@ namespace PlasticReductionProject.Models
             }
 
         }
-
-
 
         //public int PETScore { get; set; }
 

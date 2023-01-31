@@ -17,6 +17,8 @@ namespace PlasticReductionProject.Models
 
         public ICollection<ProductResult> Results { get; set; }
 
+        public DateTime DateTime { get; set; }
+
         public int OverallRating { get; set; }
 
         // Chris I think if we use an array of Tuples for the Plastic scores.  For now we can use a string, but I am planning
@@ -26,7 +28,6 @@ namespace PlasticReductionProject.Models
 
         Tuple<string, Nullable<double>>[] PlasticScores { get; set; } =
             { new Tuple<string, Nullable<double>>("PET", 0.0),
-            new Tuple<string, Nullable<double>>("PET", 0.0),
             new Tuple<string, Nullable<double>>("HDPE", 0.0),
             new Tuple<string, Nullable<double>>("PVC", 0.0),
             new Tuple<string, Nullable<double>>("LDPE", 0.0),
@@ -37,6 +38,7 @@ namespace PlasticReductionProject.Models
         public CalculatorResult(int _numberOfProductQuestions) {
 
             this.Id = count++;
+            this.DateTime= DateTime.Now;
             Results = new Collection<ProductResult>();
             for (int i = 0; i < _numberOfProductQuestions; i++)
             {

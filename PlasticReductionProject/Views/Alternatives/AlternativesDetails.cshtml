@@ -4,38 +4,54 @@
 @{
     ViewBag.Title = "Alternatives";
 }
-
+<style>
+    img {
+        border: 5px solid #555;
+    }
+</style>
 <h2>Here are some alternatives for @ViewBag.Product</h2>
 <br />
-<table>
+<table width="80%" align="center">
 
     @if (Model.Count() > 0)
     {
         var counter = 1;
         <tr>
-        @foreach (var item in Model)
-        {
-
-            if (counter % 2 > 0)
+            @foreach (var item in Model)
             {
 
-                <td>
-                    <h3>@item.Description</h3>
-                    <img src=@item.Image.ToString() width="50%" height="50%"/>
-                    <br />
-                </td>
+                if (counter % 2 > 0)
+                {
+                    <td align="center" valign="top" width="50%">
+                        <span class="h3" style="margin: 5px">
+                            @item.Description
+                        </span>
+                        <br />
+                        <img src=@item.Image.ToString() width="60%" />
+                        <br /><br /><br />
+                    </td>
+                }
+                else
+                {
+                    <td align="center" valign="top" width="50%">
+                        <span class="h3" style="margin: 5px">
+                            @item.Description
+                        </span>
+                        <br />
+                        <img src=@item.Image.ToString() width="60%"/>
+                        <br /><br /><br />
+                    </td>
+                    @Html.Raw("</tr><tr>")
+                }
+                counter += 1;
             }
-            else
-            {
-                <td>
-                    <br />
-                    <img src=@item.Image.ToString() width="50%" height="50%"/>
-                    <h3>@item.Description</h3> 
-                </td>
-                @Html.Raw("</tr><tr>")
-            }
-            counter += 1;
-        }
+        </tr>
+        <tr>
+            <td>
+                <span class="btn btn-default" style="margin: 5px">
+                    @Html.ActionLink("Back", "Alternatives", "Alternatives")
+                </span>
+            </td>
         </tr>
     }
 

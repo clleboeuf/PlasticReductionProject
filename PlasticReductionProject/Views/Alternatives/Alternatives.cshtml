@@ -5,25 +5,55 @@
 @{
     ViewBag.Title = "Alternatives";
 }
-
+<style>
+    img {
+        border: 5px solid #555;
+    }
+</style>
 <h2>Here are some alternatives for popular plastic products</h2>
 
-<table>
-    @foreach (var item in Model)
+<table width="80%">
+    @if (Model.Count() > 0)
     {
+            var counter = 1;
         <tr>
-            <td>
-                <h3>@item.Description</h3>
-            </td>
-            <td>
-                @Html.ActionLink(item.Description,"AlternativesDetails","Alternatives", new {ProductID = item.Id},null)
-            </td>
-            <td>
-                <h3>@item.Category</h3>
-            </td>
+            @foreach (var item in Model)
+            {
+                if (counter % 3 > 0)
+                {
+                    <td align="center" valign="top" width="33%">
+                        <span class="btn btn-default" style="margin: 5px">
+                            @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, null)
+                        </span>
+                        <br />
+                        <img src=@item.Image.ToString() width="90%" />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </td>
+                }
+                else
+                {
+                    <td align="center" valign="top" width="33%">
+                        <span class="btn btn-default" style="margin: 5px">
+                            @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, null)
+                        </span>
+                        <br />
+                        <img src=@item.Image.ToString() width="90%" />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                    </td>
+                    @Html.Raw("</tr><tr>");
+                }
+
+                counter += 1;
+            }
+
         </tr>
     }
-
 </table>
 @Html.ActionLink("Fast track link to details", "AlternativesDetails", "Alternatives");
 

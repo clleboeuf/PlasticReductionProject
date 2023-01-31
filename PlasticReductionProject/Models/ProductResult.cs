@@ -23,13 +23,12 @@ namespace PlasticReductionProject.Models
 
         public int AmountRecycled { get; set; }
 
-        public int ProductId { get; set; }
+        public Product Product { get; set; }
 
-        public ProductResult(int _productId)
+        /*public ProductResult(int _productId)
         {
-            this.Id = _productId;   
-    
-        }
+            this.Id = _productId;
+        }*/
     }
 
 }

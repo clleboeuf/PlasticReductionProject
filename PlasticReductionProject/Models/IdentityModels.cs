@@ -29,5 +29,7 @@ namespace PlasticReductionProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<PlasticReductionProject.Models.ProductResult> ProductResults { get; set; }
     }
 }

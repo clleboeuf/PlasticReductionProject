@@ -200,6 +200,7 @@
     <Compile Include="Controllers\LinksController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProjectsController.cs" />
+    <Compile Include="Controllers\Randomiser.cs" />
     <Compile Include="Controllers\TrackerController.cs" />
     <Compile Include="DAL\LinkDbContext.cs" />
     <Compile Include="DAL\LinkDbInitializer.cs" />
@@ -391,9 +392,13 @@
     <Content Include="Views\Calculator\Report.cshtml" />
     <Content Include="Views\Calculator\Products.cshtml" />
     <Content Include="Views\Calculator\PlasticTypes.cshtml" />
+    <Content Include="Views\Shared\_Question1PartialView.cshtml" />
+    <Content Include="Views\Shared\_Question2PartialView.cshtml" />
+    <Content Include="Views\Shared\_Question3PartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Randomiser\" />
     <Folder Include="Views\Results\" />
   </ItemGroup>
   <ItemGroup>

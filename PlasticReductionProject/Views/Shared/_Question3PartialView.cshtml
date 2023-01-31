@@ -1,0 +1,8 @@
+﻿@model PlasticReductionProject.Models.ProductResult
+
+<h4>Question Template 3</h4>
+
+<p>
+    Typically I recycle <input type="number" id="AmountUsed" name="AmountUsed" min="1" max="100" />
+    @Model.Product.Description @Model.Product.RecyclingFor   per @Html.EnumDropDownListFor(x => x.PeriodRecycled) .
+</p> 

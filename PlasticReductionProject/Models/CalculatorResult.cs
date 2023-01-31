@@ -40,9 +40,9 @@ namespace PlasticReductionProject.Models
             this.Id = count++;
             this.DateTime= DateTime.Now;
             Results = new Collection<ProductResult>();
-            for (int i = 0; i < _numberOfProductQuestions; i++)
+            for (int i = 1; i <= _numberOfProductQuestions; i++)
             {
-                var productResult = new ProductResult(i+1);
+                var productResult = new ProductResult();
                 this.Results.Add(productResult);
             }
 

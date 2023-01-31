@@ -1,4 +1,5 @@
-﻿using PlasticReductionProject.DAL;
+﻿using Microsoft.Ajax.Utilities;
+using PlasticReductionProject.DAL;
 using PlasticReductionProject.Models;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,27 @@ namespace PlasticReductionProject.Views.Calculator
         public ActionResult Calculator()
         {
             var results = new CalculatorResult(5);
-            var anotherResults = new CalculatorResult(5);
+            List<int> usedRand = new List<int>();
+
+            results.Results.ForEach(x => {
+                int counter = 0;
+                int productCount = db.Products.Count();
+                while(counter < 5)
+                {
+                var rand = Randomiser.RandomNumber(1, productCount);
+                  if(!usedRand.Contains(rand))
+                    {
+                        usedRand.Add(rand);
+                        var test = db.Products.Find(rand);
+                        x.Product = test;
+                        usedRand.Add(rand);
+                        counter += 1;
+                    }             
+                }
+            });
 
             ViewBag.Page = "Calculator";
-            return View();
+            return View(results.Results);
         }
 
         // GET: Report

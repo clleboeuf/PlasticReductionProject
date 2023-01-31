@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<PlasticReductionProject.Models.ProductResult>
 @{
     ViewBag.Title = "View";
 }
@@ -22,3 +22,10 @@
         @Html.ActionLink("Test Plastic Types", "PlasticTypes", "Calculator")
     </span>
 </p>
+
+@foreach (var item in Model)
+{
+    Html.RenderPartial("~/Views/Shared/_Question1PartialView.cshtml", item);
+    Html.RenderPartial("~/Views/Shared/_Question2PartialView.cshtml", item);
+    Html.RenderPartial("~/Views/Shared/_Question3PartialView.cshtml", item);
+}

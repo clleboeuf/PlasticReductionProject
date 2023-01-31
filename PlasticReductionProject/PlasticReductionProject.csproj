@@ -334,7 +334,6 @@
     <Content Include="DAL\products.csv" />
     <Content Include="DAL\links.csv" />
     <Content Include="DAL\projects.csv" />
-    <Content Include="DAL\product_test.csv" />
     <Content Include="Images\PlasticItemImages\Locations for pictures.docx" />
     <Content Include="DAL\plastic_type.csv" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

@@ -20,7 +20,10 @@ namespace PlasticReductionProject.DAL
         public DbSet<DictionaryWord> Dictionary { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
         public DbSet<PlasticAlternative> Alternatives { get; set; }
+
+        public DbSet<PlasticTypes> PlasticTypes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

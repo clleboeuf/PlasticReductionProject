@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PlasticReductionProject.Models.PlasticTypes>
+@{
+    ViewBag.Title = "PlasticTypes";
+}
+
+<h2>Plastics</h2>
+
+<table>
+    @if (Model.Count() > 0)
+    {
+        var counter = 1;
+        <tr>
+            @foreach (var item in Model)
+            {
+
+                if (counter % 2 > 0)
+                {
+
+                    <td>
+                        <h3>@item.Type</h3>
+                        <img src=@item.Image.ToString() width="50%" height="50%" />
+                        <p>
+                            <br />@item.Acronym
+                            <br /> <h4>World Averge:</h4> @item.WorldAverage
+                            <br /> <h4>Common Products:</h4>
+                            @item.CommonProducts
+                            <br /><h4>Annual Targets:</h4> @item.AnnualTarget g/year
+                        </p>
+                        <br />
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <br />
+                        <img src=@item.Image.ToString() width="50%" height="50%" />
+                        <h3>@item.Type</h3>
+                        <p>
+                            <br />@item.Acronym
+                            <br /> <h4>World Averge:</h4> @item.WorldAverage
+                            <br /> <h4>Common Products:</h4>
+                            @item.CommonProducts
+                            <br /><h4>Annual Targets:</h4> @item.AnnualTarget g/year
+                        </p>
+                    </td>
+                    @Html.Raw("</tr><tr>")
+                }
+                counter += 1;
+            }
+        </tr>
+    }
+
+
+</table>

@@ -53,6 +53,13 @@ namespace PlasticReductionProject.DAL
             alternatives.ForEach(i => context.Alternatives.AddOrUpdate(i));
             context.SaveChanges();
 
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/plastic_type.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var plastic_types = csv.GetRecords<PlasticTypes>();
+            plastic_types.ForEach(i => context.PlasticTypes.AddOrUpdate(i));
+            context.SaveChanges();
+
 
         }
 

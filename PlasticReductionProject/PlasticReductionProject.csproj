@@ -207,14 +207,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CalculatorResult.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DictionaryWord.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PlasticTypes.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\PlasticAlternative.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\CalculatorController.cs" />
@@ -261,13 +264,13 @@
     <Content Include="Images\LinksImages\WWFLogo.jpg" />
     <Content Include="Images\MPFLogo.png" />
     <Content Include="Images\PickingUpPlastic.jpg" />
-    <Content Include="Images\PlasticCharacters\Harry HDPE.jpg" />
-    <Content Include="Images\PlasticCharacters\Larry LDPE.jpg" />
-    <Content Include="Images\PlasticCharacters\Ollie Other.jpg" />
-    <Content Include="Images\PlasticCharacters\Pedro PVC.jpg" />
-    <Content Include="Images\PlasticCharacters\Petey PET.jpg" />
-    <Content Include="Images\PlasticCharacters\Polly and Paulie PP.jpg" />
-    <Content Include="Images\PlasticCharacters\Preston PS.jpg" />
+    <Content Include="Images\PlasticCharacters\HarryHDPE.jpg" />
+    <Content Include="Images\PlasticCharacters\LarryLDPE.jpg" />
+    <Content Include="Images\PlasticCharacters\OllieOther.jpg" />
+    <Content Include="Images\PlasticCharacters\PedroPVC.jpg" />
+    <Content Include="Images\PlasticCharacters\PeteyPET.jpg" />
+    <Content Include="Images\PlasticCharacters\PollyAndPauliePP.jpg" />
+    <Content Include="Images\PlasticCharacters\PrestonPS.jpg" />
     <Content Include="Images\PlasticItemImages\Balloons.jpg" />
     <Content Include="Images\PlasticItemImages\BodySoap.jpg" />
     <Content Include="Images\PlasticItemImages\ChargeCable.jpg" />
@@ -333,6 +336,7 @@
     <Content Include="DAL\projects.csv" />
     <Content Include="DAL\product_test.csv" />
     <Content Include="Images\PlasticItemImages\Locations for pictures.docx" />
+    <Content Include="DAL\plastic_type.csv" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -387,6 +391,7 @@
     <Content Include="Views\Alternatives\AlternativesDetails.cshtml" />
     <Content Include="Views\Calculator\Report.cshtml" />
     <Content Include="Views\Calculator\Products.cshtml" />
+    <Content Include="Views\Calculator\PlasticTypes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

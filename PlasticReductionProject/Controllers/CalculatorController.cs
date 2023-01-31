@@ -25,10 +25,10 @@ namespace PlasticReductionProject.Views.Calculator
 
             if (HttpContext.Request.Cookies["UserCookie"] == null) {   
                 var SessionCookie = new HttpCookie("UserCookie");
-                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
+                SessionCookie.Values.Add("SessionId", Session.SessionID.ToString());
                 Response.Cookies.Add(SessionCookie);
                 HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = cookie.Values[0];
+                ViewBag.SessionCookie = cookie.Values["SessionId"];
             }
             else 
             {

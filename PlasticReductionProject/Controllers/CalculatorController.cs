@@ -40,5 +40,17 @@ namespace PlasticReductionProject.Views.Calculator
 
             return View(ProductList);
         }
+
+        public ActionResult PlasticTypes()
+        {
+            ViewBag.Page = "PlasticTypes";
+
+
+            List<PlasticTypes> PlasticTypeList = (List<PlasticTypes>)(from plastic_Id in db.PlasticTypes
+                                                                      select plastic_Id)
+                                                        .ToList().Distinct().ToList();
+
+            return View(PlasticTypeList);
+        }
     }
 }

@@ -1,0 +1,10 @@
+﻿Plastic_Id,PlasticType,Acronym,CommonProducts,Recyclability,WorldAverage,RecyclingCode,IconImage,AnnualTarget
+1,polypropylene,PP,"Plastic furniture, rope , twine, drinking straws",0.25,0.19,5,../../Images/PlasticCharacters/PollyAndPauliePP.jpg,7748
+2,Polyphthalamide,PPA,"Clothing materials, Nylon, polyester and acrylic ",0.5,0.15,7,../../Images/PlasticCharacters/PollyAndPauliePP.jpg,5917
+3,high density polyethylene,HDPE,"Shampoo bottles, toys",1,0.14,2,../../Images/PlasticCharacters/HarryHDPE.jpg,5635
+4,low density polyethylene,LDPE,"Shopping bags, Cling wrap",0.25,0.2,4,../../Images/PlasticCharacters/LarryLDPE.jpg,8030
+5,polyvinyl chloride,PVC,"Water pipes, electric cable, plastic foil, pencil eraser",0.5,0.05,3,../../Images/PlasticCharacters/PedroPVC.jpg,2113
+6,Polyethylene Terephthalate,PET,Bottles water/Soft-drink,1,0.11,1,../../Images/PlasticCharacters/PeteyPET.jpg,4508
+7,Polystyrene,PS,"eating utensils, cups, plates, packaging, egg cartons",0.1,0.06,6,../../Images/PlasticCharacters/PrestonPS.jpg,2395
+8,Polyurethane ,PUT,"paint, foam, ",0,0.06,8,../../Images/PlasticCharacters/LarryLDPE.jpg,2254
+9,Other,Other,"Fibreglass, compact discs",0.1,0.04,7,../../Images/PlasticCharacters/OllieOther.jpg,1550

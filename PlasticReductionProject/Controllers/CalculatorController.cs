@@ -71,7 +71,7 @@ namespace PlasticReductionProject.Views.Calculator
         public ActionResult Report()
         {
 
-            if (HttpContext.Request.Cookies["UserCookie"] == null) {   
+            /*if (HttpContext.Request.Cookies["UserCookie"] == null) {   
                 var SessionCookie = new HttpCookie("UserCookie");
                 SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
                 Response.Cookies.Add(SessionCookie);
@@ -98,7 +98,7 @@ namespace PlasticReductionProject.Views.Calculator
                     counter += 1;
                 } 
                 //ViewBag.CookieKey = cookie.Value;
-            }
+            }*/
 
             ViewBag.Page = "Report";
             return View();

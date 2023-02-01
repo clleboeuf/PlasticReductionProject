@@ -37,8 +37,37 @@ namespace PlasticReductionProject.Views.Calculator
             });
 
             ViewBag.Page = "Calculator";
-            return View(results.Results);
+            return View(results.Results.First());
         }
+
+        //post results
+        [HttpPost]
+        public ActionResult Calculator(FrequencySelection Usage)
+        {
+            var results = new CalculatorResult(5);
+            List<int> usedRand = new List<int>();
+
+            results.Results.ForEach(x => {
+                int counter = 0;
+                int productCount = db.Products.Count();
+                while (counter < 5)
+                {
+                    var rand = Randomiser.RandomNumber(1, productCount);
+                    if (!usedRand.Contains(rand))
+                    {
+                        usedRand.Add(rand);
+                        var test = db.Products.Find(rand);
+                        x.Product = test;
+                        usedRand.Add(rand);
+                        counter += 1;
+                    }
+                }
+            });
+
+            ViewBag.Page = "Calculator";
+            return View(results.Results.First());
+        }
+
 
         // GET: Report
         public ActionResult Report()

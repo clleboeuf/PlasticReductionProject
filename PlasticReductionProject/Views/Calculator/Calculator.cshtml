@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PlasticReductionProject.Models.ProductResult>
+﻿@model PlasticReductionProject.Models.ProductResult
 @{
     ViewBag.Title = "View";
 }
@@ -23,9 +23,9 @@
     </span>
 </p>
 
-@foreach (var item in Model)
-{
-    Html.RenderPartial("~/Views/Shared/_Question1PartialView.cshtml", item);
-    Html.RenderPartial("~/Views/Shared/_Question2PartialView.cshtml", item);
-    Html.RenderPartial("~/Views/Shared/_Question3PartialView.cshtml", item);
-}
+@using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>I @Html.EnumDropDownListFor(model => Model.Usage, new { @class = "form-control" }) @Model.Product.UseVerb @Model.Product.Description </div>
+
+        <input type="submit" value="Calculator" class="btn btn-default" id="btnSubmit" />
+    }

@@ -45,6 +45,7 @@ namespace PlasticReductionProject.Models
             for (int i = 1; i <= _numberOfProductQuestions; i++)
             {
                 var productResult = new ProductResult();
+                productResult.Id = i;
                 this.Results.Add(productResult);
             }
             this.increment = 0;

@@ -50,10 +50,19 @@ namespace PlasticReductionProject.Views.Calculator
 
         //post results
         [HttpPost]
-        public ActionResult Calculator(FrequencySelection Usage)
+        public ActionResult Calculator(ProductResult result)
         {
-            this.cr.Results.ElementAt(this.cr.increment).Usage = Usage;
+            this.cr.Results.ElementAt(this.cr.increment).Usage = result.Usage;
+            this.cr.Results.ElementAt(this.cr.increment).PeriodUsed = result.PeriodUsed;
+            this.cr.Results.ElementAt(this.cr.increment).PeriodRecycled = result.PeriodRecycled;
+            this.cr.Results.ElementAt(this.cr.increment).AmountUsed = result.AmountUsed;
+            this.cr.Results.ElementAt(this.cr.increment).AmountRecycled = result.AmountRecycled;
             this.cr.increment++;
+            if (this.cr.increment == 4)
+            {
+                db.SaveChanges();
+               return RedirectToAction("Report");
+            }
             return View(this.cr.Results.ElementAt(this.cr.increment));
         }
 

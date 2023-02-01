@@ -24,8 +24,15 @@
 </p>
 
 @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div>I @Html.EnumDropDownListFor(model => Model.Usage, new { @class = "form-control" }) @Model.Product.UseVerb @Model.Product.Description </div>
-
-        <input type="submit" value="Calculator" class="btn btn-default" id="btnSubmit" />
-    }
+{
+    <div>I @Html.EnumDropDownListFor(model => Model.Usage, new { @class = "form-control" }) @Model.Product.UseVerb @Model.Product.Description </div>
+    <div>
+        On average I @Model.Product.UseVerb  @Model.Product.Description
+        <input type="number" id="AmountUsed" name="AmountUsed" min="1" max="100" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed) .
+    </div>
+    <div>
+        Typically I recycle <input type="number" id="AmountRecycled" name="AmountRecycled" min="1" max="100" />
+        @Model.Product.Description @Model.Product.RecyclingFor   per @Html.EnumDropDownListFor(x => x.PeriodRecycled) .
+    </div>
+    <input type="submit" value="Calculator" class="btn btn-default" id="btnSubmit" />
+}

@@ -57,7 +57,73 @@ namespace PlasticReductionProject.Views.Calculator
             this.cr.Results.ElementAt(this.cr.increment).PeriodRecycled = result.PeriodRecycled;
             this.cr.Results.ElementAt(this.cr.increment).AmountUsed = result.AmountUsed;
             this.cr.Results.ElementAt(this.cr.increment).AmountRecycled = result.AmountRecycled;
+            
+            
+            //needs to be put in a function
+            var usedMultiplier = 1;
+            var recycledMultiplier = 1;
+            switch (result.PeriodUsed.ToString())
+            {
+                case "Day":
+                    usedMultiplier = 365;
+                    break;
+                case "Week":
+                    usedMultiplier = 52;
+                    break;
+                case "Month":
+                    usedMultiplier = 12;
+                    break;
+                default:
+                    break;
+            }
+            switch (result.PeriodRecycled.ToString())
+            {
+                case "Day":
+                    recycledMultiplier = 365;
+                    break;
+                case "Week":
+                    recycledMultiplier = 52;
+                    break;
+                case "Month":
+                    recycledMultiplier = 12;
+                    break;
+                default:
+                    break;
+            }
+
+            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled*recycledMultiplier;
+            //int i = cr.PlasticScores.ToList().FindIndex(p => p.Item1 == result.Product.Type.ToString());
+            //cr.PlasticScores[i].Item2 += score;
+
+            switch (this.cr.Results.ElementAt(this.cr.increment).Product.Type)
+            {
+                case 1 :
+                    cr.PPScore += score;
+                    break;
+                case 2:
+                    cr.PPAScore += score;
+                    break;
+                case 3:
+                    cr.HDPEScore += score;
+                    break;
+                case 4:
+                    cr.LDPEScore += score;
+                    break;
+                case 5:
+                    cr.PVCScore += score;
+                    break;
+                case 6:
+                    cr.PETScore += score;
+                    break;
+                case 7:
+                    cr.PSScore += score;
+                    break;
+                default:
+                    cr.OtherScore += score;
+                    break;
+            }
             this.cr.increment++;
+
             if (this.cr.increment == 4)
             {
                 db.SaveChanges();
@@ -100,9 +166,12 @@ namespace PlasticReductionProject.Views.Calculator
                 //ViewBag.CookieKey = cookie.Value;
             }*/
 
+
             ViewBag.Page = "Report";
-            return View();
+            return View(this.cr);
         }
+
+        
 
         public ActionResult Products()
         {

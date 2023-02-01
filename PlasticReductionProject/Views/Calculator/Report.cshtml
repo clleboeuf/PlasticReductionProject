@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PlasticReductionProject.Models.CalculatorResult>
+﻿@model PlasticReductionProject.Models.CalculatorResult
     @{
         ViewBag.Title = "Report";
     }
@@ -29,43 +29,43 @@
             <td style="width:30%" align="center" valign="top">
                 <br /><image src="../../images/PlasticCharacters/PeteyPET.jpg" width="40%"></image>
                 <p>
-                    You use 80 grams of PET per day. The average was 60 grams for the tested products.
+                    You use @Model.PETScore grams of PET per day. The average was 60 grams for the tested products.
                 </p>
             </td>
             <td style="width:30%" align="center" valign="top">
                 <br /><image src="../../images/PlasticCharacters/HarryHDPE.jpg" width="45%"></image>
-                <p>
-                    You use 120 grams of HDPE per day.The average was 150 grams for the tested products.
-                </p>
+                      <p>
+                          You use @Model.HDPEScore grams of HDPE per day.The average was  grams for the tested products.
+                      </p>
             </td>
 
             <td style="width:30%" align="center" valign="top">
                 <br /><image src="../../images/PlasticCharacters/PedroPVC.jpg" width="30%"></image>
-                <p>
-                    Your caculation did not include PVC.
-                </p>
+                      <p>
+                          You use @Model.PVCScore grams of PVC per day.The average was  grams for the tested products.
+                      </p>
             </td>
         </tr>
         <tr>
             <td style="width:30%" align="center" valign="top">
                 <br /><image src="../../images/PlasticCharacters/LarryLDPE.jpg" width="40%"></image>
                 <p>
-                    You use 20 grams of LDPE per day.The average was 70 grams for the tested products.
+                    You use @Model.LDPEScore grams of LDPE per day.The average was 70 grams for the tested products.
                 </p>
             </td>
 
             <td style="width:30%" align="center" valign="top">
                 <br /><image src="../../images/PlasticCharacters/PollyAndPauliePP.jpg" width="45%"></image>
-                <p>
-                    Your caculation did not include PP.
-                </p>
+                      <p>
+                          You use @Model.PPScore grams of HDPE per day.The average was  grams for the tested products.
+                      </p>
             </td>
 
             <td style="width:30%" align="center" valign="top">
                 <br /><image src="../../images/PlasticCharacters/PrestonPS.jpg" width="45%"></image>
-                <p>
-                    Your caculation did not include PS.
-                </p>
+                      <p>
+                          You use @Model.PSScore grams of HDPE per day.The average was  grams for the tested products.
+                      </p>
             </td>
 
         </tr>

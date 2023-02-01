@@ -13,13 +13,21 @@ namespace PlasticReductionProject.Views.Calculator
     {
         private LinkDbContext db = new LinkDbContext();
 
+        private CalculatorResult cr
+        { 
+            get { return Session["CalculatorResults"] as CalculatorResult; }
+            set { Session["CalculatorResults"] = value; }
+        }
+            
+         
         // GET: Calculator
         public ActionResult Calculator()
         {
-            var results = new CalculatorResult(5);
+            
+            cr = new CalculatorResult(5);
             List<int> usedRand = new List<int>();
 
-            results.Results.ForEach(x => {
+            cr.Results.ForEach(x => {
                 int counter = 0;
                 int productCount = db.Products.Count();
                 while(counter < 5)
@@ -37,35 +45,16 @@ namespace PlasticReductionProject.Views.Calculator
             });
 
             ViewBag.Page = "Calculator";
-            return View(results.Results.First());
+            return View(cr.Results.First());
         }
 
         //post results
         [HttpPost]
         public ActionResult Calculator(FrequencySelection Usage)
         {
-            var results = new CalculatorResult(5);
-            List<int> usedRand = new List<int>();
-
-            results.Results.ForEach(x => {
-                int counter = 0;
-                int productCount = db.Products.Count();
-                while (counter < 5)
-                {
-                    var rand = Randomiser.RandomNumber(1, productCount);
-                    if (!usedRand.Contains(rand))
-                    {
-                        usedRand.Add(rand);
-                        var test = db.Products.Find(rand);
-                        x.Product = test;
-                        usedRand.Add(rand);
-                        counter += 1;
-                    }
-                }
-            });
-
-            ViewBag.Page = "Calculator";
-            return View(results.Results.First());
+            this.cr.Results.ElementAt(this.cr.increment).Usage = Usage;
+            this.cr.increment++;
+            return View(this.cr.Results.ElementAt(this.cr.increment));
         }
 
 

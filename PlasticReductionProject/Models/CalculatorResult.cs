@@ -21,6 +21,8 @@ namespace PlasticReductionProject.Models
 
         public int OverallRating { get; set; }
 
+        public int increment { get; set; }
+
         // Chris I think if we use an array of Tuples for the Plastic scores.  For now we can use a string, but I am planning
         // to create a Plastic table seeded from plastics.csv for scoring so eventually instead of the string we could have an in
         // with PlasticId in it.  
@@ -45,6 +47,7 @@ namespace PlasticReductionProject.Models
                 var productResult = new ProductResult();
                 this.Results.Add(productResult);
             }
+            this.increment = 0;
 
         }
 

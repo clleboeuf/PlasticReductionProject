@@ -327,6 +327,7 @@
     <Content Include="Images\Simpsons\Homer.jpg" />
     <Content Include="Images\Simpsons\Lisa.jpg" />
     <Content Include="Images\Simpsons\marge.jpg" />
+    <Content Include="Images\Turtle Background.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />

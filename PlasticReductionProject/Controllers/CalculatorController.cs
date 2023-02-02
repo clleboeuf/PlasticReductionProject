@@ -43,7 +43,7 @@ namespace PlasticReductionProject.Views.Calculator
                     }             
                 }
             });
-
+            ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
             return View(cr.Results.First());
         }
@@ -123,12 +123,17 @@ namespace PlasticReductionProject.Views.Calculator
                     break;
             }
             this.cr.increment++;
+            
+            ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
             if (this.cr.increment == 4)
             {
                 db.SaveChanges();
                return RedirectToAction("Report");
             }
+
+            
+
             return View(this.cr.Results.ElementAt(this.cr.increment));
         }
 

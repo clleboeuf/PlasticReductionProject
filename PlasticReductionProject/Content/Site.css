@@ -28,6 +28,13 @@ textarea {
 }
 
 
+.container {
+        width: 100%;
+        justify-self: center;
+        margin: 0 0;
+        padding: 0px 0px 0px 0px;
+        
+}
 
 @keyframes blinker {
     50% {

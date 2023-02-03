@@ -67,15 +67,17 @@ textarea {
 
 .cta-button {
     background-color: white;
-    color: dodgerblue !important;
-    font-size: 30px;
+    color: orange !important;
+    font-size: 100px;
+    font-weight:bold;
     font-family: 'Century Gothic';
     text-decoration: none;
 }
 
-.cta-button:hover {
-    text-decoration: none;
-}
+    .cta-button:hover {
+        text-decoration: none;
+        background-color: orange;
+    }
 
 a:hover {
     text-decoration: none;
@@ -83,7 +85,7 @@ a:hover {
 
 .hero-font {
     font: bold 44px/65px Helvetica, Sans-Serif;
-    font-size: 80px;
+    font-size: 120px;
     letter-spacing: -1px;
     color: aliceblue;
     position: absolute;

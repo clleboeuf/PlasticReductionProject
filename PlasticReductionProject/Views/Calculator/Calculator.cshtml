@@ -2,17 +2,20 @@
 @{
     ViewBag.Title = "View";
 }
-<img style="float:right" width="400px" src="@Model.Product.Image" />
-<h2>@ViewBag.QuestionCounter</h2>
+<div style="padding:90px">
+    <img style="float:right" width="400px" src="@Model.Product.Image" />
+    <h2>@ViewBag.QuestionCounter</h2>
 
-@using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{   
-    <div>
-        <p>
-            On average I @Model.Product.UseVerb  @Model.Product.Description
-            <input type="number" id="AmountUsed" name="AmountUsed" min="1" max="100" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed) .
-        </p>
-    </div>
-    <input type="submit" value="Sumbit Answers" class="btn btn-default" id="btnSubmit" />
-    
-}
+    @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <p>
+
+                On average I @Model.Product.UseVerb  @Model.Product.Description
+                <input type="number" id="AmountUsed" name="AmountUsed" min="1" max="100" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed) .
+            </p>
+        </div>
+        <input type="submit" value="Sumbit Answers" class="btn btn-default" id="btnSubmit" />
+
+    }
+</div>

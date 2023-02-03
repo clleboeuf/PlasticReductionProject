@@ -19,119 +19,56 @@
             color: black;
         }
 
-    .navbar .navbar-nav li a {
-        color: black
-    }
-</style>
-<!--
-<body style="background-color: #DAEEFA; ">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <image height="50px" src="../../images/MPFLogo.png"></image>
-            </div>
-            <div class="navbar-collapse collapse">
-
-                @if (ViewBag.Page == "Index")
-                {
-                    <ul class="nav navbar-nav">
-                        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-                }
-                else if (ViewBag.Page == "Calculator")
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li class="active">@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-                }
-                else if (ViewBag.Page == "Tracker")
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li class="active">@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-
-                }
-                else if (ViewBag.Page == "Projects")
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li class="active">@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-
-                }
-                else if (ViewBag.Page == "Alternatives")
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li class="active">@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-
-                }
-                else if (ViewBag.Page == "Links")
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li class="active">@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-                }
-                else
-                {
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
-                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
-                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
-                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
-                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
-                    </ul>
-                }
-                @Html.Partial("_LoginPartial")
-            </div>
+<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a>@Html.ActionLink("Home", "Index", "Home")</a>
+            <a>@Html.ActionLink("Calculator", "Calculator", "Calculator")</a>
+            <a>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</a>
+            <a>@Html.ActionLink("Projects", "Projects", "Projects")</a>
+            <a>@Html.ActionLink("Links", "Links", "Links")</a>
         </div>
     </div>
+
+
+
+
+
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My Plastic Footprint</p>
-        </footer>
+
+
     </div>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+    <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 

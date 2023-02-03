@@ -133,7 +133,7 @@ body {
     font-size: 60px;
 }
 
-
+/* Styling for side navigation bar - use background colour to change the panel colour */
 .sidenav {
     height: 100%;
     width: 0;
@@ -141,12 +141,12 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #2976a9;
+    background-color: #2976a9f0;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
 }
-
+    /* Styling for side navigation bar when opened */
     .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
@@ -155,7 +155,7 @@ body {
         display: block;
         transition: 0.3s;
     }
-
+        /* Adds hover color highlight for side navigation bar links */
         .sidenav a:hover {
             color: #f1f1f1;
         }

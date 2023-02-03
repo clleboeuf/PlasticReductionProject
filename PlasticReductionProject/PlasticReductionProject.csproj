@@ -398,6 +398,7 @@
     <Content Include="Views\Shared\_Question2PartialView.cshtml" />
     <Content Include="Views\Shared\_Question3PartialView.cshtml" />
     <Content Include="Views\Calculator\CalculatorTest.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

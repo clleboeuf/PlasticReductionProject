@@ -40,7 +40,7 @@
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
-    width: 30%;
+    width: fit-content;
 }
 
 btn-default:after {

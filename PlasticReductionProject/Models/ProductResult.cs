@@ -25,10 +25,7 @@ namespace PlasticReductionProject.Models
 
         public Product Product { get; set; }
 
-        /*public ProductResult(int _productId)
-        {
-            this.Id = _productId;
-        }*/
+
     }
 
 }

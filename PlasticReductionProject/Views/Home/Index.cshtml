@@ -1,18 +1,19 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div class="container"> 
-     <img src="~/Images/TurtleBackgroundCropped.jpg" style="width: 100%"/>
-     <div class="hero-font">
-         ARE YOU KILLING <br /> <br />TURTLES?
-         <br /><br />
-         <span class="btn cta-button" style="text-decoration: none">
-             @Html.ActionLink("Find out now!", "Calculator", "Calculator")</span>
-     </div>
+<div class="container">
+    <img src="~/Images/TurtleBackgroundCropped.jpg" style="width: 100%" />
+    <div class="hero-font">
+        ARE YOU KILLING <br /> <br />TURTLES?
+        <br /><br />
+        <span class="btn cta-button" style="text-decoration: none">
+            @Html.ActionLink("Find out now!", "Calculator", "Calculator")
+        </span>
+    </div>
 </div>
 
 <div class="jumbotron">
-   
+
     <table style="width:100%">
 
         <tr>
@@ -41,9 +42,10 @@
             </td>
             <td valign="top">
                 <h4><em><b>Step 2 - Track your progress</em></b></h4>
-                <p><small>
-                    If you have completed the calculator on two different occasions you can check if your plastic footprint has changed.
-                </small>
+                <p>
+                    <small>
+                        If you have completed the calculator on two different occasions you can check if your plastic footprint has changed.
+                    </small>
                 </p>
                 <p align="right"><span class="btn btn-default" style="margin: 5px">@Html.ActionLink("Track your progress", "Tracker", "Tracker")</span></p>
             </td>
@@ -55,11 +57,12 @@
             </td>
             <td valign="top">
                 <h4><em><b>Step 3 - Dig Deeper</b></em></h4>
-                <p><small>
-                    Now that you have calculated your plastic footprint, and you may have tracked your usage over time,
-                    you can find information here about how to improve your footprint, find projects you can implement in your school or community,
-                    you can also find links to find more information.
-                </small>
+                <p>
+                    <small>
+                        Now that you have calculated your plastic footprint, and you may have tracked your usage over time,
+                        you can find information here about how to improve your footprint, find projects you can implement in your school or community,
+                        you can also find links to find more information.
+                    </small>
                 </p>
                 <p align="right">
                     <span class="btn btn-default" style="margin: 5px">@Html.ActionLink("Find alternatives to plastic products", "Alternatives", "Alternatives")</span>

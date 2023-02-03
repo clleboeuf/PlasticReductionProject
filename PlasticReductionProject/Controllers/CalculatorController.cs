@@ -52,13 +52,77 @@ namespace PlasticReductionProject.Views.Calculator
         [HttpPost]
         public ActionResult Calculator(ProductResult result)
         {
-            this.cr.Results.ElementAt(this.cr.increment).Usage = result.Usage;
-            this.cr.Results.ElementAt(this.cr.increment).PeriodUsed = result.PeriodUsed;
-            this.cr.Results.ElementAt(this.cr.increment).PeriodRecycled = result.PeriodRecycled;
-            this.cr.Results.ElementAt(this.cr.increment).AmountUsed = result.AmountUsed;
-            this.cr.Results.ElementAt(this.cr.increment).AmountRecycled = result.AmountRecycled;
+            ProductResult toSave = this.cr.Results.ElementAt(this.cr.increment);
+            PlasticType plasticType = db.PlasticTypes.Find(toSave.Product.Type);
+            Product product = toSave.Product;
+            toSave.Usage = result.Usage;
+            toSave.PeriodUsed = result.PeriodUsed;
+            toSave.PeriodRecycled = result.PeriodRecycled;
+            toSave.AmountUsed = result.AmountUsed;
+            toSave.AmountRecycled = result.AmountRecycled;
+
+            PlasticScore IfFound = this.cr.PlasticScores.Where(x => x.Name.Equals(plasticType.Acronym)).FirstOrDefault();
+            var score = calculateResultForProduct(result);
+            var average = product.averageUtilisation;
+            if (IfFound != null)
+            {
+                IfFound.Score += score;
+                IfFound.Average += average;
+            } else
+            {
+                this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average));
+            }
+                   
+            switch (product.Type)
+            {
+                case 1 :
+                    cr.PPScore += score;
+                    cr.PPAvg += average;
+                    break;
+                case 2:
+                    cr.PPAScore += score;
+                    cr.PPAAvg += average;
+                    break;
+                case 3:
+                    cr.HDPEScore += score;
+                    cr.HDPEAvg += average;
+                    break;
+                case 4:
+                    cr.LDPEScore += score;
+                    cr.LDPEAvg += average;
+                    break;
+                case 5:
+                    cr.PVCScore += score;
+                    cr.PVCAvg += average;
+                    break;
+                case 6:
+                    cr.PETScore += score;
+                    cr.PETAvg += average;
+                    break;
+                case 7:
+                    cr.PSScore += score;
+                    cr.PSAvg += average;
+                    break;
+                default:
+                    cr.OtherScore += score;
+                    cr.OtherAvg += average;
+                    break;
+            }
+            this.cr.increment++;
             
-            
+            ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
+
+            if (this.cr.increment == 5)
+            {
+              //  db.SaveChanges();
+               return RedirectToAction("Report");
+            }
+
+            return View(this.cr.Results.ElementAt(this.cr.increment));
+        }
+
+        private double calculateResultForProduct(ProductResult result)
+        {
             //needs to be put in a function
             var usedMultiplier = 1;
             var recycledMultiplier = 1;
@@ -91,87 +155,19 @@ namespace PlasticReductionProject.Views.Calculator
                     break;
             }
 
-            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled*recycledMultiplier;
-            //int i = cr.PlasticScores.ToList().FindIndex(p => p.Item1 == result.Product.Type.ToString());
-            //cr.PlasticScores[i].Item2 += score;
+           // double recycleRate = db.PlasticTypes.Find(Id == 1).;
 
-            switch (this.cr.Results.ElementAt(this.cr.increment).Product.Type)
-            {
-                case 1 :
-                    cr.PPScore += score;
-                    break;
-                case 2:
-                    cr.PPAScore += score;
-                    break;
-                case 3:
-                    cr.HDPEScore += score;
-                    break;
-                case 4:
-                    cr.LDPEScore += score;
-                    break;
-                case 5:
-                    cr.PVCScore += score;
-                    break;
-                case 6:
-                    cr.PETScore += score;
-                    break;
-                case 7:
-                    cr.PSScore += score;
-                    break;
-                default:
-                    cr.OtherScore += score;
-                    break;
-            }
-            this.cr.increment++;
-            
-            ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
-
-            if (this.cr.increment == 5)
-            {
-                db.SaveChanges();
-               return RedirectToAction("Report");
-            }
-
-            
-
-            return View(this.cr.Results.ElementAt(this.cr.increment));
+            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled * recycledMultiplier;
+            return score;
+    
         }
 
 
         // GET: Report
         public ActionResult Report()
         {
-
-            /*if (HttpContext.Request.Cookies["UserCookie"] == null) {   
-                var SessionCookie = new HttpCookie("UserCookie");
-                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
-                Response.Cookies.Add(SessionCookie);
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = cookie.Values[0];
-            }
-            else 
-            {
-                var SessionCookie = new HttpCookie(Session.SessionID.ToString());
-                HttpCookie oldCookie = HttpContext.Request.Cookies["UserCookie"];
-                string oldSessionId = oldCookie.Values["SessionId"].ToString();
-                string currSessionId = Session.SessionID.ToString();
-                string combinedSessionID = oldSessionId + "," + currSessionId; 
-                oldCookie.Values.Add("SessionId",combinedSessionID);
-                //SessionCookie.Values.Add("SessionIDs", "SessionId");
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = oldCookie.Values["SessionId"];
-                var counter = 0;
-                ViewBag.CookieKey = "";
-                foreach (var value in cookie.Values)
-                {
-                    ViewBag.CookieKey += value.ToString();
-                   
-                    counter += 1;
-                } 
-                //ViewBag.CookieKey = cookie.Value;
-            }*/
-
-
+            // addCookieToViewBag();
+         
             ViewBag.Page = "Report";
             return View(this.cr);
         }
@@ -195,11 +191,44 @@ namespace PlasticReductionProject.Views.Calculator
             ViewBag.Page = "PlasticTypes";
 
 
-            List<PlasticTypes> PlasticTypeList = (List<PlasticTypes>)(from plastic_Id in db.PlasticTypes
+            List<PlasticType> PlasticTypeList = (List<PlasticType>)(from plastic_Id in db.PlasticTypes
                                                                       select plastic_Id)
                                                         .ToList().Distinct().ToList();
 
             return View(PlasticTypeList);
+        }
+
+        public void addCookieToViewBag()
+        {
+
+            if (HttpContext.Request.Cookies["UserCookie"] == null)
+            {
+                var SessionCookie = new HttpCookie("UserCookie");
+                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
+                Response.Cookies.Add(SessionCookie);
+                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
+                ViewBag.SessionCookie = cookie.Values[0];
+            }
+            else
+            {
+                var SessionCookie = new HttpCookie(Session.SessionID.ToString());
+                HttpCookie oldCookie = HttpContext.Request.Cookies["UserCookie"];
+                string oldSessionId = oldCookie.Values["SessionId"].ToString();
+                string currSessionId = Session.SessionID.ToString();
+                string combinedSessionID = oldSessionId + "," + currSessionId;
+                oldCookie.Values.Add("SessionId", combinedSessionID);
+                //SessionCookie.Values.Add("SessionIDs", "SessionId");
+                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
+                ViewBag.SessionCookie = oldCookie.Values["SessionId"];
+                var counter = 0;
+                ViewBag.CookieKey = "";
+                foreach (var value in cookie.Values)
+                {
+                    ViewBag.CookieKey += value.ToString();
+
+                    counter += 1;
+                }
+            }  
         }
     }
 }

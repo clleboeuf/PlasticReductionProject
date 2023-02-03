@@ -23,7 +23,7 @@ namespace PlasticReductionProject.DAL
 
         public DbSet<PlasticAlternative> Alternatives { get; set; }
 
-        public DbSet<PlasticTypes> PlasticTypes { get; set; }
+        public DbSet<PlasticType> PlasticTypes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

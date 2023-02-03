@@ -7,7 +7,7 @@
 6,plastic wrap,use,"Food, Eating",5,FALSE,,"1, 2",2,../../Images/PlasticItemImages/PlasticWrap.jpg
 7,drink carton,buy drink in ,"Food, Eating",4,TRUE,container,"1, 2, 4",53,../../Images/PlasticItemImages/DrinkCarton.jpg
 8,chewing gum,buy,"Food, Eating",8,FALSE,,"1, 2",15,../../Images/PlasticItemImages/ChewingGum.jpg
-10,museli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35,../../Images/PlasticItemImages/MuseliBar.jpg
+10,muesli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35,../../Images/PlasticItemImages/MuseliBar.jpg
 11,potato chips,eat ,"Food, Eating",1,TRUE,packets,"1, 2, 4",1.755,../../Images/PlasticItemImages/PotatoChips.jpg
 13,wrapping paper,use,Party,6,TRUE,,"1, 2, 3",80,../../Images/PlasticItemImages/WrappingPaper.jpg
 14,balloons,use,Party,8,FALSE,,"1, 2",3.4,../../Images/PlasticItemImages/Balloons.jpg

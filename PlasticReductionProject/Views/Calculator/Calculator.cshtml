@@ -2,41 +2,42 @@
 @{
     ViewBag.Title = "View";
 }
-<div  >
-    @*<img style="float:right" width="400px" src="@Model.Product.Image" />*@
+<div>
+    <img style="float:right" width="400px" src="@Model.Product.Image" />
     <h1>@ViewBag.QuestionCounter</h1>
-<div style="padding:90px">
-    
+    <div style="padding:90px">
 
-    <h2>@ViewBag.QuestionCounter</h2>
 
-    @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div>
-            <div class="img-gradient">
-                <img style="float:right" width="80%" src="@Model.Product.Image" />
+        <h2>@ViewBag.QuestionCounter</h2>
+
+        @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div>
+                @*<div class="img-gradient">
+                        <img style="float:right" width="80%" src="@Model.Product.Image" />
+                    </div>*@
+
+                <p class="question">
+
+                    On average I @Model.Product.UseVerb  @Model.Product.Description
+                    <input type="number" id="AmountUsed" name="AmountUsed" min="1" max="100" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed) .
+                </p>
             </div>
+            <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
+        }
+    </div>
 
-            <p class="question">
-
-                On average I @Model.Product.UseVerb  @Model.Product.Description
-                <input type="number" id="AmountUsed" name="AmountUsed" min="1" max="100" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed) .
-            </p>
-        </div>
-        <input type="submit" value="Sumbit Answers" class="btn btn-default" id="btnSubmit" />
-    }
-</div>
-
-<div class="img-slider">
-    <div class="slider-container">
-        <div class="slide">
-            <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-TURTLES.jpg" />
-        </div>
-        <div class="slide">
-            <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-WHALES.1aa1813.width-1600.b1b7407.jpg" />
-        </div>
-        <div class="slide">
-            <img src="~/Images/RollingFacts/marinePlasticFacts.jpg" />
+    <div class="img-slider">
+        <div class="slider-container">
+            <div class="slide">
+                <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-TURTLES.jpg" />
+            </div>
+            <div class="slide">
+                <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-WHALES.1aa1813.width-1600.b1b7407.jpg" />
+            </div>
+            <div class="slide">
+                <img src="~/Images/RollingFacts/marinePlasticFacts.jpg" />
+            </div>
         </div>
     </div>
 </div>

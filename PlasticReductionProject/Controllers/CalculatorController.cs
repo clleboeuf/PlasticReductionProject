@@ -108,8 +108,6 @@ namespace PlasticReductionProject.Views.Calculator
                return RedirectToAction("Report");
             }
 
-            
-
             return View(this.cr.Results.ElementAt(this.cr.increment));
         }
 
@@ -158,37 +156,8 @@ namespace PlasticReductionProject.Views.Calculator
         // GET: Report
         public ActionResult Report()
         {
-
-            /*if (HttpContext.Request.Cookies["UserCookie"] == null) {   
-                var SessionCookie = new HttpCookie("UserCookie");
-                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
-                Response.Cookies.Add(SessionCookie);
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = cookie.Values[0];
-            }
-            else 
-            {
-                var SessionCookie = new HttpCookie(Session.SessionID.ToString());
-                HttpCookie oldCookie = HttpContext.Request.Cookies["UserCookie"];
-                string oldSessionId = oldCookie.Values["SessionId"].ToString();
-                string currSessionId = Session.SessionID.ToString();
-                string combinedSessionID = oldSessionId + "," + currSessionId; 
-                oldCookie.Values.Add("SessionId",combinedSessionID);
-                //SessionCookie.Values.Add("SessionIDs", "SessionId");
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = oldCookie.Values["SessionId"];
-                var counter = 0;
-                ViewBag.CookieKey = "";
-                foreach (var value in cookie.Values)
-                {
-                    ViewBag.CookieKey += value.ToString();
-                   
-                    counter += 1;
-                } 
-                //ViewBag.CookieKey = cookie.Value;
-            }*/
-
-
+            // addCookieToViewBag();
+         
             ViewBag.Page = "Report";
             return View(this.cr);
         }
@@ -217,6 +186,39 @@ namespace PlasticReductionProject.Views.Calculator
                                                         .ToList().Distinct().ToList();
 
             return View(PlasticTypeList);
+        }
+
+        public void addCookieToViewBag()
+        {
+
+            if (HttpContext.Request.Cookies["UserCookie"] == null)
+            {
+                var SessionCookie = new HttpCookie("UserCookie");
+                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
+                Response.Cookies.Add(SessionCookie);
+                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
+                ViewBag.SessionCookie = cookie.Values[0];
+            }
+            else
+            {
+                var SessionCookie = new HttpCookie(Session.SessionID.ToString());
+                HttpCookie oldCookie = HttpContext.Request.Cookies["UserCookie"];
+                string oldSessionId = oldCookie.Values["SessionId"].ToString();
+                string currSessionId = Session.SessionID.ToString();
+                string combinedSessionID = oldSessionId + "," + currSessionId;
+                oldCookie.Values.Add("SessionId", combinedSessionID);
+                //SessionCookie.Values.Add("SessionIDs", "SessionId");
+                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
+                ViewBag.SessionCookie = oldCookie.Values["SessionId"];
+                var counter = 0;
+                ViewBag.CookieKey = "";
+                foreach (var value in cookie.Values)
+                {
+                    ViewBag.CookieKey += value.ToString();
+
+                    counter += 1;
+                }
+            }  
         }
     }
 }

@@ -74,7 +74,7 @@ namespace PlasticReductionProject.DAL
 
             });
             context.SaveChanges();
-
+            var test = 0;
         }
     }
 }

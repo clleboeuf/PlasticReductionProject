@@ -52,16 +52,18 @@ namespace PlasticReductionProject.Views.Calculator
         [HttpPost]
         public ActionResult Calculator(ProductResult result)
         {
-            PlasticType plasticType = db.PlasticTypes.Find(this.cr.Results.ElementAt(this.cr.increment).Product.Type);
-            this.cr.Results.ElementAt(this.cr.increment).Usage = result.Usage;
-            this.cr.Results.ElementAt(this.cr.increment).PeriodUsed = result.PeriodUsed;
-            this.cr.Results.ElementAt(this.cr.increment).PeriodRecycled = result.PeriodRecycled;
-            this.cr.Results.ElementAt(this.cr.increment).AmountUsed = result.AmountUsed;
-            this.cr.Results.ElementAt(this.cr.increment).AmountRecycled = result.AmountRecycled;
+            ProductResult toSave = this.cr.Results.ElementAt(this.cr.increment);
+            PlasticType plasticType = db.PlasticTypes.Find(toSave.Product.Type);
+            Product product = toSave.Product;
+            toSave.Usage = result.Usage;
+            toSave.PeriodUsed = result.PeriodUsed;
+            toSave.PeriodRecycled = result.PeriodRecycled;
+            toSave.AmountUsed = result.AmountUsed;
+            toSave.AmountRecycled = result.AmountRecycled;
 
             PlasticScore IfFound = this.cr.PlasticScores.Where(x => x.Name.Equals(plasticType.Acronym)).FirstOrDefault();
             var score = calculateResultForProduct(result);
-            var average = plasticType.WorldAverage;
+            var average = product.averageUtilisation;
             if (IfFound != null)
             {
                 IfFound.Score += score;
@@ -71,31 +73,39 @@ namespace PlasticReductionProject.Views.Calculator
                 this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average));
             }
                    
-            switch (this.cr.Results.ElementAt(this.cr.increment).Product.Type)
+            switch (product.Type)
             {
                 case 1 :
                     cr.PPScore += score;
+                    cr.PPAvg += average;
                     break;
                 case 2:
                     cr.PPAScore += score;
+                    cr.PPAAvg += average;
                     break;
                 case 3:
                     cr.HDPEScore += score;
+                    cr.HDPEAvg += average;
                     break;
                 case 4:
                     cr.LDPEScore += score;
+                    cr.LDPEAvg += average;
                     break;
                 case 5:
                     cr.PVCScore += score;
+                    cr.PVCAvg += average;
                     break;
                 case 6:
                     cr.PETScore += score;
+                    cr.PETAvg += average;
                     break;
                 case 7:
                     cr.PSScore += score;
+                    cr.PSAvg += average;
                     break;
                 default:
                     cr.OtherScore += score;
+                    cr.OtherAvg += average;
                     break;
             }
             this.cr.increment++;

@@ -23,12 +23,17 @@
             <a href="#">Links</a>
         </div>
     </div>
-    <div id="main">
-        <h2>Fullscreen Overlay Nav Example</h2>
-        <p>Click on the element below to open the fullscreen overlay navigation menu.</p>
-        <p>In this example, the navigation menu will slide downwards from the top:</p>
-        <span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+
     </div>
+
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
         function openNav() {
@@ -44,14 +49,6 @@
             document.body.style.backgroundColor = "white";
         }
     </script>
-
-
-
-    <div class="container body-content">
-        @RenderBody()
-
-
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

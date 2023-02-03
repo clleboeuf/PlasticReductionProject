@@ -52,49 +52,25 @@ namespace PlasticReductionProject.Views.Calculator
         [HttpPost]
         public ActionResult Calculator(ProductResult result)
         {
+            PlasticType plasticType = db.PlasticTypes.Find(this.cr.Results.ElementAt(this.cr.increment).Product.Type);
             this.cr.Results.ElementAt(this.cr.increment).Usage = result.Usage;
             this.cr.Results.ElementAt(this.cr.increment).PeriodUsed = result.PeriodUsed;
             this.cr.Results.ElementAt(this.cr.increment).PeriodRecycled = result.PeriodRecycled;
             this.cr.Results.ElementAt(this.cr.increment).AmountUsed = result.AmountUsed;
             this.cr.Results.ElementAt(this.cr.increment).AmountRecycled = result.AmountRecycled;
-            
-            
-            //needs to be put in a function
-            var usedMultiplier = 1;
-            var recycledMultiplier = 1;
-            switch (result.PeriodUsed.ToString())
-            {
-                case "Day":
-                    usedMultiplier = 365;
-                    break;
-                case "Week":
-                    usedMultiplier = 52;
-                    break;
-                case "Month":
-                    usedMultiplier = 12;
-                    break;
-                default:
-                    break;
-            }
-            switch (result.PeriodRecycled.ToString())
-            {
-                case "Day":
-                    recycledMultiplier = 365;
-                    break;
-                case "Week":
-                    recycledMultiplier = 52;
-                    break;
-                case "Month":
-                    recycledMultiplier = 12;
-                    break;
-                default:
-                    break;
-            }
 
-           // double recycleRate = db.PlasticTypes.Find(Id == 1).;
-
-            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled*recycledMultiplier;
-            
+            PlasticScore IfFound = this.cr.PlasticScores.Where(x => x.Name.Equals(plasticType.Acronym)).FirstOrDefault();
+            var score = calculateResultForProduct(result);
+            var average = plasticType.WorldAverage;
+            if (IfFound != null)
+            {
+                IfFound.Score += score;
+                IfFound.Average += average;
+            } else
+            {
+                this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average));
+            }
+                   
             switch (this.cr.Results.ElementAt(this.cr.increment).Product.Type)
             {
                 case 1 :
@@ -135,6 +111,47 @@ namespace PlasticReductionProject.Views.Calculator
             
 
             return View(this.cr.Results.ElementAt(this.cr.increment));
+        }
+
+        private double calculateResultForProduct(ProductResult result)
+        {
+            //needs to be put in a function
+            var usedMultiplier = 1;
+            var recycledMultiplier = 1;
+            switch (result.PeriodUsed.ToString())
+            {
+                case "Day":
+                    usedMultiplier = 365;
+                    break;
+                case "Week":
+                    usedMultiplier = 52;
+                    break;
+                case "Month":
+                    usedMultiplier = 12;
+                    break;
+                default:
+                    break;
+            }
+            switch (result.PeriodRecycled.ToString())
+            {
+                case "Day":
+                    recycledMultiplier = 365;
+                    break;
+                case "Week":
+                    recycledMultiplier = 52;
+                    break;
+                case "Month":
+                    recycledMultiplier = 12;
+                    break;
+                default:
+                    break;
+            }
+
+           // double recycleRate = db.PlasticTypes.Find(Id == 1).;
+
+            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled * recycledMultiplier;
+            return score;
+    
         }
 
 
@@ -195,7 +212,7 @@ namespace PlasticReductionProject.Views.Calculator
             ViewBag.Page = "PlasticTypes";
 
 
-            List<PlasticTypes> PlasticTypeList = (List<PlasticTypes>)(from plastic_Id in db.PlasticTypes
+            List<PlasticType> PlasticTypeList = (List<PlasticType>)(from plastic_Id in db.PlasticTypes
                                                                       select plastic_Id)
                                                         .ToList().Distinct().ToList();
 

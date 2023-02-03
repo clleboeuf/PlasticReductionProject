@@ -26,7 +26,7 @@ namespace PlasticReductionProject.Models
         public CalculatorResult(int _numberOfProductQuestions) {
 
             this.Id = count++;
-            this.DateTime= DateTime.Now;
+            this.DateTime = DateTime.Now;
             Results = new Collection<ProductResult>();
             for (int i = 1; i <= _numberOfProductQuestions; i++)
             {
@@ -35,6 +35,9 @@ namespace PlasticReductionProject.Models
                 this.Results.Add(productResult);
             }
             this.increment = 0;
+
+            PlasticScores = new HashSet<PlasticScore>();
+
             PETScore = 0;
             HDPEScore = 0;
             PVCScore = 0;
@@ -54,6 +57,7 @@ namespace PlasticReductionProject.Models
             OtherAvg = 0;
 
         }
+        public HashSet<PlasticScore> PlasticScores { get; set; } 
 
         public double PETScore { get; set; }
 
@@ -88,5 +92,19 @@ namespace PlasticReductionProject.Models
         public double OtherAvg { get; set; }
 
 
+    }
+
+    public class PlasticScore
+    {
+        public string Name;
+        public double Score;
+        public double Average;
+
+        public PlasticScore(string name, double score, double average)
+        {
+            Name = name;
+            Score = score;
+            Average = average;
+        }
     }
 }

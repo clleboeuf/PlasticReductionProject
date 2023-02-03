@@ -29,6 +29,7 @@ namespace PlasticReductionProject.Models
         {
             this.Id = _productId;
         }*/
+
     }
 
 }

@@ -214,7 +214,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PlasticTypes.cs" />
+    <Compile Include="Models\PlasticType.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\PlasticAlternative.cs" />
     <Compile Include="Models\Product.cs" />

@@ -329,12 +329,17 @@
     <Content Include="Images\ProjectImages\Foodwraps_med_strawberries-scaled-721x487.jpg" />
     <Content Include="Images\ProjectImages\grow-where-you-are-community-food-garden.jpg" />
     <Content Include="Images\ProjectImages\plastic_free_party_1.jpeg" />
+    <Content Include="Images\RollingFacts\marinePlasticFacts.jpg" />
+    <Content Include="Images\RollingFacts\WWF-Plastics-Feature-Images-TURTLES.jpg" />
+    <Content Include="Images\RollingFacts\WWF-Plastics-Feature-Images-WHALES.1aa1813.width-1600.b1b7407.jpg" />
     <Content Include="Images\Simpsons\Bart.jpg" />
     <Content Include="Images\Simpsons\Homer.jpg" />
     <Content Include="Images\Simpsons\Lisa.jpg" />
     <Content Include="Images\Simpsons\marge.jpg" />
     <Content Include="Images\TurtleBackgroundCropped.jpg" />
+    <Content Include="Images\turtlePlasticbagDark.jpg" />
     <Content Include="Images\turtle_plasticbag.jpg" />
+    <Content Include="Images\turtle_plasticbag_cropped.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
@@ -345,7 +350,6 @@
     <Content Include="DAL\projects.csv" />
     <Content Include="Images\PlasticItemImages\Locations for pictures.docx" />
     <Content Include="DAL\plastic_type.csv" />
-    <Content Include="DAL\products - Copy.csv" />
     <Content Include="fonts\GOTHIC.TTF" />
     <Content Include="fonts\GOTHICB.TTF" />
     <Content Include="fonts\GOTHICBI.TTF" />

@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "View";
 }
+<div class="question" >
+    <img style="float:right" width="400px" src="@Model.Product.Image" />
+    <h1>@ViewBag.QuestionCounter</h1>
 <div style="padding:90px">
     
 
@@ -21,6 +24,5 @@
             </p>
         </div>
         <input type="submit" value="Sumbit Answers" class="btn btn-default" id="btnSubmit" />
-
     }
 </div>

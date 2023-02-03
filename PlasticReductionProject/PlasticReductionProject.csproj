@@ -340,6 +340,10 @@
     <Content Include="Images\PlasticItemImages\Locations for pictures.docx" />
     <Content Include="DAL\plastic_type.csv" />
     <Content Include="DAL\products - Copy.csv" />
+    <Content Include="fonts\GOTHIC.TTF" />
+    <Content Include="fonts\GOTHICB.TTF" />
+    <Content Include="fonts\GOTHICBI.TTF" />
+    <Content Include="fonts\GOTHICI.TTF" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -115,6 +115,15 @@ a:hover {
     }
 }
 
+.btn btn-default {
+    transition-duration: 0.4s;
+}
+
+    .btn btn-default:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
+
 
 body {
     font-family: 'Lato', sans-serif;

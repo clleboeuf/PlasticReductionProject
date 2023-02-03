@@ -133,7 +133,7 @@ body {
     font-size: 60px;
 }
 
-/* Styling for side navigation bar - use background colour to change the panel colour */
+/* Styling for side navigation bar - use background colour to change the panel colour and opacity */
 .sidenav {
     height: 100%;
     width: 0;

@@ -1,145 +1,143 @@
 ﻿@model PlasticReductionProject.Models.CalculatorResult
-    @{
-        ViewBag.Title = "Your Plastic Footprint";
-        ViewBag.Counter = 0;
-    }
+@{
+    ViewBag.Title = "Your Plastic Footprint";
+    ViewBag.Counter = 0;
+}
+<div class="result">
+    <div style="background-image: url('../../images/turtlePlasticbagDark.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <br /><br />
+        
+        <p><b>@ViewBag.Titel</b></p>
 
+        <table style="width:100%">
+            <tr>
+                @if (Model.PETScore != 0)
+                {
+                    <td align="center" valign="top">
+                        <p><b>Petey PET</b></p>
+                        <image src="../../images/PlasticCharacters/PeteyPET.png" height="100px"></image>
+                        <p>
+                            Polyethylene terephthalate: @Model.PETScore grams per year.<br />
+                            Average:** grams per year.
+                        </p>
+                    </td>
+                }
 
-     <h2>@ViewBag.Titel</h2>
+                @if (Model.HDPEScore != 0)
+                {
+                    <td align="center" valign="top">
+                        <p><b>Harry HDPE</b></p>
+                        <image src="../../images/PlasticCharacters/HarryHDPE.png" height="100px"></image>
+                        <p>
+                            High-density polyethylene: @Model.HDPEScore grams per year.<br />
+                            Average:** grams per year.
+                        </p>
+                    </td>
+                }
 
-    <table style="width:100%">
-        <tr>
-            @if (Model.PETScore != 0)
-            {
-                <td style="width:30%" align="center" valign="top">
-                    <h4>Petey PET</h4>
-                    <br /><image src="../../images/PlasticCharacters/PeteyPET.png" height="200px"></image>
+                @if (Model.PVCScore != 0)
+                {
+                    <td align="center" valign="top">
+                        <p><b>Pedro PVC</b></p>
+                        <image src="../../images/PlasticCharacters/PedroPVC.png" height="100px"></image>
+                        <p>
+                            Polyvinyl: @Model.PVCScore grams per year.<br />
+                            Average:** grams per year.
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.LDPEScore != 0)
+                {
+                    <td align="center" valign="top">
+                        <p><b>LarryLDPE</b></p>
+                        <image src="../../images/PlasticCharacters/LarryLDPE.png" height="100px"></image>
+                        <p>
+                            Low-density polyethylene: @Model.LDPEScore grams per year.
+                            <br />Average:** grams per year.
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.PPScore != 0)
+                {
+                    <td align="center" valign="top">
+                        <p><b>Polly And Paulie PP</b></p>
+                        <image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="100px"></image>
+                        <p>
+                            Polypropylene: @Model.PPScore grams per year.<br />
+                            Average:** grams per year.
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.PSScore != 0)
+                {
+
+                    <td align="center" valign="top">
+                        <p><b>Preston PS</b></p>
+                        <image src="../../images/PlasticCharacters/PrestonPS.png" height="100px"></image>
+                        <p>
+                            Polystyrene: @Model.PSScore grams per year.<br />
+                            Average:** grams per year.
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.OtherScore != 0)
+                {
+                    <td align="center" valign="top">
+                        <p><b>Ollie Other</b></p>
+                        <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
+                        <p>
+                            Other plastic: @Model.OtherScore grams per year.<br />
+                            Average:** grams per year.
+                        </p>
+                    </td>
+                }
+
+            </tr>
+        </table>
+        <br />
+        <table align="center" width="80%">
+            <tr>
+                <td align="center" width="40%">
                     <p>
+                        <b>Your badge:</b>
+                        <img src="../../images/badges/TwoTurtles.gif" width="50%" />
                         <br />
-                    <p>
-                        You use @Model.PETScore grams of polyethylene terephthalate per day.<br />
-                        The average was 60 grams for the tested products.
                     </p>
                 </td>
-            }
-
-            @if (Model.HDPEScore != 0)
-            {
-                <td style="width:30%" align="center" valign="top">
-                    <h4>Harry HDPE</h4>
-                    <br /><image src="../../images/PlasticCharacters/HarryHDPE.png" height="200px"></image>
-                    <p>
-                        <br />
-                    <p>
-                        You use @Model.HDPEScore grams of high-density polyethylene per day.<br />
-                        The average was  grams for the tested products.
-                    </p>
-
+                <td align="center">
+                    <p><b>Save more turtles<br /><br /> ----------></b></p>
                 </td>
 
-            }
+                <td align="right">
+                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Projects", "Projects", "Projects")</span><br />
+                    <br /><span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</span><br />
+                    <br /><span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Links", "Links", "Links")</span><br />
 
-            @if (Model.PVCScore != 0)
-            {
-                <td style="width:30%" align="center" valign="top">
-                    <h4>Pedro PVC</h4>
-                    <br /><image src="../../images/PlasticCharacters/PedroPVC.png" height="200px"></image>
-                    <p>
-                        <br />
-                        You use @Model.PVCScore grams of polyvinyl chloride per day.The average was  grams for the tested products.
-                    </p>
-                </td>
-            }
-
-            @if (ViewBag.Counter == 3)
-            {
-                @Html.Raw("</tr><tr>")
-            }
-
-            @if (Model.LDPEScore != 0)
-            {
-                <td style="width:30%" align="center" valign="top">
-                    <h4>LarryLDPE</h4>
-                    <br /><image src="../../images/PlasticCharacters/LarryLDPE.png" height="200px"></image>
-                    <p>
-                        <br />
-                        You use @Model.LDPEScore grams of low-density polyethylene per day.
-                        <br />The average was 70 grams for the tested products.
-                    </p>
-                </td>
-            }
-
-            @if (ViewBag.Counter == 3)
-            {
-                @Html.Raw("</tr><tr>")
-            }
-
-            @if (Model.PPScore != 0)
-            {
-                <td style="width:30%" align="center" valign="top">
-                    <h4>Polly And Paulie PP</h4>
-                    <br /><image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="200px"></image>
-                    <p>
-                        <br />
-                        You use @Model.PPScore grams of polypropylene per day.<br />The average was  grams for the tested products.
-                    </p>
-                </td>
-            }
-
-            @if (ViewBag.Counter == 3)
-            {
-                @Html.Raw("</tr><tr>")
-            }
-
-            @if (Model.PSScore != 0)
-            {
-
-                <td style="width:30%" align="center" valign="top">
-                    <h4>Preston PS</h4>
-                    <br /><image src="../../images/PlasticCharacters/PrestonPS.png" height="200px"></image>
-                    <p>
-                        <br />
-                        You use @Model.PSScore grams of polystyrene per day.<br />The average was  grams for the tested products.
-                    </p>
-                </td>
-            }
-
-            @if (ViewBag.Counter == 3)
-            {
-                @Html.Raw("</tr><tr>")
-            }
-
-            @if (Model.PSScore != 0)
-            {
-                <td style="width:30%" align="center" valign="top">
-                    <h4>Ollie Other</h4>
-                    <br /><image src="../../images/PlasticCharacters/OllieOther.png" height="200px"></image>
-                    <p>
-                        <br />
-                        You use @Model.PSScore grams of other plastic types per day.<br />The average was  grams for the tested products.
-                    </p>
-                </td>
-            }
-
-        </tr>
-    </table>
-    <table align="center" width="80%">
-        <tr>
-            <td align="center" width="40%">
-                <p>
-                    <h2>Your badge:</h2>
-                </p>
-                <img src="../../images/badges/TwoTurtles.gif" width="70%" />
-                <br />
-            </td>
-            <td align="center">
-                <p class="h3">Save more turtles<br /><br /> Find out how</p>
-            </td>
-
-            <td align="right">
-                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Projects", "Projects", "Projects")</span><br />
-                <br /><span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</span><br />
-                <br /><span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Links", "Links", "Links")</span><br />
-
-        </tr>
-    </table>
+            </tr>
+        </table>
+    </div>
+    </div>

@@ -8,24 +8,8 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding: 0px 0px 0px 0px;
-}
-
-
-.example img {
-    width: 100%;
-    position: relative;
-}
-
-.example::after {
-    content: "Multi-line\00000a text";
-    position: absolute;
-    top: 80px;
-    white-space: pre;
-    right: 15px;
-    font-weight: bold;
-    text-align: right;
-    font-size: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .question {

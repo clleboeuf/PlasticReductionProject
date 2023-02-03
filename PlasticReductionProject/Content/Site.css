@@ -55,8 +55,17 @@ textarea {
 
 .top_right {
     position: absolute;
-    top: 8px;
-    left: 16px;
+    left: 30px;
+    top:0px
+}
+
+.cta-button {
+    background-color: #000;
+    color: #fff !important;
+}
+
+.cta-button:hover {
+     background-color: #777;
 }
 
 .hero-font {

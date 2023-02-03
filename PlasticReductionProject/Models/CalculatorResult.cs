@@ -23,20 +23,6 @@ namespace PlasticReductionProject.Models
 
         public int increment { get; set; }
 
-        // Chris I think if we use an array of Tuples for the Plastic scores.  For now we can use a string, but I am planning
-        // to create a Plastic table seeded from plastics.csv for scoring so eventually instead of the string we could have an in
-        // with PlasticId in it.  
-        //
-
-        /*public Tuple<string, Nullable<double>>[] PlasticScores { get; set; } =
-            { new Tuple<string, Nullable<double>>("PET", 0.0),
-            new Tuple<string, Nullable<double>>("HDPE", 0.0),
-            new Tuple<string, Nullable<double>>("PVC", 0.0),
-            new Tuple<string, Nullable<double>>("LDPE", 0.0),
-            new Tuple<string, Nullable<double>>("PP", 0.0),
-            new Tuple<string, Nullable<double>>("PS", 0.0),
-            new Tuple<string, Nullable<double>>("Other", 0.0) };*/
-
         public CalculatorResult(int _numberOfProductQuestions) {
 
             this.Id = count++;
@@ -58,6 +44,15 @@ namespace PlasticReductionProject.Models
             PSScore = 0;
             OtherScore = 0;
 
+            PETAvg = 0;
+            HDPEAvg = 0;
+            PVCAvg = 0;
+            LDPEAvg = 0;
+            PPAvg = 0;
+            PPAAvg = 0;
+            PSAvg = 0;
+            OtherAvg = 0;
+
         }
 
         public double PETScore { get; set; }
@@ -75,6 +70,22 @@ namespace PlasticReductionProject.Models
         public double PSScore { get; set; }
 
         public double OtherScore { get; set; }
+
+        public double PETAvg { get; set; }
+
+        public double HDPEAvg { get; set; }
+
+        public double PVCAvg { get; set; }
+
+        public double LDPEAvg { get; set; }
+
+        public double PPAvg { get; set; }
+
+        public double PPAAvg { get; set; }
+
+        public double PSAvg { get; set; }
+
+        public double OtherAvg { get; set; }
 
 
     }

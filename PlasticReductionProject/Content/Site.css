@@ -78,6 +78,11 @@ btn-default:disabled {
     padding: 80px;
 }
 
+.result {
+    font-size: xx-large;
+    color:cornsilk;
+}
+
 .heading1 {
     font-size: 100px;
 }

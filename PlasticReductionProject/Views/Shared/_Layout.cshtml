@@ -9,18 +9,129 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-<div class="top_right"> <img src="~/Images/MPFLogo.png" style="width:60%" /></div>
-<div class="container body-content">
-    @RenderBody()
-    <hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - My Plastic Footprint</p>
-    </footer>
-</div>
+<style>
+    .navbar-inverse {
+        background-color: #84bed5;
+        border-color: #84bed5;
+    }
+
+        .navbar-inverse a {
+            color: black;
+        }
+
+    .navbar .navbar-nav li a {
+        color: black
+    }
+</style>
+<!--
+<body style="background-color: #DAEEFA; ">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <image height="50px" src="../../images/MPFLogo.png"></image>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                @if (ViewBag.Page == "Index")
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+                }
+                else if (ViewBag.Page == "Calculator")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li class="active">@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+                }
+                else if (ViewBag.Page == "Tracker")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li class="active">@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+
+                }
+                else if (ViewBag.Page == "Projects")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li class="active">@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+
+                }
+                else if (ViewBag.Page == "Alternatives")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li class="active">@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+
+                }
+                else if (ViewBag.Page == "Links")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li class="active">@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Calculator", "Calculator", "Calculator")</li>
+                        <li>@Html.ActionLink("Tracker", "Tracker", "Tracker")</li>
+                        <li>@Html.ActionLink("Projects", "Projects", "Projects")</li>
+                        <li>@Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</li>
+                        <li>@Html.ActionLink("Links", "Links", "Links")</li>
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My Plastic Footprint</p>
+        </footer>
+    </div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
 </body>
 </html>
+

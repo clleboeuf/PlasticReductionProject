@@ -8,14 +8,12 @@
     <title>@ViewBag.Title - My Plastic Footprint</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <div class="top_right"> <img src="~/Images/MPFLogo.png" style="width:25%" /></div>
+    <div class="top_right"> <img src="~/Images/MPFLogo.png" style="width:25%" onclick="openNav()"/></div>
 </head>
 
 
 <body>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
@@ -29,7 +27,7 @@
         <h2>Fullscreen Overlay Nav Example</h2>
         <p>Click on the element below to open the fullscreen overlay navigation menu.</p>
         <p>In this example, the navigation menu will slide downwards from the top:</p>
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+        <span style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776; open</span>
     </div>
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */

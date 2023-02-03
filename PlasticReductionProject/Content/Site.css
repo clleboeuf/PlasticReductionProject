@@ -7,6 +7,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding: 0px 0px 0px 0px;
 }
 
 
@@ -49,6 +50,23 @@ textarea {
     width: 100%;
     justify-self: center;
     margin: 0 0;
+    padding: 0px 0px 0px 0px;
+}
+
+.top_right {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.hero-font {
+    font: bold 44px/65px Helvetica, Sans-Serif;
+    font-size: 80px;
+    letter-spacing: -1px;
+    color: aliceblue;
+    position: absolute;
+    top: 30%;
+    right:10%;
 }
 
 
@@ -125,6 +143,7 @@ body {
         width: 100%;
         justify-self: center;
         margin: 0 0;
+        padding: 0px 0px 0px 0px;
     }
 }
 

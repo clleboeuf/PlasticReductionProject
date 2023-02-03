@@ -126,7 +126,7 @@ namespace PlasticReductionProject.Views.Calculator
             
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
-            if (this.cr.increment == 4)
+            if (this.cr.increment == 5)
             {
                 db.SaveChanges();
                return RedirectToAction("Report");

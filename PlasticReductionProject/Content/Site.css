@@ -55,8 +55,8 @@ textarea {
 
 .top_right {
     position: absolute;
-    left: 30px;
-    top:0px
+    left: 5px;
+    top: 5px;
 }
 
 .cta-button {

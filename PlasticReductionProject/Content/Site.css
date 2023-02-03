@@ -28,6 +28,15 @@
     font-size: 40px;
 }
 
+.question {
+    font-size: 70px;
+    padding: 80px;
+}
+
+.heading1 {
+    font-size: 100px;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

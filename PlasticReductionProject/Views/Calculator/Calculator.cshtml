@@ -2,9 +2,9 @@
 @{
     ViewBag.Title = "View";
 }
-<div style="padding:90px">
+<div class="question" >
     <img style="float:right" width="400px" src="@Model.Product.Image" />
-    <h2>@ViewBag.QuestionCounter</h2>
+    <h1>@ViewBag.QuestionCounter</h1>
 
     @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
@@ -16,6 +16,5 @@
             </p>
         </div>
         <input type="submit" value="Sumbit Answers" class="btn btn-default" id="btnSubmit" />
-
     }
 </div>

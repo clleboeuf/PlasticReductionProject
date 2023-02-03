@@ -3,7 +3,10 @@
     ViewBag.Title = "View";
 }
 <div style="padding:90px">
-    <img style="float:right" width="400px" src="@Model.Product.Image" />
+    <div class="img-gradient">
+        <img style="float:right" width="80%" src="@Model.Product.Image" />
+    </div>
+
     <h2>@ViewBag.QuestionCounter</h2>
 
     @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))

@@ -30,13 +30,12 @@ textarea {
     animation: blinker 1s linear infinite;
 }
 
-.jumbotron{
+.jumbotron {
     background-color: white;
 }
 
 
 .container {
-
     width: 100%;
     justify-self: center;
     margin: 0 0;
@@ -53,7 +52,7 @@ textarea {
     background-color: white;
     color: orange !important;
     font-size: 100px;
-    font-weight:bold;
+    font-weight: bold;
     font-family: 'Century Gothic';
     text-decoration: none;
 }
@@ -67,6 +66,29 @@ a:hover {
     text-decoration: none;
 }
 
+.img-gradient {
+    position: relative;
+    display: inline-block;
+}
+
+
+    .img-gradient:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220, 220, 220, 0.5)), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 220, 220, 0.5) 100%); /* Chrome10+,Safari5.1+ */
+   
+    }
+
+    .img-gradient img {
+        display: block;
+    }
+
 .hero-font {
     font: bold 44px/65px Helvetica, Sans-Serif;
     font-size: 120px;
@@ -74,7 +96,7 @@ a:hover {
     color: aliceblue;
     position: absolute;
     top: 30%;
-    right:10%;
+    right: 10%;
 }
 
 

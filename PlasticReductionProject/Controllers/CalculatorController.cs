@@ -91,10 +91,10 @@ namespace PlasticReductionProject.Views.Calculator
                     break;
             }
 
-            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled*recycledMultiplier;
-            //int i = cr.PlasticScores.ToList().FindIndex(p => p.Item1 == result.Product.Type.ToString());
-            //cr.PlasticScores[i].Item2 += score;
+           // double recycleRate = db.PlasticTypes.Find(Id == 1).;
 
+            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled*recycledMultiplier;
+            
             switch (this.cr.Results.ElementAt(this.cr.increment).Product.Type)
             {
                 case 1 :

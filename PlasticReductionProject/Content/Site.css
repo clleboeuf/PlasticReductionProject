@@ -14,7 +14,7 @@
 
 .btn-default {
     appearance: button;
-    background-color: #1899D6;
+    background-color: skyblue;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -40,7 +40,7 @@
     -webkit-user-select: none;
     vertical-align: middle;
     white-space: nowrap;
-    width: 100%;
+    width: 30%;
 }
 
 btn-default:after {

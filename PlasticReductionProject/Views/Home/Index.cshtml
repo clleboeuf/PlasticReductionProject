@@ -1,16 +1,15 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div class="container"> 
+<div class="container" style="animation: ease-in-out"> 
      <img src="~/Images/TurtleBackgroundCropped.jpg" style="width:100%;"/>
      <div class="hero-font">
-         ARE YOU KILLING TURTLES?
+         ARE YOU KILLING <br />TURTLES?
          <br />
-         <span class="btn cta-button">
+         <span class="btn cta-button" style="text-decoration: none">
              @Html.ActionLink("Find out now!", "Calculator", "Calculator")</span>
      </div>
-    <div class="top_right"> <img src="~/Images/MPFLogo.png" style="width:80%"/></div>
-     </div>
+</div>
 
 <div class="jumbotron">
    

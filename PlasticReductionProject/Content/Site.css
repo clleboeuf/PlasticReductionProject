@@ -1,6 +1,6 @@
 ﻿body {
     margin: 0;
-    background-color: #f1f1f1;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px 0px 0px 0px;
 }
@@ -45,6 +45,10 @@ textarea {
     animation: blinker 1s linear infinite;
 }
 
+.jumbotron{
+    background-color: white;
+}
+
 
 .container {
     width: 100%;
@@ -60,12 +64,19 @@ textarea {
 }
 
 .cta-button {
-    background-color: #000;
-    color: #fff !important;
+    background-color: white;
+    color: dodgerblue !important;
+    font-size: 30px;
+    font-family: 'Century Gothic';
+    text-decoration: none;
 }
 
 .cta-button:hover {
-     background-color: #777;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .hero-font {

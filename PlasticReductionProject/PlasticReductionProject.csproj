@@ -258,6 +258,12 @@
     <Content Include="Images\AlternativesImages\WaxCloth.jpg" />
     <Content Include="Images\AlternativesImages\WoodenRuler.jpg" />
     <Content Include="Images\AlternativesImages\WoodGraphitePencil.png" />
+    <Content Include="Images\Badges\FiveTurtles.gif" />
+    <Content Include="Images\Badges\FourStarTurtles.gif" />
+    <Content Include="Images\Badges\FourTurtles.gif" />
+    <Content Include="Images\Badges\OneTurtle.gif" />
+    <Content Include="Images\Badges\ThreeTurtles.gif" />
+    <Content Include="Images\Badges\TwoTurtles.gif" />
     <Content Include="Images\ChildBeach.jpg" />
     <Content Include="Images\LinksImages\CleanUpLogo.jpg" />
     <Content Include="Images\LinksImages\PSFlogo.jpg" />
@@ -327,8 +333,7 @@
     <Content Include="Images\Simpsons\Homer.jpg" />
     <Content Include="Images\Simpsons\Lisa.jpg" />
     <Content Include="Images\Simpsons\marge.jpg" />
-    <Content Include="Images\Turtle Background.jpg" />
-    <Content Include="Images\TurtleBackgroundCropped.jpg" />
+    <Content Include="Images\turtle_plasticbag.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
@@ -448,7 +453,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties content_4bootstrap_1min_1css_1map__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -265,13 +265,13 @@
     <Content Include="Images\LinksImages\WWFLogo.jpg" />
     <Content Include="Images\MPFLogo.png" />
     <Content Include="Images\PickingUpPlastic.jpg" />
-    <Content Include="Images\PlasticCharacters\HarryHDPE.jpg" />
-    <Content Include="Images\PlasticCharacters\LarryLDPE.jpg" />
-    <Content Include="Images\PlasticCharacters\OllieOther.jpg" />
-    <Content Include="Images\PlasticCharacters\PedroPVC.jpg" />
-    <Content Include="Images\PlasticCharacters\PeteyPET.jpg" />
-    <Content Include="Images\PlasticCharacters\PollyAndPauliePP.jpg" />
-    <Content Include="Images\PlasticCharacters\PrestonPS.jpg" />
+    <Content Include="Images\PlasticCharacters\HarryHDPE.png" />
+    <Content Include="Images\PlasticCharacters\LarryLDPE.png" />
+    <Content Include="Images\PlasticCharacters\OllieOther.png" />
+    <Content Include="Images\PlasticCharacters\PedroPVC.png" />
+    <Content Include="Images\PlasticCharacters\PeteyPET.png" />
+    <Content Include="Images\PlasticCharacters\PollyAndPauliePP.png" />
+    <Content Include="Images\PlasticCharacters\PrestonPS.png" />
     <Content Include="Images\PlasticItemImages\Balloons.jpg" />
     <Content Include="Images\PlasticItemImages\BodySoap.jpg" />
     <Content Include="Images\PlasticItemImages\ChargeCable.jpg" />
@@ -327,6 +327,7 @@
     <Content Include="Images\Simpsons\Homer.jpg" />
     <Content Include="Images\Simpsons\Lisa.jpg" />
     <Content Include="Images\Simpsons\marge.jpg" />
+    <Content Include="Images\Turtle Background.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
@@ -395,6 +396,7 @@
     <Content Include="Views\Shared\_Question1PartialView.cshtml" />
     <Content Include="Views\Shared\_Question2PartialView.cshtml" />
     <Content Include="Views\Shared\_Question3PartialView.cshtml" />
+    <Content Include="Views\Calculator\CalculatorTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,12 @@
-﻿@model PlasticReductionProject.Models.ProductResult 
+﻿@model PlasticReductionProject.Models.ProductResult
 
 <h4>Question Template 1</h4>
 
-<p>I @Html.EnumDropDownListFor(x => x.Usage) @Model.Product.UseVerb @Model.Product.Description.</p> 
 
+
+@using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p>I @Html.EnumDropDownListFor(x => x.Usage, new { @class = "form-control" }) @Model.Product.UseVerb @Model.Product.Description.</p>
+
+    <input type="submit" value="Search" class="btn btn-default" id="btnSubmit" />
+}

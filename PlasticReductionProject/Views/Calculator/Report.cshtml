@@ -104,13 +104,13 @@
                     @Html.Raw("</tr><tr>")
                 }
 
-                @if (Model.PSScore != 0)
+                @if (Model.OtherScore != 0)
                 {
                     <td align="center" valign="top">
                         <p><b>Ollie Other</b></p>
                         <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
                         <p>
-                            Other plastic: @Model.PSScore grams per year.<br />
+                            Other plastic: @Model.OtherScore grams per year.<br />
                             Average:** grams per year.
                         </p>
                     </td>

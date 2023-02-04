@@ -169,6 +169,46 @@ namespace PlasticReductionProject.Views.Calculator
             // addCookieToViewBag();
          
             ViewBag.Page = "Report";
+
+            var totalScore = this.cr.HDPEScore + this.cr.LDPEScore + this.cr.OtherScore + this.cr.PETScore + this.cr.PPAScore + this.cr.PPScore
+                + this.cr.PSScore + this.cr.PVCScore;
+            var totalAvg = this.cr.HDPEAvg + this.cr.LDPEAvg + this.cr.OtherAvg + this.cr.PETAvg + this.cr.PPAAvg + this.cr.PPAvg
+                + this.cr.PSAvg + this.cr.PVCAvg;
+
+            var compScore = totalScore / totalAvg;
+
+            List<Badge> badges = new List<Badge>();
+
+            badges = db.Badges.ToList();
+
+            if (compScore < 0.01)
+            {
+                ViewBag.Comment = badges.ElementAt(5).Comment.ToString();
+                ViewBag.Image = badges.ElementAt(5).BadgeUrl.ToString();
+            }
+            else if (compScore < 0.05)
+            {
+                ViewBag.Comment = badges.ElementAt(4).Comment.ToString();
+                ViewBag.Image = badges.ElementAt(4).BadgeUrl.ToString();
+            }
+            else if (compScore < 0.1)
+            {
+                ViewBag.Comment = badges.ElementAt(3).Comment.ToString();
+                ViewBag.Image = badges.ElementAt(3).BadgeUrl.ToString();
+            }
+            else if (compScore < 0.3)
+            {
+                ViewBag.Comment = badges.ElementAt(2).Comment.ToString();
+                ViewBag.Image = badges.ElementAt(2).BadgeUrl.ToString();
+            }
+            else if (compScore < 0.5)
+            {
+                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
+                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
+            }
+
+
+
             return View(this.cr);
         }
 

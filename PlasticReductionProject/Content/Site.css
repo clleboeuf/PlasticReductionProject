@@ -101,7 +101,7 @@ btn-default:disabled {
 }
 
 .qContainer:hover .qOverlay {
-    opacity: 0.75;
+    opacity: 0.85;
 }
 
 .question {

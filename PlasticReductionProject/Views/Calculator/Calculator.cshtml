@@ -2,12 +2,11 @@
 @{
     ViewBag.Title = "View";
 }
-
-<h1>@ViewBag.QuestionCounter</h1>
-<div width="100%" align="center">
+<div width="100%" align="center" top="0">
     @using (Html.BeginForm("Calculator", "Calculator", FormMethod.Post))
     {
         <div class="qContainer">
+            <h1>@ViewBag.QuestionCounter</h1>
             <img class="qImage" src="@Model.Product.Image" alt="@Model.Product.Description" />
             <div class="qOverlay">
                 <div class="question">
@@ -17,7 +16,7 @@
                 </div>
             </div>
         </div>
-}
+    }
 </div>
 
 

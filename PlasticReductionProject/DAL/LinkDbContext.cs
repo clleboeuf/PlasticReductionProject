@@ -25,6 +25,8 @@ namespace PlasticReductionProject.DAL
 
         public DbSet<PlasticType> PlasticTypes { get; set; }
 
+        public DbSet<Badge> Badges { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -74,6 +74,14 @@ namespace PlasticReductionProject.DAL
 
             });
             context.SaveChanges();
+
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/badges.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var badges = csv.GetRecords<Badge>();
+            badges.ForEach(i => context.Badges.AddOrUpdate(i));
+            context.SaveChanges();
+
             var test = 0;
         }
     }

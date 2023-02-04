@@ -120,8 +120,17 @@ btn-default:disabled {
 
 
 .result {
-    font-size: xx-large;
+    font-size: x-large;
     color:cornsilk;
+}
+
+.resultBackground {
+    background-color: rgb(150,150,150,0.50);
+}
+.resultBackground2 {
+    color:white;
+    background-color: darkred;
+    opacity: 0.6;
 }
 
 .heading1 {

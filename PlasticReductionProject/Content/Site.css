@@ -2,6 +2,7 @@
     transition: margin-left .5s;
     margin: 0;
     background-color: white;
+    background: transparent;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px 0px 0px 0px;
 }
@@ -60,7 +61,6 @@ btn-default:after {
     z-index: -1;
 }
 
-btn-default:main,
 btn-default:focus {
     user-select: auto;
 }
@@ -73,10 +73,51 @@ btn-default:hover:not(:disabled) {
 btn-default:disabled {
     cursor: auto;
 }
-.question {
-    font-size: 70px;
-    padding: 80px;
+
+.qContainer {
+    position: relative;
+    max-height: 50%;
 }
+
+.qImage {
+    display: block;
+    margin: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.qOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.qContainer:hover .qOverlay {
+    opacity: 0.75;
+}
+
+.question {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+
+
+
 
 .result {
     font-size: xx-large;
@@ -98,7 +139,10 @@ btn-default:disabled {
 input,
 select,
 textarea {
+    border: none;
+    border-bottom: 2px solid black;
     max-width: 280px;
+    background-color: #008CBA;
 }
 
 .terry-woz-ere {

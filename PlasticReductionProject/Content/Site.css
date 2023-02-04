@@ -74,9 +74,13 @@ btn-default:disabled {
     cursor: auto;
 }
 
+
+
+
 .qContainer {
     position: relative;
-    max-height: 50%;
+    top: 60px;
+    max-height: 40%;
 }
 
 .qImage {
@@ -89,15 +93,27 @@ btn-default:disabled {
 
 .qOverlay {
     position: absolute;
-    top: 0;
+    top: 0px;
     bottom: 0;
     left: 0;
     right: 0;
     height: 100%;
     width: 100%;
-    opacity: 0;
-    transition: .5s ease;
+    
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     background-color: #008CBA;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
 }
 
 .qContainer:hover .qOverlay {
@@ -297,7 +313,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #2976a9f0;
+    background-color: rgba(0, 140, 186, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;

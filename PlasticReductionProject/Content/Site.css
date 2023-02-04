@@ -133,6 +133,20 @@ btn-default:disabled {
     opacity: 0.8;
 }
 
+.altImage{
+
+}
+
+.altTD {
+    width: 25%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+    text-align:center;
+
+}
+
 .heading1 {
     font-size: 100px;
 }
@@ -225,6 +239,11 @@ a:hover {
     position: absolute;
     top: 30%;
     right: 10%;
+}
+
+.hero-heading {
+    font-size: xx-large;
+    color: aliceblue;
 }
 
 

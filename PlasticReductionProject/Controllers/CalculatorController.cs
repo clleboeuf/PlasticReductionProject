@@ -19,7 +19,6 @@ namespace PlasticReductionProject.Views.Calculator
             set { Session["CalculatorResults"] = value; }
         }
 
-
         // GET: Calculator
         public ActionResult Calculator()
         {
@@ -36,10 +35,10 @@ namespace PlasticReductionProject.Views.Calculator
                 {
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
-                    if (test.Type == 3 || test.Type == 5 || test.Type == 7)
-                    {
+                    //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
+                    //{
                         randomProducts.Add(test);
-                    }
+                    //}
                 }
             }
             int index = -1;

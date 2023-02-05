@@ -14,38 +14,39 @@ namespace PlasticReductionProject.Views.Calculator
         private LinkDbContext db = new LinkDbContext();
 
         private CalculatorResult cr
-        { 
+        {
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-            
-         
+
+
         // GET: Calculator
         public ActionResult Calculator()
         {
-            
-            cr = new CalculatorResult(5);
-            List<int> usedRand = new List<int>();
 
-            cr.Results.ForEach(x => {
-                int counter = 0;
-                int productCount = db.Products.Count();
-                while(counter < 5)
-                {
+            cr = new CalculatorResult(5);
+
+            List<int> usedRand = new List<int>();
+            var randomProducts = new List<Product>();
+            int productCount = db.Products.Count();
+            while (randomProducts.Count() < 5)
+            {
                 var rand = Randomiser.RandomNumber(1, productCount);
-                  if(!usedRand.Contains(rand))
+                if (!usedRand.Contains(rand))
+                {
+                    usedRand.Add(rand);
+                    var test = db.Products.Find(rand);
+                    if (test.Type == 3 || test.Type == 5 || test.Type == 7)
                     {
-                        usedRand.Add(rand);
-                    
-                        var test = db.Products.Find(rand);
-                        if (test.Type == 3 || test.Type == 5 || test.Type == 7)
-                        {
-                            x.Product = test;
-                            usedRand.Add(rand);
-                            counter += 1;
-                        }
-                    }             
+                        randomProducts.Add(test);
+                    }
                 }
+            }
+            int index = -1;
+            cr.Results.ForEach(x =>
+            {
+                index++;
+                x.Product = randomProducts[index];
             });
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
@@ -73,14 +74,15 @@ namespace PlasticReductionProject.Views.Calculator
             {
                 IfFound.Score += score;
                 IfFound.Average += average;
-            } else
+            }
+            else
             {
                 this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average));
             }
-                   
+
             switch (product.Type)
             {
-                case 1 :
+                case 1:
                     cr.PPScore += score;
                     cr.PPAvg += average;
                     break;
@@ -114,13 +116,13 @@ namespace PlasticReductionProject.Views.Calculator
                     break;
             }
             this.cr.increment++;
-            
+
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
             if (this.cr.increment == 5)
             {
-              //  db.SaveChanges();
-               return RedirectToAction("Report");
+                //  db.SaveChanges();
+                return RedirectToAction("Report");
             }
 
             return View(this.cr.Results.ElementAt(this.cr.increment));
@@ -130,7 +132,7 @@ namespace PlasticReductionProject.Views.Calculator
         {
             //needs to be put in a function
             var usedMultiplier = 1;
-           // var recycledMultiplier = 1;
+            // var recycledMultiplier = 1;
             switch (result.PeriodUsed.ToString())
             {
                 case "Day":
@@ -164,7 +166,7 @@ namespace PlasticReductionProject.Views.Calculator
             //double score = result.AmountUsed * usedMultiplier * result.Product.Weight - result.AmountRecycled * recycledMultiplier * result.Product.Weight;
             double score = result.AmountUsed * usedMultiplier * result.Product.Weight;
             return score;
-    
+
         }
 
 
@@ -172,7 +174,7 @@ namespace PlasticReductionProject.Views.Calculator
         public ActionResult Report()
         {
             // addCookieToViewBag();
-         
+
             ViewBag.Page = "Report";
 
             var totalScore = this.cr.HDPEScore + this.cr.LDPEScore + this.cr.OtherScore + this.cr.PETScore + this.cr.PPAScore + this.cr.PPScore
@@ -217,12 +219,12 @@ namespace PlasticReductionProject.Views.Calculator
             return View(this.cr);
         }
 
-        
+
 
         public ActionResult Products()
         {
             ViewBag.Page = "Products";
-            
+
 
             List<Product> ProductList = (List<Product>)(from productID in db.Products
                                                         select productID)
@@ -237,7 +239,7 @@ namespace PlasticReductionProject.Views.Calculator
 
 
             List<PlasticType> PlasticTypeList = (List<PlasticType>)(from plastic_Id in db.PlasticTypes
-                                                                      select plastic_Id)
+                                                                    select plastic_Id)
                                                         .ToList().Distinct().ToList();
 
             return View(PlasticTypeList);
@@ -273,7 +275,7 @@ namespace PlasticReductionProject.Views.Calculator
 
                     counter += 1;
                 }
-            }  
+            }
         }
     }
 }

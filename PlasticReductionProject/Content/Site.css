@@ -142,7 +142,7 @@ btn-default:disabled {
     height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow-x: hidden;
+
     text-align:center;
 
 }

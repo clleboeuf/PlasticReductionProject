@@ -1,6 +1,6 @@
 ﻿Plastic_Id,PlasticType,Acronym,CommonProducts,Recyclability,WorldAverage,RecyclingCode,IconImage,AnnualTarget
 1,polypropylene,PP,"Plastic furniture, rope , twine, drinking straws",0.25,0.19,5,../../Images/PlasticCharacters/PollyAndPauliePP.jpg,7748
-2,Polyphthalamide,PPA,"Clothing materials, Nylon, polyester and acrylic ",0.5,0.15,7,../../Images/PlasticCharacters/PollyAndPauliePP.jpg,5917
+2,Polyphthalamide,PPA,"Clothing materials, Nylon, polyester and acrylic ",0.5,0.15,7,../../Images/PlasticCharacters/PattyPPA.jpg,5917
 3,high density polyethylene,HDPE,"Shampoo bottles, toys",1,0.14,2,../../Images/PlasticCharacters/HarryHDPE.jpg,5635
 4,low density polyethylene,LDPE,"Shopping bags, Cling wrap",0.25,0.2,4,../../Images/PlasticCharacters/LarryLDPE.jpg,8030
 5,polyvinyl chloride,PVC,"Water pipes, electric cable, plastic foil, pencil eraser",0.5,0.05,3,../../Images/PlasticCharacters/PedroPVC.jpg,2113

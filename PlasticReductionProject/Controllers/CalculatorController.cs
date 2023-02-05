@@ -36,10 +36,14 @@ namespace PlasticReductionProject.Views.Calculator
                   if(!usedRand.Contains(rand))
                     {
                         usedRand.Add(rand);
+                    
                         var test = db.Products.Find(rand);
-                        x.Product = test;
-                        usedRand.Add(rand);
-                        counter += 1;
+                        if (test.Type == 3 || test.Type == 5 || test.Type == 7)
+                        {
+                            x.Product = test;
+                            usedRand.Add(rand);
+                            counter += 1;
+                        }
                     }             
                 }
             });
@@ -60,6 +64,7 @@ namespace PlasticReductionProject.Views.Calculator
             toSave.PeriodRecycled = result.PeriodRecycled;
             toSave.AmountUsed = result.AmountUsed;
             toSave.AmountRecycled = result.AmountRecycled;
+            result.Product = product;
 
             PlasticScore IfFound = this.cr.PlasticScores.Where(x => x.Name.Equals(plasticType.Acronym)).FirstOrDefault();
             var score = calculateResultForProduct(result);
@@ -125,7 +130,7 @@ namespace PlasticReductionProject.Views.Calculator
         {
             //needs to be put in a function
             var usedMultiplier = 1;
-            var recycledMultiplier = 1;
+           // var recycledMultiplier = 1;
             switch (result.PeriodUsed.ToString())
             {
                 case "Day":
@@ -140,24 +145,24 @@ namespace PlasticReductionProject.Views.Calculator
                 default:
                     break;
             }
-            switch (result.PeriodRecycled.ToString())
-            {
-                case "Day":
-                    recycledMultiplier = 365;
-                    break;
-                case "Week":
-                    recycledMultiplier = 52;
-                    break;
-                case "Month":
-                    recycledMultiplier = 12;
-                    break;
-                default:
-                    break;
-            }
+            //switch (result.PeriodRecycled.ToString())
+            //{
+            //    case "Day":
+            //        recycledMultiplier = 365;
+            //        break;
+            //    case "Week":
+            //        recycledMultiplier = 52;
+            //        break;
+            //    case "Month":
+            //        recycledMultiplier = 12;
+            //        break;
+            //    default:
+            //        break;
+            //}
 
-           // double recycleRate = db.PlasticTypes.Find(Id == 1).;
-
-            double score = result.AmountUsed * usedMultiplier - result.AmountRecycled * recycledMultiplier;
+            //double recycleRate = db.PlasticTypes.Find(result.Product.Type).Recyclability;
+            //double score = result.AmountUsed * usedMultiplier * result.Product.Weight - result.AmountRecycled * recycledMultiplier * result.Product.Weight;
+            double score = result.AmountUsed * usedMultiplier * result.Product.Weight;
             return score;
     
         }

@@ -7,33 +7,33 @@
 6,plastic wrap,use,"Food, Eating",5,FALSE,,"1, 2",2,../../Images/PlasticItemImages/PlasticWrap.jpg
 7,drink carton,buy drink in ,"Food, Eating",4,TRUE,container,"1, 2, 4",53,../../Images/PlasticItemImages/DrinkCarton.jpg
 8,chewing gum,buy,"Food, Eating",8,FALSE,,"1, 2",15,../../Images/PlasticItemImages/ChewingGum.jpg
-10,muesli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35,../../Images/PlasticItemImages/MuseliBar.jpg
-11,potato chips,eat ,"Food, Eating",1,TRUE,packets,"1, 2, 4",1.755,../../Images/PlasticItemImages/PotatoChips.jpg
-13,wrapping paper,use,Party,6,TRUE,,"1, 2, 3",80,../../Images/PlasticItemImages/WrappingPaper.jpg
-14,balloons,use,Party,8,FALSE,,"1, 2",3.4,../../Images/PlasticItemImages/Balloons.jpg
-15,plastic toy,purchase a ,Party,1,TRUE,both,"1, 2, 4",700,../../Images/PlasticItemImages/PlasticToy.jpg
-16,glitter-confetti,use,Party,6,FALSE,,"1, 2",60,../../Images/PlasticItemImages/GlitterConfetti.jpg
-17,hair shampoo and conditioner,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6,../../Images/PlasticItemImages/HairShampooAndConditioner.jpg
-19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44,../../Images/PlasticItemImages/PlasticCottonBud.jpg
-20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7,../../Images/PlasticItemImages/Cosmetics.jpg
-21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush.jpg
-23,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4,../../Images/PlasticItemImages/WetWipe.jpg
-24,sun screen,use,"Hygiene, Cleaning",8,FALSE,,"1, 2",30,../../Images/PlasticItemImages/Sunscreen.jpg
-25,single use sanitary products,use ,"Hygiene, Cleaning",4,FALSE,,"1, 2",2.4,../../Images/PlasticItemImages/SingleUseSanitaryProducts.jpg
-26,lip balm,purchase a,"Hygiene, Cleaning",8,FALSE,,"1, 2",4.8,../../Images/PlasticItemImages/LipBalm.jpg
-27,pencil case,replace my,School Item,5,FALSE,,"1, 2",58,../../Images/PlasticItemImages/PencilCase.jpg
-28,plastic ruler,purchase a,School Item,7,TRUE,product,"1, 2, 3",26,../../Images/PlasticItemImages/PlasticRuler.jpg
-29,disposable pen,purchase a,School Item,1,TRUE,product,"1, 2, 3",5.78,../../Images/PlasticItemImages/DisposablePen.jpg
-30,clutch pencil,purchase a,School Item,1,TRUE,product,"1, 2, 3",13.6,../../Images/PlasticItemImages/ClutchPencil.jpg
-31,colour textas,purchase,School Item,1,TRUE,product,"1, 2, 3",320,../../Images/PlasticItemImages/ColourTextas.jpg
-32,highlighter,purchase a,School Item,1,TRUE,product,"1, 2, 3",22.5,../../Images/PlasticItemImages/Highlighter.jpg
-33,pencil eraser,purchase a,School Item,8,FALSE,,"1, 2",9.07,../../Images/PlasticItemImages/PencilEraser.jpg
-34,contact or stickers to cover books,use ,School Item,5,FALSE,,"1, 2",99,../../Images/PlasticItemImages/ContactOrStickersToCoverBooks.jpg
-36,plastic shopping bag,require a new ,Shopping,3,TRUE,product,"1, 2, 3",5.5,../../Images/PlasticItemImages/PlasticShoppingBag.jpg
-37,shoes,purchase a new set of,Clothing,5,FALSE,,"1, 2",300,../../Images/PlasticItemImages/Shoes.jpg
-38,sun glasses or prescription glasses,replace my,Clothing,8,TRUE,product,"1, 2, 3",37.5,../../Images/PlasticItemImages/SunGlassesOrPrescriptionGlasses.jpg
-39,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",200,../../Images/PlasticItemImages/ClothingMadeFromSynthetics.jpg
-40,mobile phone case,replace my,Technology,8,TRUE,and packaging,"1, 2, 4",20,../../Images/PlasticItemImages/MobilePhoneCase.jpg
-41,charge cable,purchase a new,Technology,5,TRUE,and packaging,"1, 2, 4",13.8,../../Images/PlasticItemImages/ChargeCable.jpg
-42,mobile phone,purchase a new,Technology,8,TRUE,and packaging,"1, 2, 4",25.6,../../Images/PlasticItemImages/MobilePhone.jpg
-43,headphones,purchase new,Technology,5,TRUE,and packaging,"1, 2, 4",187.5,../../Images/PlasticItemImages/Headphones.jpg
+9,muesli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35,../../Images/PlasticItemImages/MuseliBar.jpg
+10,potato chips,eat ,"Food, Eating",1,TRUE,packets,"1, 2, 4",1.755,../../Images/PlasticItemImages/PotatoChips.jpg
+11,wrapping paper,use,Party,6,TRUE,,"1, 2, 3",80,../../Images/PlasticItemImages/WrappingPaper.jpg
+12,balloons,use,Party,8,FALSE,,"1, 2",3.4,../../Images/PlasticItemImages/Balloons.jpg
+13,plastic toy,purchase a ,Party,1,TRUE,both,"1, 2, 4",700,../../Images/PlasticItemImages/PlasticToy.jpg
+14,glitter-confetti,use,Party,6,FALSE,,"1, 2",60,../../Images/PlasticItemImages/GlitterConfetti.jpg
+15,hair shampoo and conditioner,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6,../../Images/PlasticItemImages/HairShampooAndConditioner.jpg
+16,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44,../../Images/PlasticItemImages/PlasticCottonBud.jpg
+17,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7,../../Images/PlasticItemImages/Cosmetics.jpg
+18,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush.jpg
+19,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4,../../Images/PlasticItemImages/WetWipe.jpg
+20,sun screen,use,"Hygiene, Cleaning",8,FALSE,,"1, 2",30,../../Images/PlasticItemImages/Sunscreen.jpg
+21,single use sanitary products,use ,"Hygiene, Cleaning",4,FALSE,,"1, 2",2.4,../../Images/PlasticItemImages/SingleUseSanitaryProducts.jpg
+22,lip balm,purchase a,"Hygiene, Cleaning",8,FALSE,,"1, 2",4.8,../../Images/PlasticItemImages/LipBalm.jpg
+23,pencil case,replace my,School Item,5,FALSE,,"1, 2",58,../../Images/PlasticItemImages/PencilCase.jpg
+24,plastic ruler,purchase a,School Item,7,TRUE,product,"1, 2, 3",26,../../Images/PlasticItemImages/PlasticRuler.jpg
+25,disposable pen,purchase a,School Item,1,TRUE,product,"1, 2, 3",5.78,../../Images/PlasticItemImages/DisposablePen.jpg
+26,clutch pencil,purchase a,School Item,1,TRUE,product,"1, 2, 3",13.6,../../Images/PlasticItemImages/ClutchPencil.jpg
+27,colour textas,purchase,School Item,1,TRUE,product,"1, 2, 3",320,../../Images/PlasticItemImages/ColourTextas.jpg
+28,highlighter,purchase a,School Item,1,TRUE,product,"1, 2, 3",22.5,../../Images/PlasticItemImages/Highlighter.jpg
+29,pencil eraser,purchase a,School Item,8,FALSE,,"1, 2",9.07,../../Images/PlasticItemImages/PencilEraser.jpg
+30,contact or stickers to cover books,use ,School Item,5,FALSE,,"1, 2",99,../../Images/PlasticItemImages/ContactOrStickersToCoverBooks.jpg
+31,plastic shopping bag,require a new ,Shopping,3,TRUE,product,"1, 2, 3",5.5,../../Images/PlasticItemImages/PlasticShoppingBag.jpg
+32,shoes,purchase a new set of,Clothing,5,FALSE,,"1, 2",300,../../Images/PlasticItemImages/Shoes.jpg
+33,sun glasses or prescription glasses,replace my,Clothing,8,TRUE,product,"1, 2, 3",37.5,../../Images/PlasticItemImages/SunGlassesOrPrescriptionGlasses.jpg
+34,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",200,../../Images/PlasticItemImages/ClothingMadeFromSynthetics.jpg
+35,mobile phone case,replace my,Technology,8,TRUE,and packaging,"1, 2, 4",20,../../Images/PlasticItemImages/MobilePhoneCase.jpg
+36,charge cable,purchase a new,Technology,5,TRUE,and packaging,"1, 2, 4",13.8,../../Images/PlasticItemImages/ChargeCable.jpg
+37,mobile phone,purchase a new,Technology,8,TRUE,and packaging,"1, 2, 4",25.6,../../Images/PlasticItemImages/MobilePhone.jpg
+38,headphones,purchase new,Technology,5,TRUE,and packaging,"1, 2, 4",187.5,../../Images/PlasticItemImages/Headphones.jpg

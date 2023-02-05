@@ -3,55 +3,59 @@
 @{
     ViewBag.Title = "Index";
 }
+<br /><br /><br /><br />
+                  <div style="background-image: url('../../images/turtlePlasticbagDark.jpg'); background-repeat: no-repeat; background-size: cover;">
 
-<h2>Links to further information</h2>
-<table class="table">
-    @if (Model.Count() > 1)
-    {
-        var counter = 1;
+                      <table width="80%" align="center">
+                          @if (Model.Count() > 1)
+                          {
+                              var counter = 1;
 
-        <tr>
-            @foreach (var item in Model)
-            {
-                
-                if (counter % 2 > 0)
-                {
-                    <td width="50%" valign="middle" align="center">
-                        <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">
-                            <img src=@item.Image.ToString() width="50%" />
-                        </a>
-                        <p class="h5" align="center" style="margin: 30px">
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </p>
-                        <p>
-                            <span class="btn btn-default" style="margin: 5px">
-                                <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">visit site</a>
-                            </span>
-                        </p>
-                    </td>
-                }
-                else
-                {
-                    <td width="50%" valign="bottom" align="center">
-                        <p class="h5" style="margin: 30px">
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </p>
-                        <p>
-                            <a href=@item.Url target="_blank" onClick="return confirm('This will take you to an external site')">
-                                <img src=@item.Image.ToString() width="50%" />
-                            </a>
-                        </p>
-                        <p>
-                            <span class="btn btn-default" style="margin: 5px">
-                                <a href=@item.Url target="_blank" onClick="return confirm('This will take you to an external site')">visit site</a>
-                            </span>
-                        </p>
-                    </td>    
-                    @Html.Raw("</tr><tr>")
-                }
-                counter += 1;
-   
-            }
-        </tr>
-        }
-        </table>
+                              <tr>
+                                  @foreach (var item in Model)
+                                  {
+
+                                      if (counter % 2 > 0)
+                                      {
+                                          <td width="50%" valign="middle" align="center">
+                                              <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">
+                                                  <img src=@item.Image.ToString() width="30%" />
+                                              </a>
+                                              <p class="h5" align="center" style="margin: 30px">
+                                                  @Html.DisplayFor(modelItem => item.Description)
+                                              </p>
+                                              <p>
+                                                  <span class="btn btn-default" style="margin: 5px">
+                                                      <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">visit site</a>
+                                                  </span>
+                                              </p>
+                                              <br />
+                                          </td>
+                                      }
+                                      else
+                                      {
+                                          <td width="50%" valign="middle" align="center">
+                                              <p class="h5" style="margin: 30px">
+                                                  @Html.DisplayFor(modelItem => item.Description)
+                                              </p>
+                                              <p>
+                                                  <a href=@item.Url target="_blank" onClick="return confirm('This will take you to an external site')">
+                                                      <img src=@item.Image.ToString() width="30%" />
+                                                  </a>
+                                              </p>
+                                              <p>
+                                                  <span class="btn btn-default" style="margin: 5px">
+                                                      <a href=@item.Url target="_blank" onClick="return confirm('This will take you to an external site')">visit site</a>
+                                                  </span>
+                                              </p><br />
+                                          </td>
+
+                                          @Html.Raw("</tr><tr>")
+                                      }
+                                      counter += 1;
+
+                                  }
+                              </tr>
+                          }
+                      </table>
+                      </div>

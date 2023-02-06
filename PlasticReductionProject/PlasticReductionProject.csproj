@@ -318,6 +318,7 @@
     <Content Include="Images\PlasticItemImages\PlasticToothbrush1.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticToy.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticWrap.jpg" />
+    <Content Include="Images\PlasticItemImages\PlasticWrap1.jpg" />
     <Content Include="Images\PlasticItemImages\PotatoChips.jpg" />
     <Content Include="Images\PlasticItemImages\Shoes.jpg" />
     <Content Include="Images\PlasticItemImages\SingleUseSanitaryProducts.jpg" />

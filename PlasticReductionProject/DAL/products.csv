@@ -4,7 +4,7 @@
 3,plastic cutlery,use,"Food, Eating",1,FALSE,,"1, 2",8.4,../../Images/PlasticItemImages/PlasticCutlery.jpg
 4,plastic drink bottle,buy drink in ,"Food, Eating",6,TRUE,,"1, 2, 3",19.7,../../Images/PlasticItemImages/PlasticDrinkBottle.jpg
 5,takeaway food,purchase,"Food, Eating",1,TRUE,container,"1, 2, 4",17,../../Images/PlasticItemImages/TakeawayFood.jpg
-6,plastic wrap,use,"Food, Eating",5,FALSE,,"1, 2",2,../../Images/PlasticItemImages/PlasticWrap.jpg
+6,plastic wrap,use,"Food, Eating",5,FALSE,,"1, 2",2,../../Images/PlasticItemImages/PlasticWrap1.jpg
 7,drink carton,buy drink in ,"Food, Eating",4,TRUE,container,"1, 2, 4",53,../../Images/PlasticItemImages/DrinkCarton.jpg
 8,chewing gum,buy,"Food, Eating",8,FALSE,,"1, 2",15,../../Images/PlasticItemImages/ChewingGum.jpg
 10,muesli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35,../../Images/PlasticItemImages/MuseliBar.jpg

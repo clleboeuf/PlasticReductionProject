@@ -330,6 +330,7 @@
     <Content Include="Images\PlasticItemImages\VapePen.jpg" />
     <Content Include="Images\PlasticItemImages\WetWipe.jpg" />
     <Content Include="Images\PlasticItemImages\WrappingPaper.jpg" />
+    <Content Include="Images\ProjectImages\ANZPACLogo.png" />
     <Content Include="Images\ProjectImages\Audit_IMG_4785-1030x772.jpeg" />
     <Content Include="Images\ProjectImages\Foodwraps_med_strawberries-scaled-721x487.jpg" />
     <Content Include="Images\ProjectImages\grow-where-you-are-community-food-garden.jpg" />
@@ -347,7 +348,6 @@
     <Content Include="Images\turtle_plasticbag_cropped.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
     <Content Include="DAL\Dictionary.csv" />
     <Content Include="DAL\alternatives.csv" />
     <Content Include="DAL\products.csv" />

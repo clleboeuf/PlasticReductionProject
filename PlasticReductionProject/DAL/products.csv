@@ -13,7 +13,7 @@
 14,balloons,use,Party,8,FALSE,,"1, 2",3.4,../../Images/PlasticItemImages/Balloons.jpg
 15,plastic toy,purchase a ,Party,1,TRUE,both,"1, 2, 4",700,../../Images/PlasticItemImages/PlasticToy.jpg
 16,glitter-confetti,use,Party,6,FALSE,,"1, 2",60,../../Images/PlasticItemImages/GlitterConfetti.jpg
-17,hair shampoo and conditioner,use,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6,../../Images/PlasticItemImages/HairShampooAndConditioner.jpg
+17,hair shampoo and conditioner,buy,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6,../../Images/PlasticItemImages/HairShampooAndConditioner.jpg
 19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44,../../Images/PlasticItemImages/PlasticCottonBud.jpg
 20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7,../../Images/PlasticItemImages/Cosmetics.jpg
 21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush.jpg

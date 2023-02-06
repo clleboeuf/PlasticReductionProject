@@ -213,6 +213,11 @@ namespace PlasticReductionProject.Views.Calculator
                 ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
                 ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
             }
+            else
+            {
+                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
+                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
+            }
 
 
 

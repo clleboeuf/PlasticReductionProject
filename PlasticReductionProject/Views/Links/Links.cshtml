@@ -3,8 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
-<br /><br /><br /><br />
-                  <div style="background-image: url('../../images/turtlePlasticbagDark.jpg'); background-repeat: no-repeat; background-size: cover;">
+<br /><br /><br /><br /><br />
+                  <div style="background-image: url('../../images/turtlePlasticbagDark.jpg'); background-repeat: no-repeat; background-size: cover;" class="result">
 
                       <table width="80%" align="center">
                           @if (Model.Count() > 1)
@@ -21,7 +21,7 @@
                                               <a href=@item.Url onClick="return confirm('This will take you to an external site')" target="_blank">
                                                   <img src=@item.Image.ToString() width="30%" />
                                               </a>
-                                              <p class="h5" align="center" style="margin: 30px">
+                                              <p class="result" align="center" style="margin: 30px">
                                                   @Html.DisplayFor(modelItem => item.Description)
                                               </p>
                                               <p>
@@ -35,7 +35,7 @@
                                       else
                                       {
                                           <td width="50%" valign="middle" align="center">
-                                              <p class="h5" style="margin: 30px">
+                                              <p class="result" style="margin: 30px">
                                                   @Html.DisplayFor(modelItem => item.Description)
                                               </p>
                                               <p>

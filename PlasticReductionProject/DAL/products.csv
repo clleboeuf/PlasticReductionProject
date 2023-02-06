@@ -15,8 +15,8 @@
 16,glitter-confetti,use,Party,6,FALSE,,"1, 2",60,../../Images/PlasticItemImages/GlitterConfetti.jpg
 17,hair shampoo and conditioner,buy,"Hygiene, Cleaning",4,TRUE,container,"1, 2, 4",32.6,../../Images/PlasticItemImages/HairShampooAndConditioner.jpg
 19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44,../../Images/PlasticItemImages/PlasticCottonBud.jpg
-20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7,../../Images/PlasticItemImages/Cosmetics.jpg
-21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush.jpg
+20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7,../../Images/PlasticItemImages/Cosmetics1.jpg
+21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush1.jpg
 23,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4,../../Images/PlasticItemImages/WetWipe.jpg
 24,sun screen,use,"Hygiene, Cleaning",8,FALSE,,"1, 2",30,../../Images/PlasticItemImages/Sunscreen.jpg
 25,single use sanitary products,use ,"Hygiene, Cleaning",4,FALSE,,"1, 2",2.4,../../Images/PlasticItemImages/SingleUseSanitaryProducts.jpg

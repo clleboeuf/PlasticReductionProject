@@ -292,7 +292,7 @@
     <Content Include="Images\PlasticItemImages\ClutchPencil.jpg" />
     <Content Include="Images\PlasticItemImages\ColourTextas.jpg" />
     <Content Include="Images\PlasticItemImages\ContactOrStickersToCoverBooks.jpg" />
-    <Content Include="Images\PlasticItemImages\Cosmetics.jpg" />
+    <Content Include="Images\PlasticItemImages\Cosmetics1.jpg" />
     <Content Include="Images\PlasticItemImages\DisposableCup.jpg" />
     <Content Include="Images\PlasticItemImages\DisposablePen.jpg" />
     <Content Include="Images\PlasticItemImages\DisposableRazor.jpg" />
@@ -315,7 +315,7 @@
     <Content Include="Images\PlasticItemImages\PlasticDrinkingStraw.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticRuler.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticShoppingBag.jpg" />
-    <Content Include="Images\PlasticItemImages\PlasticToothbrush.jpg" />
+    <Content Include="Images\PlasticItemImages\PlasticToothbrush1.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticToy.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticWrap.jpg" />
     <Content Include="Images\PlasticItemImages\PotatoChips.jpg" />

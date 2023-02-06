@@ -54,6 +54,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         //post results
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult Calculator(ProductResult result)
         {
             ProductResult toSave = this.cr.Results.ElementAt(this.cr.increment);

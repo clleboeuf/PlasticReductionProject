@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 
 namespace PlasticReductionProject.DAL
 {
@@ -43,7 +44,11 @@ namespace PlasticReductionProject.DAL
             reader = new StreamReader(path);
             csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             var products = csv.GetRecords<Product>();
-            products.ForEach(i => context.Products.AddOrUpdate(i));
+            products.ForEach(i =>
+            {
+                i.averageUtilisation = 0;
+                context.Products.AddOrUpdate(i);
+            });
             context.SaveChanges();
 
             path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/alternatives.csv");
@@ -56,13 +61,28 @@ namespace PlasticReductionProject.DAL
             path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/plastic_type.csv");
             reader = new StreamReader(path);
             csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var plastic_types = csv.GetRecords<PlasticTypes>();
-            plastic_types.ForEach(i => context.PlasticTypes.AddOrUpdate(i));
+            var plastic_types = csv.GetRecords<PlasticType>();
+            plastic_types.ForEach(pt =>
+            {
+
+                context.PlasticTypes.AddOrUpdate(pt);
+                // Calculate average utilisation per product
+                var productListOfType = context.Products.Where(prod => prod.Type == pt.Id).ToList();
+       
+                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight);
+                productListOfType.ForEach(prod => prod.averageUtilisation = prod.Weight / productMassSumForPlasticType * pt.AnnualTarget);
+
+            });
             context.SaveChanges();
 
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/badges.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var badges = csv.GetRecords<Badge>();
+            badges.ForEach(i => context.Badges.AddOrUpdate(i));
+            context.SaveChanges();
 
+            var test = 0;
         }
-
-
     }
 }

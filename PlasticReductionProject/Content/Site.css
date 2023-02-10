@@ -2,6 +2,7 @@
     transition: margin-left .5s;
     margin: 0;
     background-color: white;
+    background: transparent;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px 0px 0px 0px;
 }
@@ -60,7 +61,6 @@ btn-default:after {
     z-index: -1;
 }
 
-btn-default:main,
 btn-default:focus {
     user-select: auto;
 }
@@ -73,9 +73,94 @@ btn-default:hover:not(:disabled) {
 btn-default:disabled {
     cursor: auto;
 }
+
+
+
+
+.qContainer {
+    position: relative;
+    top: 60px;
+    max-height: 40%;
+}
+
+.qImage {
+    display: block;
+    margin: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.qOverlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: #008CBA;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+.qContainer:hover .qOverlay {
+    opacity: 0.85;
+}
+
 .question {
-    font-size: 70px;
-    padding: 80px;
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
+.result {
+    font-size: x-large;
+    color:cornsilk;
+}
+
+.resultBackground {
+    background-color: rgb(150,150,150,0.50);
+}
+.resultBackground2 {
+    color:white;
+    background-color: darkred;
+    opacity: 0.8;
+}
+
+.altImage{
+
+}
+
+.altTD {
+    width: 25%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    text-align:center;
+
 }
 
 .heading1 {
@@ -93,20 +178,22 @@ btn-default:disabled {
 input,
 select,
 textarea {
+    border: none;
+    border-bottom: 2px solid black;
     max-width: 280px;
+    background-color: #008CBA;
 }
 
 .terry-woz-ere {
     animation: blinker 1s linear infinite;
 }
 
-.jumbotron{
+.jumbotron {
     background-color: white;
 }
 
 
 .container {
-
     width: 100%;
     justify-self: center;
     margin: 0 0;
@@ -123,7 +210,7 @@ textarea {
     background-color: white;
     color: orange !important;
     font-size: 100px;
-    font-weight:bold;
+    font-weight: bold;
     font-family: 'Century Gothic';
     text-decoration: none;
 }
@@ -137,6 +224,29 @@ a:hover {
     text-decoration: none;
 }
 
+.img-gradient {
+    position: relative;
+    display: inline-block;
+}
+
+
+    .img-gradient:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220, 220, 220, 0.5)), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 220, 220, 0.5) 100%); /* Chrome10+,Safari5.1+ */
+   
+    }
+
+    .img-gradient img {
+        display: block;
+    }
+
 .hero-font {
     font: bold 44px/65px Helvetica, Sans-Serif;
     font-size: 120px;
@@ -144,7 +254,12 @@ a:hover {
     color: aliceblue;
     position: absolute;
     top: 30%;
-    right:10%;
+    right: 10%;
+}
+
+.hero-heading {
+    font-size: xx-large;
+    color: aliceblue;
 }
 
 
@@ -153,6 +268,15 @@ a:hover {
         opacity: 0;
     }
 }
+
+.btn btn-default {
+    transition-duration: 0.4s;
+}
+
+    .btn btn-default:hover {
+        background-color: #4CAF50; /* Green */
+        color: white;
+    }
 
 
 body {
@@ -208,7 +332,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #2976a9f0;
+    background-color: rgba(0, 140, 186, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;

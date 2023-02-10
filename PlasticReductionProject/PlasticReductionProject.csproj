@@ -75,6 +75,8 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -208,13 +210,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Badge.cs" />
     <Compile Include="Models\CalculatorResult.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\DictionaryWord.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PlasticTypes.cs" />
+    <Compile Include="Models\PlasticType.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\PlasticAlternative.cs" />
     <Compile Include="Models\Product.cs" />
@@ -274,6 +277,7 @@
     <Content Include="Images\PlasticCharacters\HarryHDPE.png" />
     <Content Include="Images\PlasticCharacters\LarryLDPE.png" />
     <Content Include="Images\PlasticCharacters\OllieOther.png" />
+    <Content Include="Images\PlasticCharacters\PattyPPA.png" />
     <Content Include="Images\PlasticCharacters\PedroPVC.png" />
     <Content Include="Images\PlasticCharacters\PeteyPET.png" />
     <Content Include="Images\PlasticCharacters\PollyAndPauliePP.png" />
@@ -288,7 +292,7 @@
     <Content Include="Images\PlasticItemImages\ClutchPencil.jpg" />
     <Content Include="Images\PlasticItemImages\ColourTextas.jpg" />
     <Content Include="Images\PlasticItemImages\ContactOrStickersToCoverBooks.jpg" />
-    <Content Include="Images\PlasticItemImages\Cosmetics.jpg" />
+    <Content Include="Images\PlasticItemImages\Cosmetics1.jpg" />
     <Content Include="Images\PlasticItemImages\DisposableCup.jpg" />
     <Content Include="Images\PlasticItemImages\DisposablePen.jpg" />
     <Content Include="Images\PlasticItemImages\DisposableRazor.jpg" />
@@ -311,9 +315,10 @@
     <Content Include="Images\PlasticItemImages\PlasticDrinkingStraw.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticRuler.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticShoppingBag.jpg" />
-    <Content Include="Images\PlasticItemImages\PlasticToothbrush.jpg" />
+    <Content Include="Images\PlasticItemImages\PlasticToothbrush1.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticToy.jpg" />
     <Content Include="Images\PlasticItemImages\PlasticWrap.jpg" />
+    <Content Include="Images\PlasticItemImages\PlasticWrap1.jpg" />
     <Content Include="Images\PlasticItemImages\PotatoChips.jpg" />
     <Content Include="Images\PlasticItemImages\Shoes.jpg" />
     <Content Include="Images\PlasticItemImages\SingleUseSanitaryProducts.jpg" />
@@ -325,6 +330,7 @@
     <Content Include="Images\PlasticItemImages\VapePen.jpg" />
     <Content Include="Images\PlasticItemImages\WetWipe.jpg" />
     <Content Include="Images\PlasticItemImages\WrappingPaper.jpg" />
+    <Content Include="Images\ProjectImages\ANZPACLogo.png" />
     <Content Include="Images\ProjectImages\Audit_IMG_4785-1030x772.jpeg" />
     <Content Include="Images\ProjectImages\Foodwraps_med_strawberries-scaled-721x487.jpg" />
     <Content Include="Images\ProjectImages\grow-where-you-are-community-food-garden.jpg" />
@@ -337,10 +343,11 @@
     <Content Include="Images\Simpsons\Lisa.jpg" />
     <Content Include="Images\Simpsons\marge.jpg" />
     <Content Include="Images\TurtleBackgroundCropped.jpg" />
+    <Content Include="Images\turtlePlasticbagDark.jpg" />
     <Content Include="Images\turtle_plasticbag.jpg" />
+    <Content Include="Images\turtle_plasticbag_cropped.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Images\ProjectImages\ANZPAC_Reverse_RGB.webp" />
     <Content Include="DAL\Dictionary.csv" />
     <Content Include="DAL\alternatives.csv" />
     <Content Include="DAL\products.csv" />
@@ -348,11 +355,11 @@
     <Content Include="DAL\projects.csv" />
     <Content Include="Images\PlasticItemImages\Locations for pictures.docx" />
     <Content Include="DAL\plastic_type.csv" />
-    <Content Include="DAL\products - Copy.csv" />
     <Content Include="fonts\GOTHIC.TTF" />
     <Content Include="fonts\GOTHICB.TTF" />
     <Content Include="fonts\GOTHICBI.TTF" />
     <Content Include="fonts\GOTHICI.TTF" />
+    <Content Include="DAL\badges.csv" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

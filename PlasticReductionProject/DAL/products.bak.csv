@@ -1,0 +1,43 @@
+﻿ProductId,ProductDescription,ProductUseVerb,ProductCategory,PlasticType,Recyclable,RecyclingType,QuestionSet,Mass,Image
+1,plastic drinking straw,use,"Food, Eating",1,FALSE,,"1, 2",0.42,../../Images/PlasticItemImages/PlasticDrinkingStraw.jpg
+2,a disposable cup ,use,"Food, Eating",7,FALSE,,"1, 2",3.5,../../Images/PlasticItemImages/DisposableCup.jpg
+3,plastic cutlery,use,"Food, Eating",1,FALSE,,"1, 2",8.4,../../Images/PlasticItemImages/PlasticCutlery.jpg
+4,a plastic drink bottle,buy drink in ,"Food, Eating",6,TRUE,,"1, 2, 3",19.7,../../Images/PlasticItemImages/PlasticDrinkBottle.jpg
+5,takeaway food,purchase,"Food, Eating",1,TRUE,container,"1, 2, 4",17,../../Images/PlasticItemImages/TakeawayFood.jpg
+6,plastic wrap,use,"Food, Eating",5,FALSE,,"1, 2",2,../../Images/PlasticItemImages/PlasticWrap1.jpg
+7,drink carton,buy drink in ,"Food, Eating",4,TRUE,container,"1, 2, 4",53,../../Images/PlasticItemImages/DrinkCarton.jpg
+8,chewing gum,buy,"Food, Eating",8,FALSE,,"1, 2",15,../../Images/PlasticItemImages/ChewingGum.jpg
+10,muesli bar,eat ,"Food, Eating",1,FALSE,,"1, 2",0.35,../../Images/PlasticItemImages/MuseliBar.jpg
+11,potato chips,eat ,"Food, Eating",1,TRUE,packets,"1, 2, 4",1.755,../../Images/PlasticItemImages/PotatoChips.jpg
+13,wrapping paper,use,Party,6,TRUE,,"1, 2, 3",80,../../Images/PlasticItemImages/WrappingPaper.jpg
+14,balloons,use,Party,8,FALSE,,"1, 2",3.4,../../Images/PlasticItemImages/Balloons.jpg
+15,plastic toy,get a new,Party,1,TRUE,both,"1, 2, 4",700,../../Images/PlasticItemImages/PlasticToy.jpg
+16,glitter-confetti,use,Party,6,FALSE,,"1, 2",60,../../Images/PlasticItemImages/GlitterConfetti.jpg
+17,game console,buy a new,Technology,3,FALSE,,"1, 2, 4",450,../../Images/PlasticItemImages/gameConsoles.jpg
+19,plastic cotton bud,use,"Hygiene, Cleaning",1,FALSE,,"1, 2",0.44,../../Images/PlasticItemImages/PlasticCottonBud.jpg
+20,cosmetics,use,"Hygiene, Cleaning",3,FALSE,container,"1, 2, 4",7,../../Images/PlasticItemImages/Cosmetics1.jpg
+21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush1.jpg
+23,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4,../../Images/PlasticItemImages/WetWipe.jpg
+24,sun screen,use,"Hygiene, Cleaning",8,FALSE,,"1, 2",30,../../Images/PlasticItemImages/Sunscreen.jpg
+25,fishing gear,purchase new,Sport,5,FALSE,,"1, 2",125,../../Images/PlasticItemImages/FishingGear.jpg
+26,lip balm,purchase a,"Hygiene, Cleaning",8,FALSE,,"1, 2",4.8,../../Images/PlasticItemImages/LipBalm.jpg
+27,pencil case,replace my,School Item,5,FALSE,,"1, 2",58,../../Images/PlasticItemImages/PencilCase.jpg
+28,plastic ruler,purchase a,School Item,7,TRUE,product,"1, 2, 3",26,../../Images/PlasticItemImages/PlasticRuler.jpg
+29,disposable pen,purchase a,School Item,1,TRUE,product,"1, 2, 3",5.78,../../Images/PlasticItemImages/DisposablePen.jpg
+30,clutch pencil,purchase a,School Item,1,TRUE,product,"1, 2, 3",13.6,../../Images/PlasticItemImages/ClutchPencil.jpg
+31,colour textas,purchase,School Item,1,TRUE,product,"1, 2, 3",320,../../Images/PlasticItemImages/ColourTextas.jpg
+32,highlighter,purchase a,School Item,1,TRUE,product,"1, 2, 3",22.5,../../Images/PlasticItemImages/Highlighter.jpg
+33,pencil eraser,purchase a,School Item,8,FALSE,,"1, 2",9.07,../../Images/PlasticItemImages/PencilEraser.jpg
+34,contact or stickers to cover books,use ,School Item,5,FALSE,,"1, 2",99,../../Images/PlasticItemImages/ContactOrStickersToCoverBooks.jpg
+36,plastic shopping bag,require a new ,Shopping,3,TRUE,product,"1, 2, 3",5.5,../../Images/PlasticItemImages/PlasticShoppingBag.jpg
+37,shoes,purchase a new set of,Clothing,5,FALSE,,"1, 2",300,../../Images/PlasticItemImages/Shoes.jpg
+38,sun glasses or prescription glasses,replace my,Clothing,8,TRUE,product,"1, 2, 3",37.5,../../Images/PlasticItemImages/SunGlassesOrPrescriptionGlasses.jpg
+39,clothing made from synthetics,purchase ,Clothing,2,FALSE,,"1, 2",200,../../Images/PlasticItemImages/ClothingMadeFromSynthetics.jpg
+40,mobile phone case,replace my,Technology,8,TRUE,and packaging,"1, 2, 4",20,../../Images/PlasticItemImages/MobilePhoneCase.jpg
+41,video game,purchase a new,Technology,5,TRUE,and packaging,"1, 2, 4",55,../../Images/PlasticItemImages/videoGameDiscs.jpg
+42,mobile phone,purchase a new,Technology,8,TRUE,and packaging,"1, 2, 4",25.6,../../Images/PlasticItemImages/MobilePhone.jpg
+43,headphones,purchase new,Technology,5,TRUE,and packaging,"1, 2, 4",187.5,../../Images/PlasticItemImages/Headphones.jpg
+44,ear pods,purchase new,Technology,5,TRUE,and packaging,"1, 2, 4",42,../../Images/PlasticItemImages/earpods.jpeg
+45,skateboard,purchase a new,Sport,8,TRUE,and packaging,"1, 2, 4",1800,../../Images/PlasticItemImages/skateboardAndGear.jpeg
+46,football,purchase a new,Sport,8,TRUE,and packaging,"1, 2, 4",420,../../Images/PlasticItemImages/typesOfFootball.jpeg
+47,lollies ,purchase,"Food, Eating",1,TRUE,packets,"1, 2, 4",0.35,../../Images/PlasticItemImages/bagOfLollies.jpg

@@ -69,7 +69,7 @@ namespace PlasticReductionProject.DAL
                 // Calculate average utilisation per product
                 var productListOfType = context.Products.Where(prod => prod.Type == pt.Id).ToList();
        
-                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight);
+                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight * prod.PerYearUsage);
                 productListOfType.ForEach(prod => prod.averageUtilisation = prod.Weight / productMassSumForPlasticType * pt.AnnualTarget);
 
             });

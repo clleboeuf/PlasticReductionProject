@@ -13,6 +13,19 @@
         <br /><br />
         <br />
         <p><b>@ViewBag.Title</b></p>
+        <p>
+            @ViewBag.HighestProduct
+        </p>
+        <p>
+            @ViewBag.LowestProduct
+        </p>
+
+        @foreach(var item in Model.Results)
+            {
+            <p>@item.Product.Id</p>
+            }
+        
+
 
         <table style="width:100%">
             <tr>
@@ -22,11 +35,54 @@
                         <p><b>Petey PET</b></p>
                         <image src="../../images/PlasticCharacters/PeteyPET.png" height="100px"></image>
                         <p>
-                            Polyethylene terephthalate <br />@Model.PETScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PETAvg)
+                            Polyethylene terephthalate
                         </p>
-                    </td>
-                }
+                        <p>
+                            @if (Model.PETScore > 3 * Model.PETAvg)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                        <p>
+                            You can find some alternatives<br />
+                            <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", new { ProductID = 6 })</span>
+                        </p>
+                            }
+                            else if (Model.PETScore > 2 * Model.PETAvg)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                            }
+
+                            else if (Model.PETScore < Model.PETAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                            <p>Low</p>
+                        }
+                        else if (Model.PETScore > Model.PETAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:20%;">
+                                <div align="center" style="background-color:greenyellow;width:80%;">Very Low</div>
+                            </div>
+                            <p>Very Low</p>
+                        }
+                        else
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:50%;">
+                                <div align="center" style="background-color:blue;width:80%;">Average</div>
+                            </div>
+                            <p>Average </p>
+                        }
+                        </td>
+                    }
 
                 @if (Model.HDPEScore != 0)
                 {
@@ -34,9 +90,41 @@
                         <p><b>Harry HDPE</b></p>
                         <image src="../../images/PlasticCharacters/HarryHDPE.png" height="100px"></image>
                         <p>
-                            High-density polyethylene <br />@Model.HDPEScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.HDPEAvg) grams per year.
+                            High-density polyethylene <br />
                         </p>
+                        @if (Model.HDPEScore > 3 * Model.HDPEAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:red;width:80%;">Very High</div>
+                            </div>
+                            <p>Very High</p>
+                        }
+                        else if (Model.HDPEScore > 2 * Model.HDPEAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
+
+                        else if (Model.HDPEScore > Model.HDPEAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.HDPEScore > Model.HDPEAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:20%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
                     </td>
                 }
 
@@ -46,9 +134,40 @@
                         <p><b>Pedro PVC</b></p>
                         <image src="../../images/PlasticCharacters/PedroPVC.png" height="100px"></image>
                         <p>
-                            Polyvinyl <br />@Model.PVCScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PVCAvg)
+                            Polyvinyl chloride
                         </p>
+                        @if (Model.PVCScore > 3 * Model.PVCAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:red;width:80%;">Very High</div>
+                            </div>
+                        }
+                        else if (Model.PVCScore > 2 * Model.PVCAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
+
+                        else if (Model.PVCScore > Model.PVCAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.PVCScore > Model.PVCAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
                     </td>
                 }
 
@@ -63,16 +182,44 @@
                         <p><b>Larry LDPE</b></p>
                         <image src="../../images/PlasticCharacters/LarryLDPE.png" height="100px"></image>
                         <p>
-                            Low-density polyethylene <br />@Model.LDPEScore grams per year.
-                            <br />Average: @String.Format("{0:0.00}", @Model.LDPEAvg)
+                            Low-density polyethylene <br />
                         </p>
+                        @if (Model.LDPEScore > 3 * Model.LDPEAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:red;width:80%;">Very High</div>
+                            </div>
+                        }
+                        else if (Model.LDPEScore > 2 * Model.LDPEAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
+
+                        else if (Model.LDPEScore > Model.LDPEAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.LDPEScore > Model.LDPEAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
                     </td>
+
                 }
 
-                @if (ViewBag.Counter == 3)
-                {
-                    @Html.Raw("</tr><tr>")
-                }
 
                 @if (Model.PPScore != 0)
                 {
@@ -80,15 +227,41 @@
                         <p><b>Polly And Paulie PP</b></p>
                         <image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="100px"></image>
                         <p>
-                            Polypropylene <br />@Model.PPScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PPAvg)
+                            Polypropylene <br />
                         </p>
-                    </td>
-                }
+                        @if (Model.PPScore > 3 * Model.PPAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:red;width:80%;">Very High</div>
+                            </div>
+                        }
+                        else if (Model.PPScore > 2 * Model.PPAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
 
-                @if (ViewBag.Counter == 3)
-                {
-                    @Html.Raw("</tr><tr>")
+                        else if (Model.PPScore > Model.PPAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.PPScore > Model.PPAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
+                    </td>
                 }
 
                 @if (Model.PSScore != 0)
@@ -98,9 +271,40 @@
                         <p><b>Preston PS</b></p>
                         <image src="../../images/PlasticCharacters/PrestonPS.png" height="100px"></image>
                         <p>
-                            Polystyrene <br />@Model.PSScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PSAvg)
+                            Polystyrene <br />
                         </p>
+                        @if (Model.PSScore > 3 * Model.PSAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:red;width:80%;">Very High</div>
+                            </div>
+                        }
+                        else if (Model.PSScore > 2 * Model.PSAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
+
+                        else if (Model.PSScore > Model.PSAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.PSScore > Model.PSAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
                     </td>
                 }
 
@@ -110,8 +314,39 @@
                         <p><b>Patty PPA</b></p>
                         <image src="../../images/PlasticCharacters/PattyPPA.png" height="100px"></image>
                         <p>
-                            Polyphthalamide <br />@Model.PPAScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PPAAvg)
+                            Polyphthalamide <br />
+                            @if (Model.PPAScore > 3 * Model.PPAAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                            }
+                            else if (Model.PPAScore > 2 * Model.PPAAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                            }
+
+                            else if (Model.PPAScore > Model.PPAAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                            }
+                            else if (Model.PPAScore > Model.PPAAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                            }
                         </p>
                     </td>
                 }
@@ -127,9 +362,40 @@
                         <p><b>Ollie Other</b></p>
                         <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
                         <p>
-                            Other plastic <br />@Model.OtherScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.OtherAvg)
+                            Other plastic <br />
                         </p>
+                        @if (Model.OtherScore > 3 * Model.OtherAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:red;width:80%;">Very High</div>
+                            </div>
+                        }
+                        else if (Model.OtherScore > 2 * Model.OtherAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
+
+                        else if (Model.OtherScore > Model.OtherAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.OtherScore > Model.OtherAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
                     </td>
                 }
 
@@ -143,10 +409,11 @@
                         <b>@ViewBag.Comment</b><br />
                         <img src=@ViewBag.Image width="50%" />
                         <br />
-                        <div class="fb-share-button" 
-                             data-href="https://developers.facebook.com/docs/plugins/" 
+                        <div class="fb-share-button"
+                             data-href="https://developers.facebook.com/docs/plugins/"
                              data-layout="button_count" data-size="small">
-                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                        </div>
                     </p>
                 </td>
                 <td align="center">

@@ -320,7 +320,7 @@ namespace PlasticReductionProject.Views.Calculator
                     break;
             }
 
-            List<Badge> badges = new List<Badge>();
+           
             List<Badge> badges = db.Badges.ToList();
 
             int turtles = 1;
@@ -342,31 +342,7 @@ namespace PlasticReductionProject.Views.Calculator
                 default:
                     break;
             }
-            else if (compScore < 0.05)
-            {
-                ViewBag.Comment = badges.ElementAt(4).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(4).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.1)
-            {
-                ViewBag.Comment = badges.ElementAt(3).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(3).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.3)
-            {
-                ViewBag.Comment = badges.ElementAt(2).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(2).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.5)
-            {
-                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
-            }
-            else
-            {
-                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
-            }
+
 
             ViewBag.Comment = badges.ElementAt(turtles).Comment.ToString();
             ViewBag.Image = badges.ElementAt(turtles).BadgeUrl.ToString();

@@ -19,17 +19,21 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 10;
+        private int QuestionCount = 5;
 
         // GET: Calculator
-        public ActionResult Calculator()
+        public ActionResult Calculator(int? questions)
         {
-
-            cr = new CalculatorResult(QuestionCount);
-
             List<int> usedRand = new List<int>();
             var randomProducts = new List<Product>();
             int productCount = db.Products.Count();
+
+            if (questions > 0 && questions < productCount)
+            {
+                QuestionCount = (int)questions;
+            }
+            cr = new CalculatorResult(QuestionCount);
+
             while (randomProducts.Count() < QuestionCount)
             {
                 var rand = Randomiser.RandomNumber(1, productCount);
@@ -125,7 +129,7 @@ namespace PlasticReductionProject.Views.Calculator
 
             if (this.cr.increment == this.cr.Results.Count)
             {
-                //  db.SaveChanges();
+
                 return RedirectToAction("Report");
             }
 
@@ -186,7 +190,7 @@ namespace PlasticReductionProject.Views.Calculator
             var compScore = totalScore / totalAverage;
 
             List<Badge> badges = db.Badges.ToList();
-            
+
             int turtles = 1;
 
             switch (compScore)
@@ -206,10 +210,10 @@ namespace PlasticReductionProject.Views.Calculator
                 default:
                     break;
             }
-                      
+
             ViewBag.Comment = badges.ElementAt(turtles).Comment.ToString();
             ViewBag.Image = badges.ElementAt(turtles).BadgeUrl.ToString();
-  
+
             return View(this.cr);
         }
 

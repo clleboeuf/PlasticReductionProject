@@ -19,7 +19,7 @@
 21,plastic toothbrush,replace my,"Hygiene, Cleaning",1,TRUE,product,"1, 2, 3",18,../../Images/PlasticItemImages/PlasticToothbrush1.jpg
 23,wet wipe,use,"Hygiene, Cleaning",2,FALSE,,"1, 2",1.4,../../Images/PlasticItemImages/WetWipe.jpg
 24,sun screen,use,"Hygiene, Cleaning",8,FALSE,,"1, 2",30,../../Images/PlasticItemImages/Sunscreen.jpg
-25,fishing gear,purchase new,Sport,5,FALSE,,"1, 2",125,../../Images/PlasticItemImages/FishingGeat.jpg
+25,fishing gear,purchase new,Sport,5,FALSE,,"1, 2",125,../../Images/PlasticItemImages/FishingGear.jpg
 26,lip balm,purchase a,"Hygiene, Cleaning",8,FALSE,,"1, 2",4.8,../../Images/PlasticItemImages/LipBalm.jpg
 27,pencil case,replace my,School Item,5,FALSE,,"1, 2",58,../../Images/PlasticItemImages/PencilCase.jpg
 28,plastic ruler,purchase a,School Item,7,TRUE,product,"1, 2, 3",26,../../Images/PlasticItemImages/PlasticRuler.jpg

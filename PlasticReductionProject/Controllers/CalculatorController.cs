@@ -47,7 +47,7 @@ namespace PlasticReductionProject.Views.Calculator
             cr.Results.ForEach(x =>
             {
                 index++;
-                x.Product = db.Products.ToList()[index];
+                x.Product = randomProducts[index];
             });
 
 

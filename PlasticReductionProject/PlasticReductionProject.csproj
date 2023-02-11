@@ -353,7 +353,6 @@
     <Content Include="DAL\products.csv" />
     <Content Include="DAL\links.csv" />
     <Content Include="DAL\projects.csv" />
-    <Content Include="Images\PlasticItemImages\Locations for pictures.docx" />
     <Content Include="DAL\plastic_type.csv" />
     <Content Include="fonts\GOTHIC.TTF" />
     <Content Include="fonts\GOTHICB.TTF" />

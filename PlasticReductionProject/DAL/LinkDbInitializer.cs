@@ -81,8 +81,6 @@ namespace PlasticReductionProject.DAL
             var badges = csv.GetRecords<Badge>();
             badges.ForEach(i => context.Badges.AddOrUpdate(i));
             context.SaveChanges();
-
-            var test = 0;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace PlasticReductionProject.Views.Calculator
 {
     public class CalculatorController : Controller
     {
-        private LinkDbContext db = new LinkDbContext();
+        private PlasticDbContext db = new PlasticDbContext();
 
         private CalculatorResult cr
         {

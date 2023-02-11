@@ -11,7 +11,7 @@ namespace PlasticReductionProject.Controllers
     public class AlternativesController : Controller
     {
 
-        private LinkDbContext db = new LinkDbContext();
+        private PlasticDbContext db = new PlasticDbContext();
 
         // GET: Alternatives
         public ActionResult Alternatives()

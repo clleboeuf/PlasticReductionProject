@@ -9,7 +9,7 @@ namespace PlasticReductionProject.Controllers
 {
     public class ProjectsController : Controller
     {
-        private LinkDbContext db = new LinkDbContext(); 
+        private PlasticDbContext db = new PlasticDbContext(); 
 
         // GET: Projects
         public ActionResult Projects()

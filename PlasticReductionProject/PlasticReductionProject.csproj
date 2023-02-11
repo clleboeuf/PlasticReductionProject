@@ -204,8 +204,8 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\Randomiser.cs" />
     <Compile Include="Controllers\TrackerController.cs" />
-    <Compile Include="DAL\LinkDbContext.cs" />
-    <Compile Include="DAL\LinkDbInitializer.cs" />
+    <Compile Include="DAL\PlasticDbContext.cs" />
+    <Compile Include="DAL\PlasticDbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -359,6 +359,7 @@
     <Content Include="fonts\GOTHICBI.TTF" />
     <Content Include="fonts\GOTHICI.TTF" />
     <Content Include="DAL\badges.csv" />
+    <None Include="Properties\PublishProfiles\MPFPIteration1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

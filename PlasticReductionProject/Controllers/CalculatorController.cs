@@ -1,4 +1,5 @@
 ﻿using Microsoft.Ajax.Utilities;
+using Owin;
 using PlasticReductionProject.DAL;
 using PlasticReductionProject.Models;
 using System;
@@ -18,17 +19,22 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
+        private int QuestionCount = 5;
 
         // GET: Calculator
-        public ActionResult Calculator()
+        public ActionResult Calculator(int? questions)
         {
-
-            cr = new CalculatorResult(5);
-
             List<int> usedRand = new List<int>();
             var randomProducts = new List<Product>();
             int productCount = db.Products.Count();
-            while (randomProducts.Count() < 5)
+
+            if (questions > 0 && questions < productCount)
+            {
+                QuestionCount = (int)questions;
+            }
+            cr = new CalculatorResult(QuestionCount);
+
+            while (randomProducts.Count() < QuestionCount)
             {
                 var rand = Randomiser.RandomNumber(1, productCount);
                 if (!usedRand.Contains(rand))
@@ -37,16 +43,19 @@ namespace PlasticReductionProject.Views.Calculator
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
                     //{
-                        randomProducts.Add(test);
+                    randomProducts.Add(test);
                     //}
                 }
             }
+
             int index = -1;
             cr.Results.ForEach(x =>
             {
                 index++;
                 x.Product = randomProducts[index];
             });
+
+
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
             return View(cr.Results.First());
@@ -54,7 +63,6 @@ namespace PlasticReductionProject.Views.Calculator
 
         //post results
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult Calculator(ProductResult result)
         {
             ProductResult toSave = this.cr.Results.ElementAt(this.cr.increment);
@@ -119,9 +127,9 @@ namespace PlasticReductionProject.Views.Calculator
 
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
-            if (this.cr.increment == 5)
+            if (this.cr.increment == this.cr.Results.Count)
             {
-                //  db.SaveChanges();
+
                 return RedirectToAction("Report");
             }
 
@@ -176,57 +184,38 @@ namespace PlasticReductionProject.Views.Calculator
 
             ViewBag.Page = "Report";
 
-            var totalListScore = this.cr.PlasticScores.Sum(x => x.Score);   
-            var totalListAverage = this.cr.PlasticScores.Sum(x => x.Average);
-            var compScoreList = totalListScore/totalListAverage;
+            var totalScore = this.cr.PlasticScores.Sum(x => x.Score);
+            var totalAverage = this.cr.PlasticScores.Sum(x => x.Average);
 
-            var totalScore = this.cr.HDPEScore + this.cr.LDPEScore + this.cr.OtherScore + this.cr.PETScore + this.cr.PPAScore + this.cr.PPScore
-                + this.cr.PSScore + this.cr.PVCScore;
-            var totalAvg = this.cr.HDPEAvg + this.cr.LDPEAvg + this.cr.OtherAvg + this.cr.PETAvg + this.cr.PPAAvg + this.cr.PPAvg
-                + this.cr.PSAvg + this.cr.PVCAvg;
+            var compScore = totalScore / totalAverage;
 
-            var compScore = totalScore / totalAvg;
+            List<Badge> badges = db.Badges.ToList();
 
-            List<Badge> badges = new List<Badge>();
+            int turtles = 1;
 
-            badges = db.Badges.ToList();
-
-            if (compScore < 0.01)
+            switch (compScore)
             {
-                ViewBag.Comment = badges.ElementAt(5).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(5).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.05)
-            {
-                ViewBag.Comment = badges.ElementAt(4).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(4).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.1)
-            {
-                ViewBag.Comment = badges.ElementAt(3).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(3).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.3)
-            {
-                ViewBag.Comment = badges.ElementAt(2).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(2).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.5)
-            {
-                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
-            }
-            else
-            {
-                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
+                case var _ when compScore < 0.01:
+                    turtles = 5;
+                    break;
+                case var _ when compScore < 0.05:
+                    turtles = 4;
+                    break;
+                case var _ when compScore < 0.1:
+                    turtles = 3;
+                    break;
+                case var _ when compScore < 0.3:
+                    turtles = 2;
+                    break;
+                default:
+                    break;
             }
 
-
+            ViewBag.Comment = badges.ElementAt(turtles).Comment.ToString();
+            ViewBag.Image = badges.ElementAt(turtles).BadgeUrl.ToString();
 
             return View(this.cr);
         }
-
 
 
         public ActionResult Products()
@@ -253,37 +242,6 @@ namespace PlasticReductionProject.Views.Calculator
             return View(PlasticTypeList);
         }
 
-        public void addCookieToViewBag()
-        {
 
-            if (HttpContext.Request.Cookies["UserCookie"] == null)
-            {
-                var SessionCookie = new HttpCookie("UserCookie");
-                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
-                Response.Cookies.Add(SessionCookie);
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = cookie.Values[0];
-            }
-            else
-            {
-                var SessionCookie = new HttpCookie(Session.SessionID.ToString());
-                HttpCookie oldCookie = HttpContext.Request.Cookies["UserCookie"];
-                string oldSessionId = oldCookie.Values["SessionId"].ToString();
-                string currSessionId = Session.SessionID.ToString();
-                string combinedSessionID = oldSessionId + "," + currSessionId;
-                oldCookie.Values.Add("SessionId", combinedSessionID);
-                //SessionCookie.Values.Add("SessionIDs", "SessionId");
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = oldCookie.Values["SessionId"];
-                var counter = 0;
-                ViewBag.CookieKey = "";
-                foreach (var value in cookie.Values)
-                {
-                    ViewBag.CookieKey += value.ToString();
-
-                    counter += 1;
-                }
-            }
-        }
     }
 }

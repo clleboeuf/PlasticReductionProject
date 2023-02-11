@@ -12,7 +12,7 @@ using System.Linq;
 namespace PlasticReductionProject.DAL
 {
 
-    internal class PlasticDbInitializer : System.Data.Entity.CreateDatabaseIfNotExists<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
+    internal class PlasticDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
 
     {
         protected override void Seed(PlasticDbContext context)
@@ -69,7 +69,7 @@ namespace PlasticReductionProject.DAL
                 // Calculate average utilisation per product
                 var productListOfType = context.Products.Where(prod => prod.Type == pt.Id).ToList();
        
-                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight);
+                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight * prod.PerYearUsage);
                 productListOfType.ForEach(prod => prod.averageUtilisation = prod.Weight / productMassSumForPlasticType * pt.AnnualTarget);
 
             });

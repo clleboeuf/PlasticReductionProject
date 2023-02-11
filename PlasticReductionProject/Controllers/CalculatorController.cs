@@ -229,8 +229,6 @@ namespace PlasticReductionProject.Views.Calculator
 
             double Highest = Rankings.Max();
             double Lowest = Rankings.Min();
-            string LowestProductTested = "";
-            
             int iCounter = 0;
             int posH = 0;
             int posL = 0;

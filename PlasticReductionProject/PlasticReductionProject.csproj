@@ -282,6 +282,7 @@
     <Content Include="Images\PlasticCharacters\PeteyPET.png" />
     <Content Include="Images\PlasticCharacters\PollyAndPauliePP.png" />
     <Content Include="Images\PlasticCharacters\PrestonPS.png" />
+    <Content Include="Images\PlasticItemImages\bagOfLollies.jpg" />
     <Content Include="Images\PlasticItemImages\Balloons.jpg" />
     <Content Include="Images\PlasticItemImages\BodySoap.jpg" />
     <Content Include="Images\PlasticItemImages\ChargeCable.jpg" />
@@ -297,7 +298,9 @@
     <Content Include="Images\PlasticItemImages\DisposablePen.jpg" />
     <Content Include="Images\PlasticItemImages\DisposableRazor.jpg" />
     <Content Include="Images\PlasticItemImages\DrinkCarton.jpg" />
+    <Content Include="Images\PlasticItemImages\earpods.jpeg" />
     <Content Include="Images\PlasticItemImages\EFTReceipt.jpg" />
+    <Content Include="Images\PlasticItemImages\FishingGear.jpg" />
     <Content Include="Images\PlasticItemImages\FrozenMeals.jpg" />
     <Content Include="Images\PlasticItemImages\GlitterConfetti.jpg" />
     <Content Include="Images\PlasticItemImages\HairShampooAndConditioner.jpg" />
@@ -322,11 +325,13 @@
     <Content Include="Images\PlasticItemImages\PotatoChips.jpg" />
     <Content Include="Images\PlasticItemImages\Shoes.jpg" />
     <Content Include="Images\PlasticItemImages\SingleUseSanitaryProducts.jpg" />
+    <Content Include="Images\PlasticItemImages\skateboardAndGear.jpeg" />
     <Content Include="Images\PlasticItemImages\SportsEquipment.jpg" />
     <Content Include="Images\PlasticItemImages\SunGlassesOrPrescriptionGlasses.jpg" />
     <Content Include="Images\PlasticItemImages\Sunscreen.jpg" />
     <Content Include="Images\PlasticItemImages\TakeawayFood.jpg" />
     <Content Include="Images\PlasticItemImages\Teabag.jpg" />
+    <Content Include="Images\PlasticItemImages\typesOfFootball.jpeg" />
     <Content Include="Images\PlasticItemImages\VapePen.jpg" />
     <Content Include="Images\PlasticItemImages\WetWipe.jpg" />
     <Content Include="Images\PlasticItemImages\WrappingPaper.jpg" />

@@ -173,9 +173,12 @@ namespace PlasticReductionProject.Views.Calculator
         // GET: Report
         public ActionResult Report()
         {
-            // addCookieToViewBag();
 
             ViewBag.Page = "Report";
+
+            var totalListScore = this.cr.PlasticScores.Sum(x => x.Score);   
+            var totalListAverage = this.cr.PlasticScores.Sum(x => x.Average);
+            var compScoreList = totalListScore/totalListAverage;
 
             var totalScore = this.cr.HDPEScore + this.cr.LDPEScore + this.cr.OtherScore + this.cr.PETScore + this.cr.PPAScore + this.cr.PPScore
                 + this.cr.PSScore + this.cr.PVCScore;

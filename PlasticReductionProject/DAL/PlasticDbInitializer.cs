@@ -12,7 +12,7 @@ using System.Linq;
 namespace PlasticReductionProject.DAL
 {
 
-    internal class PlasticDbInitializer : System.Data.Entity.CreateDatabaseIfNotExists<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
+    internal class PlasticDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
 
     {
         protected override void Seed(PlasticDbContext context)

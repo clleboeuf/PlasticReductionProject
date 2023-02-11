@@ -18,17 +18,18 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
+        private int QuestionCount = 5;
 
         // GET: Calculator
         public ActionResult Calculator()
         {
 
-            cr = new CalculatorResult(5);
+            cr = new CalculatorResult(QuestionCount);
 
             List<int> usedRand = new List<int>();
             var randomProducts = new List<Product>();
             int productCount = db.Products.Count();
-            while (randomProducts.Count() < 5)
+            while (randomProducts.Count() < QuestionCount)
             {
                 var rand = Randomiser.RandomNumber(1, productCount);
                 if (!usedRand.Contains(rand))
@@ -37,15 +38,16 @@ namespace PlasticReductionProject.Views.Calculator
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
                     //{
-                        randomProducts.Add(test);
+                    randomProducts.Add(test);
                     //}
                 }
             }
+
             int index = -1;
             cr.Results.ForEach(x =>
             {
                 index++;
-                x.Product = randomProducts[index];
+                x.Product = db.Products.ToList()[index];
             });
 
 
@@ -121,7 +123,7 @@ namespace PlasticReductionProject.Views.Calculator
 
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
-            if (this.cr.increment == 5)
+            if (this.cr.increment == this.cr.Results.Count)
             {
                 //  db.SaveChanges();
                 return RedirectToAction("Report");
@@ -178,16 +180,10 @@ namespace PlasticReductionProject.Views.Calculator
 
             ViewBag.Page = "Report";
 
-            var totalListScore = this.cr.PlasticScores.Sum(x => x.Score);   
-            var totalListAverage = this.cr.PlasticScores.Sum(x => x.Average);
-            var compScoreList = totalListScore/totalListAverage;
-
-            var totalScore = this.cr.HDPEScore + this.cr.LDPEScore + this.cr.OtherScore + this.cr.PETScore + this.cr.PPAScore + this.cr.PPScore
-                + this.cr.PSScore + this.cr.PVCScore;
-            var totalAvg = this.cr.HDPEAvg + this.cr.LDPEAvg + this.cr.OtherAvg + this.cr.PETAvg + this.cr.PPAAvg + this.cr.PPAvg
-                + this.cr.PSAvg + this.cr.PVCAvg;
-
-            var compScore = totalScore / totalAvg;
+            var totalScore = this.cr.PlasticScores.Sum(x => x.Score);   
+            var totalAverage = this.cr.PlasticScores.Sum(x => x.Average);
+ 
+            var compScore = totalScore / totalAverage;
 
             List<Badge> badges = new List<Badge>();
 
@@ -223,8 +219,6 @@ namespace PlasticReductionProject.Views.Calculator
                 ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
                 ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
             }
-
-
 
             return View(this.cr);
         }

@@ -47,6 +47,8 @@ namespace PlasticReductionProject.Views.Calculator
                 index++;
                 x.Product = randomProducts[index];
             });
+
+
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
             return View(cr.Results.First());

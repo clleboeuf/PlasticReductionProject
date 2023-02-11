@@ -272,6 +272,11 @@
     <Content Include="Images\LinksImages\PSFlogo.jpg" />
     <Content Include="Images\LinksImages\UNEPLogo.png" />
     <Content Include="Images\LinksImages\WWFLogo.jpg" />
+    <Content Include="Images\MarineGifs\Fish.gif" />
+    <Content Include="Images\MarineGifs\Octopus.gif" />
+    <Content Include="Images\MarineGifs\Starfish.gif" />
+    <Content Include="Images\MarineGifs\Turtle.gif" />
+    <Content Include="Images\MarineGifs\Whale.gif" />
     <Content Include="Images\MPFLogo.png" />
     <Content Include="Images\PickingUpPlastic.jpg" />
     <Content Include="Images\PlasticCharacters\HarryHDPE.png" />
@@ -338,6 +343,7 @@
     <Content Include="Images\RollingFacts\marinePlasticFacts.jpg" />
     <Content Include="Images\RollingFacts\WWF-Plastics-Feature-Images-TURTLES.jpg" />
     <Content Include="Images\RollingFacts\WWF-Plastics-Feature-Images-WHALES.1aa1813.width-1600.b1b7407.jpg" />
+    <Content Include="Images\SeaBackground.jpg" />
     <Content Include="Images\Simpsons\Bart.jpg" />
     <Content Include="Images\Simpsons\Homer.jpg" />
     <Content Include="Images\Simpsons\Lisa.jpg" />

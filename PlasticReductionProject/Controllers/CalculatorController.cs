@@ -40,10 +40,10 @@ namespace PlasticReductionProject.Views.Calculator
                 {
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
-                    if (test.Type == 6 || test.Type == 7)
-                    {
+          //          if (test.Type == 6 || test.Type == 7)
+          //          {
                         randomProducts.Add(test);
-                    }
+          //          }
                 }
             }
             int index = -1;
@@ -175,13 +175,13 @@ namespace PlasticReductionProject.Views.Calculator
         }
 
 
-        public ActionResult altButton()
+        public ActionResult altButton(int ProductId)
         {
             
             var newResults = new List<ProductResult>();
-            TempData["tempResults"] = this.cr.Results;
-
-            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = 6, ResultsList = TempData["tempResults"], blah = 5});
+            TempData["tempResults"] = this.cr.Results.ToList();
+            TempData["CalcResult"] = this.cr;
+            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"], blah = 5});
       //      return View();
         }
 
@@ -249,6 +249,7 @@ namespace PlasticReductionProject.Views.Calculator
                 }
                 if (rankings < currLow && rankings > 0)
                 {
+                    currLow = rankings;
                     posLowestUsed = iCounter;
                 }
                 iCounter ++;
@@ -346,9 +347,6 @@ namespace PlasticReductionProject.Views.Calculator
                 ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
                 ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
             }
-
-
-
             return View(this.cr);
         }
 

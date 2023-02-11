@@ -12,10 +12,10 @@ using System.Linq;
 namespace PlasticReductionProject.DAL
 {
 
-    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
+    internal class PlasticDbInitializer : System.Data.Entity.CreateDatabaseIfNotExists<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
 
     {
-        protected override void Seed(LinkDbContext context)
+        protected override void Seed(PlasticDbContext context)
         {
 
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/links.csv");

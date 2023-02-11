@@ -8,11 +8,11 @@ using PlasticReductionProject.Models;
 
 namespace PlasticReductionProject.DAL
 {
-    public class LinkDbContext : DbContext
+    public class PlasticDbContext : DbContext
     {
-        public LinkDbContext() : base("LinkDbContext")
+        public PlasticDbContext() : base("name=PlasticDbContext")
         {
-            Database.SetInitializer(new LinkDbInitializer());
+            Database.SetInitializer(new PlasticDbInitializer());
         }
 
         public DbSet<Link> Links { get; set; }

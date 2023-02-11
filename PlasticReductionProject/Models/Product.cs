@@ -43,6 +43,9 @@ namespace PlasticReductionProject.Models
         [Name("Image")]
         public string Image { get; set; }
 
+        [Name("perYear")]
+        public int PerYearUsage { get; set; }
+
         [Ignore]
         public virtual double averageUtilisation { get; set; }
 

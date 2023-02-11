@@ -20,9 +20,16 @@ namespace PlasticReductionProject.Views.Calculator
         }
 
         // GET: Calculator
+        public ActionResult Intro()
+        {
+            ViewBag.Page = "Intro";
+            return View();
+         }
+
+        //post results
+        //[ValidateAntiForgeryToken]
         public ActionResult Calculator()
         {
-
             cr = new CalculatorResult(5);
 
             List<int> usedRand = new List<int>();
@@ -37,7 +44,7 @@ namespace PlasticReductionProject.Views.Calculator
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
                     //{
-                        randomProducts.Add(test);
+                    randomProducts.Add(test);
                     //}
                 }
             }
@@ -52,8 +59,8 @@ namespace PlasticReductionProject.Views.Calculator
             return View(cr.Results.First());
         }
 
-        //post results
-        [HttpPost]
+            //post results
+            [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Calculator(ProductResult result)
         {

@@ -20,15 +20,18 @@
             @ViewBag.LowestProduct
         </p>
 
-        @foreach(var item in Model.Results)
-            {
+        @foreach (var item in Model.Results)
+        {
             <p>@item.Product.Id</p>
-            }
+        }
+
+        @{ var test = Model.Results.ToList();} 
         
 
 
         <table style="width:100%">
             <tr>
+              
                 @if (Model.PETScore != 0)
                 {
                     <td align="center" valign="top" class="resultBackground">
@@ -46,7 +49,7 @@
                                 </div>
                         <p>
                             You can find some alternatives<br />
-                            <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", new { ProductID = 6 })</span>
+                            <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test},null)</span>
                         </p>
                             }
                             else if (Model.PETScore > 2 * Model.PETAvg)
@@ -97,7 +100,10 @@
                             <div align="left" style="background-color:aliceblue; width:90%;">
                                 <div align="center" style="background-color:red;width:80%;">Very High</div>
                             </div>
-                            <p>Very High</p>
+                            <p>
+                                You can find some alternatives<br />
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", "Alternatives", new { ProductID = 3, ResultsList = test}, null)</span>
+                            </p>
                         }
                         else if (Model.HDPEScore > 2 * Model.HDPEAvg)
                         {
@@ -141,6 +147,11 @@
                             <div align="left" style="background-color:aliceblue; width:90%;">
                                 <div align="center" style="background-color:red;width:80%;">Very High</div>
                             </div>
+                            <p>
+                                You can find some alternatives<br />
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", "Alternatives", new { ProductID = 5, ResultsList = test }, null)</span>
+                            </p>
+
                         }
                         else if (Model.PVCScore > 2 * Model.PVCAvg)
                         {
@@ -184,6 +195,11 @@
                         <p>
                             Low-density polyethylene <br />
                         </p>
+                        <p>
+                            You can find some alternatives<br />
+                            <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", "Alternatives", new { ProductID = 4, ResultsList = test }, null)</span>
+                        </p>
+
                         @if (Model.LDPEScore > 3 * Model.LDPEAvg)
                         {
                             <div align="left" style="background-color:aliceblue; width:90%;">
@@ -234,6 +250,11 @@
                             <div align="left" style="background-color:aliceblue; width:90%;">
                                 <div align="center" style="background-color:red;width:80%;">Very High</div>
                             </div>
+                            <p>
+                                You can find some alternatives<br />
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", "Alternatives", new { ProductID = 1, ResultsList = test }, null)</span>
+                            </p>
+
                         }
                         else if (Model.PPScore > 2 * Model.PPAvg)
                         {
@@ -273,6 +294,11 @@
                         <p>
                             Polystyrene <br />
                         </p>
+                        <p>
+                            You can find some alternatives<br />
+                            <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", "Alternatives", new { ProductID = 7, ResultsList = test }, null)</span>
+                        </p>
+
                         @if (Model.PSScore > 3 * Model.PSAvg)
                         {
                             <div align="left" style="background-color:aliceblue; width:90%;">
@@ -320,35 +346,40 @@
                                 <div align="left" style="background-color:aliceblue; width:90%;">
                                     <div align="center" style="background-color:red;width:80%;">Very High</div>
                                 </div>
-                            }
-                            else if (Model.PPAScore > 2 * Model.PPAAvg)
-                            {
-                                <div align="left" style="background-color:aliceblue; width:90%;">
-                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
-                                </div>
-                            }
+                            <p>
+                                You can find some alternatives<br />
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives", "Alternatives", new { ProductID = 2, ResultsList = test }, null)</span>
+                            </p>
 
-                            else if (Model.PPAScore > Model.PPAAvg / 2)
-                            {
+                        }
+                        else if (Model.PPAScore > 2 * Model.PPAAvg)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                            </div>
+                        }
 
-                                <div align="left" style="background-color:aliceblue; width:90%;">
-                                    <div align="center" style="background-color:green;width:40%;">Low</div>
-                                </div>
-                            }
-                            else if (Model.PPAScore > Model.PPAAvg / 3)
-                            {
-                                <div align="left" style="background-color:aliceblue; width:90%;">
-                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div align="left" style="background-color:aliceblue; width:90%;">
-                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
-                                </div>
-                            }
-                        </p>
-                    </td>
+                        else if (Model.PPAScore > Model.PPAAvg / 2)
+                        {
+
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:green;width:40%;">Low</div>
+                            </div>
+                        }
+                        else if (Model.PPAScore > Model.PPAAvg / 3)
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div align="left" style="background-color:aliceblue; width:90%;">
+                                <div align="center" style="background-color:blue;width:50%;">Average</div>
+                            </div>
+                        }
+                            </p>
+                        </td>
                 }
 
                 @if (ViewBag.Counter == 3)
@@ -369,6 +400,11 @@
                             <div align="left" style="background-color:aliceblue; width:90%;">
                                 <div align="center" style="background-color:red;width:80%;">Very High</div>
                             </div>
+                            <p>
+                                You can find some alternatives<br />
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "filAlternatives","Alternatives", new { ProductID = 8, ResultsList = test }, null)</span>
+                            </p>
+
                         }
                         else if (Model.OtherScore > 2 * Model.OtherAvg)
                         {

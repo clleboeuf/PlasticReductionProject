@@ -22,10 +22,7 @@ namespace PlasticReductionProject.Views.Calculator
         private List<ProductResult> productsUsed = new List<ProductResult>();
 
 
-        //private ReportList rl
-       // {
 
-//        }
 
         // GET: Calculator
         public ActionResult Calculator()
@@ -43,10 +40,10 @@ namespace PlasticReductionProject.Views.Calculator
                 {
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
-                    //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
-                    //{
+                    if (test.Type == 6 || test.Type == 7)
+                    {
                         randomProducts.Add(test);
-                    //}
+                    }
                 }
             }
             int index = -1;
@@ -177,6 +174,16 @@ namespace PlasticReductionProject.Views.Calculator
 
         }
 
+
+        public ActionResult altButton()
+        {
+            
+            var newResults = new List<ProductResult>();
+            TempData["tempResults"] = this.cr.Results;
+
+            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = 6, ResultsList = TempData["tempResults"], blah = 5});
+      //      return View();
+        }
 
         // GET: Report
         public ActionResult Report()

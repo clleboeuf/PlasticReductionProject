@@ -11,7 +11,7 @@ namespace PlasticReductionProject.Views.Calculator
 {
     public class CalculatorController : Controller
     {
-        private LinkDbContext db = new LinkDbContext();
+        private PlasticDbContext db = new PlasticDbContext();
 
         private CalculatorResult cr
         {
@@ -22,7 +22,18 @@ namespace PlasticReductionProject.Views.Calculator
         // GET: Calculator
         public ActionResult Intro()
         {
+
             ViewBag.Page = "Intro";
+            var characterFacts = new List<(Character character, PlasticFact fact)>();
+            List<Character> characters = db.Characters.ToList();
+            foreach (Character ch in characters)
+            {
+                var rand = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
+                var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
+                
+                characterFacts.Add(tuple);
+            }
+            ViewBag.Characters = characters;
             return View();
          }
 

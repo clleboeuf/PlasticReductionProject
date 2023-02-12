@@ -13,7 +13,7 @@ namespace PlasticReductionProject.Controllers
 {
     public class LinksController : Controller
     {
-        private LinkDbContext db = new LinkDbContext();
+        private PlasticDbContext db = new PlasticDbContext();
         // GET: Links
         public ActionResult Links()
         {

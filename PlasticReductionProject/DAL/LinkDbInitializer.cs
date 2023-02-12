@@ -8,14 +8,16 @@ using System.Data.Entity.Migrations;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
+using System.Runtime.Remoting.Messaging;
 
 namespace PlasticReductionProject.DAL
 {
 
-    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<LinkDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
+    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
 
     {
-        protected override void Seed(LinkDbContext context)
+        protected override void Seed(PlasticDbContext context)
         {
 
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/links.csv");
@@ -82,7 +84,21 @@ namespace PlasticReductionProject.DAL
             badges.ForEach(i => context.Badges.AddOrUpdate(i));
             context.SaveChanges();
 
-            var test = 0;
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Characters.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var characters = csv.GetRecords<Character>();
+            characters.ForEach(i => context.Characters.AddOrUpdate(i));
+            context.SaveChanges();
+
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Characters.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var facts = csv.GetRecords<PlasticFact>();
+            facts.ForEach(i => context.PlasticFacts.AddOrUpdate(i));
+            context.SaveChanges();
         }
+
+
     }
 }

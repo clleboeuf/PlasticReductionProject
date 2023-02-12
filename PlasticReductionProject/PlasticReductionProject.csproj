@@ -204,7 +204,7 @@
     <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\Randomiser.cs" />
     <Compile Include="Controllers\TrackerController.cs" />
-    <Compile Include="DAL\LinkDbContext.cs" />
+    <Compile Include="DAL\PlasticDbContext.cs" />
     <Compile Include="DAL\LinkDbInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -213,10 +213,12 @@
     <Compile Include="Models\Badge.cs" />
     <Compile Include="Models\CalculatorResult.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Character.cs" />
     <Compile Include="Models\DictionaryWord.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PlasticFact.cs" />
     <Compile Include="Models\PlasticType.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\PlasticAlternative.cs" />
@@ -272,13 +274,14 @@
     <Content Include="Images\LinksImages\PSFlogo.jpg" />
     <Content Include="Images\LinksImages\UNEPLogo.png" />
     <Content Include="Images\LinksImages\WWFLogo.jpg" />
+    <Content Include="Images\MarineGifs\clam.gif" />
+    <Content Include="Images\MarineGifs\dolphin2.gif" />
     <Content Include="Images\MarineGifs\Fish.gif" />
     <Content Include="Images\MarineGifs\Octopus.gif" />
-    <Content Include="Images\MarineGifs\seepferdchen-seahorse.gif" />
-    <Content Include="Images\MarineGifs\shark-sharkweek.gif" />
+    <Content Include="Images\MarineGifs\sea-horse.gif" />
+    <Content Include="Images\MarineGifs\shark.gif" />
     <Content Include="Images\MarineGifs\Starfish.gif" />
     <Content Include="Images\MarineGifs\teagif-cute.gif" />
-    <Content Include="Images\MarineGifs\turtle-cute.gif" />
     <Content Include="Images\MarineGifs\Turtle.gif" />
     <Content Include="Images\MarineGifs\Whale.gif" />
     <Content Include="Images\MPFLogo.png" />

@@ -21,7 +21,7 @@ namespace PlasticReductionProject.Models
 
         public int OverallRating { get; set; }
 
-        public int increment { get; set; }
+        public int Increment { get; set; }
 
         public CalculatorResult(int _numberOfProductQuestions)
         {
@@ -35,7 +35,7 @@ namespace PlasticReductionProject.Models
                 productResult.Id = i;
                 this.Results.Add(productResult);
             }
-            this.increment = 0;
+            this.Increment = 0;
 
             PlasticScores = new HashSet<PlasticScore>();
 
@@ -113,13 +113,15 @@ namespace PlasticReductionProject.Models
         public string Name;
         public double Score;
         public double Average;
+        public PlasticType Type;
         public double Ranking
         { get { return Score / Average; } }
-        public PlasticScore(string name, double score, double average)
+        public PlasticScore(string name, double score, double average, PlasticType plastic)
         {
             Name = name;
             Score = score;
             Average = average;
+            Type = plastic;
         }
     }
 }

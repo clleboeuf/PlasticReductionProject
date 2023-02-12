@@ -19,7 +19,7 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 5;
+        private int QuestionCount = 10;
 
         private List<ProductResult> productsUsed = new List<ProductResult>();
 
@@ -93,7 +93,7 @@ namespace PlasticReductionProject.Views.Calculator
             });
 
 
-            ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
+            ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
             return View(cr.Results.First());
         }
@@ -103,7 +103,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         public ActionResult Calculator(ProductResult result)
         {
-            ProductResult toSave = this.cr.Results.ElementAt(this.cr.increment);
+            ProductResult toSave = this.cr.Results.ElementAt(this.cr.Increment);
             PlasticType plasticType = db.PlasticTypes.Find(toSave.Product.Type);
             Product product = toSave.Product;
             toSave.Usage = result.Usage;
@@ -114,7 +114,7 @@ namespace PlasticReductionProject.Views.Calculator
             result.Product = product;
 
             PlasticScore IfFound = this.cr.PlasticScores.Where(x => x.Name.Equals(plasticType.Acronym)).FirstOrDefault();
-            var score = calculateResultForProduct(result);
+            var score = CalculateResultForProduct(result);
             var average = product.averageUtilisation;
             if (IfFound != null)
             {
@@ -123,7 +123,7 @@ namespace PlasticReductionProject.Views.Calculator
             }
             else
             {
-                this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average));
+                this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average, plasticType));
             }
 
             switch (product.Type)
@@ -161,20 +161,20 @@ namespace PlasticReductionProject.Views.Calculator
                     cr.OtherAvg += average;
                     break;
             }
-            this.cr.increment++;
+            this.cr.Increment++;
 
-            ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
+            ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
-            if (this.cr.increment == this.cr.Results.Count)
+            if (this.cr.Increment == this.cr.Results.Count)
             {
 
                 return RedirectToAction("Report");
             }
 
-            return View(this.cr.Results.ElementAt(this.cr.increment));
+            return View(this.cr.Results.ElementAt(this.cr.Increment));
         }
 
-        private double calculateResultForProduct(ProductResult result)
+        private double CalculateResultForProduct(ProductResult result)
         {
             //needs to be put in a function
             var usedMultiplier = 1;

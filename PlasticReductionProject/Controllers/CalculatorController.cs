@@ -31,14 +31,23 @@ namespace PlasticReductionProject.Views.Calculator
         {
 
             ViewBag.Page = "Intro";
+            List<int> usedRand = new List<int>();
             var characterFacts = new List<(Character character, PlasticFact fact)>();
             List<Character> characters = db.Characters.ToList();
             foreach (Character ch in characters)
             {
-                var rand = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
-                var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
-               
-                characterFacts.Add(tuple);
+                var unused = false;
+                while (!unused)
+                {
+                    var rand = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
+                    unused = !usedRand.Contains(rand);
+                    if (unused)
+                    {
+                        usedRand.Add(rand);
+                        var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
+                        characterFacts.Add(tuple);
+                    }
+                }
             }
             ViewBag.Characters = characterFacts;
             return View();

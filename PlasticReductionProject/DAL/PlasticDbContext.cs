@@ -18,14 +18,12 @@ namespace PlasticReductionProject.DAL
         public DbSet<Link> Links { get; set; }
         public DbSet<Project> Projects { get; set; }    
         public DbSet<DictionaryWord> Dictionary { get; set; }
-
         public DbSet<Product> Products { get; set; }
-
         public DbSet<PlasticAlternative> Alternatives { get; set; }
-
         public DbSet<PlasticType> PlasticTypes { get; set; }
-
         public DbSet<Badge> Badges { get; set; }
+        public DbSet<PlasticFact> PlasticFacts { get; set; }
+        public DbSet<Character> Characters { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

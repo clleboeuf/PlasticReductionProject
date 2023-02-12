@@ -8,50 +8,17 @@
         <br /><p class="btn btn-default">@Html.ActionLink("Calculate Now", "Calculator", "Calculator")</p>
     </div>
     <table>
- <tr>
+        <tr>
+            @foreach (var tuple in ViewBag.Characters)
+            {
                 <td>
-                    <p class="bubble">
-                        <em>
-                            Some 18 billion pounds of plastic
-                            waste flows into the oceans
-                            every year from coastal regions.
-                        </em>
-                    </p>
-                    <img src="~/Images/MarineGifs/Fish.gif" style="width: 200px " />
+                    <p class="bubble"><em> @tuple.Item2.Text </em></p>
+                    <img src=@tuple.Item1.URL style="height: 250px " />
                 </td>
-                <td>
-                    <p class="bubble">
-                        <em>
-                            Plastics cause more than 80% of the negative effects on animals associated with ocean trash.
-                        </em>
-                    </p>
-                    <img src="~/Images/MarineGifs/Turtle.gif" style="width: 200px " />
-                </td>
-                <td>
-                    <p class="bubble">
-                        <em>
-                            Over 100,000 marine animals die every year from plastic entanglement and ingestion.
-                        </em>
-                    </p>
-                    <img src="~/Images/MarineGifs/Octopus.gif" style="width: 200px" />
-                </td>
-                <td>
-                    <p class="bubble">
-                        <em>
-                            It’s estimated that by the year 2050, there will be more plastic in the ocean than fish (by weight).
-                        </em>
-                    </p>
-                    <img src="~/Images/MarineGifs/Whale.gif" style="width: 200px" />
-                </td> -->
-        <td>
-            <p class="bubble"><em>Approximately one truckload of plastic enters the ocean every single minute.h</em></p>
-            <img src="~/Images/MarineGifs/Starfish.gif" style="width: 300px" />
-        </td>
+            }
+
         </tr>
     </table>
-
-
-
 
 </body>
 

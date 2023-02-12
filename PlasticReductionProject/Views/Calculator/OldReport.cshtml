@@ -1,0 +1,189 @@
+﻿@model PlasticReductionProject.Models.CalculatorResult
+@{
+    ViewBag.Title = "Your Plastic Footprint";
+    ViewBag.Counter = 0;
+}
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="4l2glAJT">
+
+</script>
+<div class="result">
+    <div style="background-image: url('../../images/turtlePlasticbagDark.jpg'); background-repeat: no-repeat; background-size: cover;">
+        <br /><br />
+        <br />
+        <p><b>@ViewBag.Title</b></p>
+
+        <table style="width:100%">
+            <tr>
+                @if (Model.PETScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Petey PET</b></p>
+                        <image src="../../images/PlasticCharacters/PeteyPET.png" height="100px"></image>
+                        <p>
+                            Polyethylene terephthalate <br />@Model.PETScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.PETAvg)
+                        </p>
+                    </td>
+                }
+
+                @if (Model.HDPEScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Harry HDPE</b></p>
+                        <image src="../../images/PlasticCharacters/HarryHDPE.png" height="100px"></image>
+                        <p>
+                            High-density polyethylene <br />@Model.HDPEScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.HDPEAvg) grams per year.
+                        </p>
+                    </td>
+                }
+
+                @if (Model.PVCScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Pedro PVC</b></p>
+                        <image src="../../images/PlasticCharacters/PedroPVC.png" height="100px"></image>
+                        <p>
+                            Polyvinyl <br />@Model.PVCScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.PVCAvg)
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.LDPEScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Larry LDPE</b></p>
+                        <image src="../../images/PlasticCharacters/LarryLDPE.png" height="100px"></image>
+                        <p>
+                            Low-density polyethylene <br />@Model.LDPEScore grams per year.
+                            <br />Average: @String.Format("{0:0.00}", @Model.LDPEAvg)
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.PPScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Polly And Paulie PP</b></p>
+                        <image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="100px"></image>
+                        <p>
+                            Polypropylene <br />@Model.PPScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.PPAvg)
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.PSScore != 0)
+                {
+
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Preston PS</b></p>
+                        <image src="../../images/PlasticCharacters/PrestonPS.png" height="100px"></image>
+                        <p>
+                            Polystyrene <br />@Model.PSScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.PSAvg)
+                        </p>
+                    </td>
+                }
+
+                @if (Model.PPAScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Patty PPA</b></p>
+                        <image src="../../images/PlasticCharacters/PattyPPA.png" height="100px"></image>
+                        <p>
+                            Polyphthalamide <br />@Model.PPAScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.PPAAvg)
+                        </p>
+                    </td>
+                }
+
+                @if (ViewBag.Counter == 3)
+                {
+                    @Html.Raw("</tr><tr>")
+                }
+
+                @if (Model.OtherScore != 0)
+                {
+                    <td align="center" valign="top" class="resultBackground">
+                        <p><b>Ollie Other</b></p>
+                        <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
+                        <p>
+                            Other plastic <br />@Model.OtherScore grams per year.<br />
+                            Average: @String.Format("{0:0.00}", @Model.OtherAvg)
+                        </p>
+                    </td>
+                }
+
+            </tr>
+        </table>
+        <br />
+        <table align="center" width="80%">
+            <tr>
+                <td align="center" width="40%">
+                    <p>
+                        <b>@ViewBag.Comment</b><br />
+                        <img src=@ViewBag.Image width="50%" />
+                        <br />
+                        <div class="fb-share-button" 
+                             data-href="https://developers.facebook.com/docs/plugins/" 
+                             data-layout="button_count" data-size="small">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                    </p>
+                </td>
+                <td align="center">
+                    <table>
+                        <tr>
+                            <td colspan="3" align="center">
+                                <br /><br />
+                                <p class="resultBackground2"><b>Save more turtles</b></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Projects", "Projects", "Projects")</span>
+                            </td>
+                            <td>
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Alternatives", "Alternatives", "Alternatives")</span>
+                            </td>
+                            <td>
+                                <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Links", "Links", "Links")</span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <div class="img-slider">
+            <div class="slider-container">
+                <div class="slide">
+                    <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-TURTLES.jpg" />
+                </div>
+                <div class="slide">
+                    <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-WHALES.1aa1813.width-1600.b1b7407.jpg" />
+                </div>
+                <div class="slide">
+                    <img src="~/Images/RollingFacts/marinePlasticFacts.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

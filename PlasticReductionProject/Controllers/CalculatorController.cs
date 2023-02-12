@@ -19,7 +19,12 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 5;
+        private int QuestionCount = 10;
+
+        private List<ProductResult> productsUsed = new List<ProductResult>();
+
+
+
 
         // GET: Calculator
         public ActionResult Intro()
@@ -53,9 +58,10 @@ namespace PlasticReductionProject.Views.Calculator
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
-                    //{
+
                     randomProducts.Add(test);
-                    //}
+
+
                 }
             }
 
@@ -190,10 +196,21 @@ namespace PlasticReductionProject.Views.Calculator
         }
 
 
+        public ActionResult altButton(int ProductId)
+        {
+            
+            var newResults = new List<ProductResult>();
+            TempData["tempResults"] = this.cr.Results.ToList();
+            TempData["CalcResult"] = this.cr;
+            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"], blah = 5});
+      //      return View();
+        }
+
         // GET: Report
         public ActionResult Report()
         {
 
+           
             ViewBag.Page = "Report";
 
             var totalScore = this.cr.PlasticScores.Sum(x => x.Score);
@@ -201,6 +218,118 @@ namespace PlasticReductionProject.Views.Calculator
 
             var compScore = totalScore / totalAverage;
 
+            List<double> AllScores = new List<double>();
+            List<double> AllAverages = new List<double>();
+            List<double> Rankings = new List<double>();
+
+            AllScores.Add(this.cr.HDPEScore);
+            AllScores.Add(this.cr.LDPEScore);
+            AllScores.Add(this.cr.OtherScore);
+            AllScores.Add(this.cr.PETScore); 
+            AllScores.Add(this.cr.PPScore);
+            AllScores.Add(this.cr.PPAScore);
+            AllScores.Add(this.cr.PVCScore);
+            AllScores.Add(this.cr.PSScore);
+
+            AllAverages.Add(this.cr.HDPEAvg);
+            AllAverages.Add(this.cr.LDPEAvg);
+            AllAverages.Add(this.cr.OtherAvg);
+            AllAverages.Add(this.cr.PETAvg);
+            AllAverages.Add(this.cr.PPAvg);
+            AllAverages.Add(this.cr.PPAAvg);
+            AllAverages.Add(this.cr.PVCAvg);
+            AllAverages.Add(this.cr.PSAvg);
+
+            for (int i =0; i < 8; i++)
+            {
+                Rankings.Add(AllScores[i] / AllAverages[i]);
+            }
+
+            double Highest = Rankings.Max();
+            double Lowest = Rankings.Min();
+            int iCounter = 0;
+            int posH = 0;
+            int posL = 0;
+            int posLowestUsed = 0;
+            double currLow = Highest;
+
+            foreach (double rankings in Rankings)
+            {
+                if (Highest == rankings)
+                {
+                    posH = iCounter++;
+                }
+                if (Lowest == rankings)
+                {
+                    posL = iCounter;
+                }
+                if (rankings < currLow && rankings > 0)
+                {
+                    currLow = rankings;
+                    posLowestUsed = iCounter;
+                }
+                iCounter ++;
+            }
+
+
+            switch (posH)
+            {
+                case 0:
+                    ViewBag.HighestProduct = "HDPE";
+                    break;
+                case 1:
+                    ViewBag.HighestProduct = "LDPE";
+                    break;
+                case 2:
+                    ViewBag.HighestProduct = "Other";
+                    break;
+                case 3:
+                    ViewBag.HighestProduct = "PET";
+                    break;
+                case 4:
+                    ViewBag.HighestProduct = "PP";
+                    break;
+                case 5:
+                    ViewBag.HighestProduct = "PPA";
+                    break;
+                case 6:
+                    ViewBag.HighestProduct = "PVC";
+                    break;
+                case 7:
+                    ViewBag.HighestProduct = "PS";
+                    break;
+
+            }
+
+            switch (posLowestUsed)
+            {
+                case 0:
+                    ViewBag.LowestProduct = "HDPE";
+                    break;
+                case 1:
+                    ViewBag.LowestProduct = "LDPE";
+                    break;
+                case 2:
+                    ViewBag.LowestProduct = "Other";
+                    break;
+                case 3:
+                    ViewBag.LowestProduct = "PET";
+                    break;
+                case 4:
+                    ViewBag.LowestProduct = "PP";
+                    break;
+                case 5:
+                    ViewBag.LowestProduct = "PPA";
+                    break;
+                case 6:
+                    ViewBag.LowestProduct = "PVC";
+                    break;
+                case 7:
+                    ViewBag.LowestProduct = "PS";
+                    break;
+            }
+
+           
             List<Badge> badges = db.Badges.ToList();
 
             int turtles = 1;
@@ -222,6 +351,7 @@ namespace PlasticReductionProject.Views.Calculator
                 default:
                     break;
             }
+
 
             ViewBag.Comment = badges.ElementAt(turtles).Comment.ToString();
             ViewBag.Image = badges.ElementAt(turtles).BadgeUrl.ToString();

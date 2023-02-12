@@ -126,41 +126,6 @@ namespace PlasticReductionProject.Views.Calculator
                 this.cr.PlasticScores.Add(new PlasticScore(plasticType.Acronym, score, average, plasticType));
             }
 
-            switch (product.Type)
-            {
-                case 1:
-                    cr.PPScore += score;
-                    cr.PPAvg += average;
-                    break;
-                case 2:
-                    cr.PPAScore += score;
-                    cr.PPAAvg += average;
-                    break;
-                case 3:
-                    cr.HDPEScore += score;
-                    cr.HDPEAvg += average;
-                    break;
-                case 4:
-                    cr.LDPEScore += score;
-                    cr.LDPEAvg += average;
-                    break;
-                case 5:
-                    cr.PVCScore += score;
-                    cr.PVCAvg += average;
-                    break;
-                case 6:
-                    cr.PETScore += score;
-                    cr.PETAvg += average;
-                    break;
-                case 7:
-                    cr.PSScore += score;
-                    cr.PSAvg += average;
-                    break;
-                default:
-                    cr.OtherScore += score;
-                    cr.OtherAvg += average;
-                    break;
-            }
             this.cr.Increment++;
 
             ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
@@ -176,7 +141,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         private double CalculateResultForProduct(ProductResult result)
         {
-            //needs to be put in a function
+
             var usedMultiplier = 1;
             // var recycledMultiplier = 1;
             switch (result.PeriodUsed.ToString())

@@ -52,17 +52,26 @@
                         }
                     </tr>
                     <tr>
-                        <td>
+                        <td colspand="2" align="center">
                             <span class="btn btn-default" style="margin: 5px">
-                                @Html.ActionLink("Back", "Alternatives", "Alternatives")
+                                @Html.ActionLink("Find alternatives to more products", "Alternatives", "Alternatives")
+                                @Html.ActionLink("Find projects for your community", "Projects", "Projects")
+                                @Html.ActionLink("Do more research", "Links", "Links")
+                            </span>
+                        </td>
+                        </tr>
+                    <tr>
+                        <td colspand="2" align="center">
+                            <span class="btn btn-default" style="margin: 5px">
+                                @Html.ActionLink("Or calculate your footprint again", "Calculator", "Calculator")
                             </span>
                         </td>
                     </tr>
                 </table>
-                    }
-                    }
-                    else
-                    {
+                            }
+                        }
+                        else
+                        {
                             <p class="hero-heading" align="center">
                                 @ViewBag.AltText
                             </p>

@@ -416,13 +416,15 @@
     <Content Include="Views\Information\Information.cshtml" />
     <Content Include="Views\Links\Links.cshtml" />
     <Content Include="Views\Alternatives\AlternativesDetails.cshtml" />
-    <Content Include="Views\Calculator\Report.cshtml" />
+    <Content Include="Views\Calculator\OldReport.cshtml" />
     <Content Include="Views\Calculator\Products.cshtml" />
     <Content Include="Views\Calculator\PlasticTypes.cshtml" />
     <Content Include="Views\Shared\_Question1PartialView.cshtml" />
     <Content Include="Views\Shared\_Question2PartialView.cshtml" />
     <Content Include="Views\Shared\_Question3PartialView.cshtml" />
     <Content Include="Views\Calculator\CalculatorTest.cshtml" />
+    <Content Include="Views\Alternatives\FilAlternatives.cshtml" />
+    <Content Include="Views\Calculator\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

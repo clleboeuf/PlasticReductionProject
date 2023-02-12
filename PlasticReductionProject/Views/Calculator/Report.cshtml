@@ -8,113 +8,1040 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v16.0" nonce="4l2glAJT">
 
 </script>
-<div class="result">
+<div class="result" align="center">
     <div style="background-image: url('../../images/turtlePlasticbagDark.jpg'); background-repeat: no-repeat; background-size: cover;">
         <br /><br />
         <br />
         <p><b>@ViewBag.Title</b></p>
 
-        <table style="width:100%">
+        @{ var test = Model.Results.ToList();} 
+        
+        <table style="width:80%">
+            <tr>
+                <td align="center">
+                    The area where you could improve
+                </td>
+                <td align="center">
+                    The area where you did the best
+                </td>
+                </tr>
             <tr>
                 @if (Model.PETScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Petey PET</b></p>
-                        <image src="../../images/PlasticCharacters/PeteyPET.png" height="100px"></image>
-                        <p>
-                            Polyethylene terephthalate <br />@Model.PETScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PETAvg)
-                        </p>
-                    </td>
-                }
+                    // need to put in the if statement to only include the highest //
+                    if (ViewBag.HighestProduct == "PET")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Petey PET</b></p>
+                            <image src="../../images/PlasticCharacters/PeteyPET.png" height="100px"></image>
+                            <p>
+                                Polyethylene terephthalate
+                            </p>
+                            <p>
+                                @if (Model.PETScore > 3 * Model.PETAvg)
+                                {
+
+                                    <div align="left" style="background-color:aliceblue; width:90%;">
+                                        <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                    </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PETScore > 2 * Model.PETAvg)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PETScore < Model.PETAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.PETScore > Model.PETAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:20%;">
+                                    <div align="center" style="background-color:greenyellow;width:80%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:50%;">
+                                    <div align="center" style="background-color:blue;width:80%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test }, null)</span>
+                                </p>
+                            }
+                            </td>
+                        }
+                    }
 
                 @if (Model.HDPEScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Harry HDPE</b></p>
-                        <image src="../../images/PlasticCharacters/HarryHDPE.png" height="100px"></image>
-                        <p>
-                            High-density polyethylene <br />@Model.HDPEScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.HDPEAvg) grams per year.
-                        </p>
-                    </td>
+                    if (ViewBag.HighestProduct == "HDPE")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Harry HDPE</b></p>
+                            <image src="../../images/PlasticCharacters/HarryHDPE.png" height="100px"></image>
+                            <p>
+                                High-density polyethylene <br />
+                            </p>
+                            @if (Model.HDPEScore > 3 * Model.HDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3, ResultsList = test }, null)</span>
+                                </p>
+                            }
+                            else if (Model.HDPEScore > 2 * Model.HDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3, ResultsList = test }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.HDPEScore > Model.HDPEAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.HDPEScore > Model.HDPEAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:20%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
                 }
 
                 @if (Model.PVCScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Pedro PVC</b></p>
-                        <image src="../../images/PlasticCharacters/PedroPVC.png" height="100px"></image>
-                        <p>
-                            Polyvinyl <br />@Model.PVCScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PVCAvg)
-                        </p>
-                    </td>
-                }
+                    if (ViewBag.HighestProduct == "PVC")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Pedro PVC</b></p>
+                            <image src="../../images/PlasticCharacters/PedroPVC.png" height="100px"></image>
+                            <p>
+                                Polyvinyl chloride
+                            </p>
+                            @if (Model.PVCScore > 3 * Model.PVCAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
 
-                @if (ViewBag.Counter == 3)
-                {
-                    @Html.Raw("</tr><tr>")
+                            }
+                            else if (Model.PVCScore > 2 * Model.PVCAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PVCScore > Model.PVCAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PVCScore > Model.PVCAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
                 }
 
                 @if (Model.LDPEScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Larry LDPE</b></p>
-                        <image src="../../images/PlasticCharacters/LarryLDPE.png" height="100px"></image>
-                        <p>
-                            Low-density polyethylene <br />@Model.LDPEScore grams per year.
-                            <br />Average: @String.Format("{0:0.00}", @Model.LDPEAvg)
-                        </p>
-                    </td>
-                }
+                    if (ViewBag.HighestProduct == "LDPE")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Larry LDPE</b></p>
+                            <image src="../../images/PlasticCharacters/LarryLDPE.png" height="100px"></image>
+                            <p>
+                                Low-density polyethylene <br />
+                            </p>
 
-                @if (ViewBag.Counter == 3)
-                {
-                    @Html.Raw("</tr><tr>")
+                            @if (Model.LDPEScore > 3 * Model.LDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.LDPEScore > 2 * Model.LDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.LDPEScore > Model.LDPEAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.LDPEScore > Model.LDPEAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+
                 }
 
                 @if (Model.PPScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Polly And Paulie PP</b></p>
-                        <image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="100px"></image>
-                        <p>
-                            Polypropylene <br />@Model.PPScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PPAvg)
-                        </p>
-                    </td>
-                }
+                    if (ViewBag.HighestProduct == "PP")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Polly And Paulie PP</b></p>
+                            <image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="100px"></image>
+                            <p>
+                                Polypropylene <br />
+                            </p>
+                            @if (Model.PPScore > 3 * Model.PPAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
 
-                @if (ViewBag.Counter == 3)
-                {
-                    @Html.Raw("</tr><tr>")
+                            }
+                            else if (Model.PPScore > 2 * Model.PPAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PPScore > Model.PPAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PPScore > Model.PPAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
                 }
 
                 @if (Model.PSScore != 0)
                 {
+                    if (ViewBag.HighestProduct == "PS")
+                    {
 
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Preston PS</b></p>
-                        <image src="../../images/PlasticCharacters/PrestonPS.png" height="100px"></image>
-                        <p>
-                            Polystyrene <br />@Model.PSScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PSAvg)
-                        </p>
-                    </td>
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Preston PS</b></p>
+                            <image src="../../images/PlasticCharacters/PrestonPS.png" height="100px"></image>
+                            <p>
+                                Polystyrene <br />
+                            </p>
+                            @if (Model.PSScore > 3 * Model.PSAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PSScore > 2 * Model.PSAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PSScore > Model.PSAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PSScore > Model.PSAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
                 }
 
                 @if (Model.PPAScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Patty PPA</b></p>
-                        <image src="../../images/PlasticCharacters/PattyPPA.png" height="100px"></image>
-                        <p>
-                            Polyphthalamide <br />@Model.PPAScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.PPAAvg)
-                        </p>
-                    </td>
+                    if (ViewBag.HighestProduct == "PPA")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Patty PPA</b></p>
+                            <image src="../../images/PlasticCharacters/PattyPPA.png" height="100px"></image>
+                            <p>
+                                Polyphthalamide <br />
+                                @if (Model.PPAScore > 3 * Model.PPAAvg)
+                                {
+                                    <div align="left" style="background-color:aliceblue; width:90%;">
+                                        <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                    </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.PPAScore > 2 * Model.PPAAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PPAScore > Model.PPAAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PPAScore > Model.PPAAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+                                </p>
+                            </td>
+                        }
+                    }
+
+                @if (Model.OtherScore != 0)
+                {
+                    if (ViewBag.HighestProduct == "Other")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Ollie Other</b></p>
+                            <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
+                            <p>
+                                Other plastic <br />
+                            </p>
+                            @if (Model.OtherScore > 3 * Model.OtherAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.OtherScore > 2 * Model.OtherAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.OtherScore > Model.OtherAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.OtherScore > Model.OtherAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
                 }
+
+               
+                @if (Model.PETScore != 0)
+                {
+                    // need to put in the if statement to only include the Lowest //
+                    if (ViewBag.LowestProduct == "PET")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Petey PET</b></p>
+                            <image src="../../images/PlasticCharacters/PeteyPET.png" height="100px"></image>
+                            <p>
+                                Polyethylene terephthalate
+                            </p>
+                            <p>
+                                @if (Model.PETScore > 3 * Model.PETAvg)
+                                {
+
+                                    <div align="left" style="background-color:aliceblue; width:90%;">
+                                        <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                    </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PETScore > 2 * Model.PETAvg)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PETScore < Model.PETAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.PETScore > Model.PETAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:20%;">
+                                    <div align="center" style="background-color:greenyellow;width:80%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:50%;">
+                                    <div align="center" style="background-color:blue;width:80%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 6, ResultsList = test }, null)</span>
+                                </p>
+                            }
+                            </td>
+                        }
+                    }
+
+                @if (Model.HDPEScore != 0)
+                {
+                    if (ViewBag.LowestProduct == "HDPE")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Harry HDPE</b></p>
+                            <image src="../../images/PlasticCharacters/HarryHDPE.png" height="100px"></image>
+                            <p>
+                                High-density polyethylene <br />
+                            </p>
+                            @if (Model.HDPEScore > 3 * Model.HDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3, ResultsList = test }, null)</span>
+                                </p>
+                            }
+                            else if (Model.HDPEScore > 2 * Model.HDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3, ResultsList = test }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.HDPEScore > Model.HDPEAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.HDPEScore > Model.HDPEAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:20%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 3 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+                }
+
+                @if (Model.PVCScore != 0)
+                {
+                    if (ViewBag.LowestProduct == "PVC")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Pedro PVC</b></p>
+                            <image src="../../images/PlasticCharacters/PedroPVC.png" height="100px"></image>
+                            <p>
+                                Polyvinyl chloride
+                            </p>
+                            @if (Model.PVCScore > 3 * Model.PVCAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.PVCScore > 2 * Model.PVCAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PVCScore > Model.PVCAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PVCScore > Model.PVCAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 5 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+                }
+
+                @if (Model.LDPEScore != 0)
+                {
+                    if (ViewBag.LowestProduct == "LDPE")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Larry LDPE</b></p>
+                            <image src="../../images/PlasticCharacters/LarryLDPE.png" height="100px"></image>
+                            <p>
+                                Low-density polyethylene <br />
+                            </p>
+
+                            @if (Model.LDPEScore > 3 * Model.LDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.LDPEScore > 2 * Model.LDPEAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.LDPEScore > Model.LDPEAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.LDPEScore > Model.LDPEAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 4 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+                }
+
+                @if (Model.PPScore != 0)
+                {
+                    if (ViewBag.LowestProduct == "PP")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Polly And Paulie PP</b></p>
+                            <image src="../../images/PlasticCharacters/PollyAndPauliePP.png" height="100px"></image>
+                            <p>
+                                Polypropylene <br />
+                            </p>
+                            @if (Model.PPScore > 3 * Model.PPAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.PPScore > 2 * Model.PPAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PPScore > Model.PPAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PPScore > Model.PPAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 1 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+                }
+
+                @if (Model.PSScore != 0)
+                {
+                    if (ViewBag.LowestProduct == "PS")
+                    {
+
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Preston PS</b></p>
+                            <image src="../../images/PlasticCharacters/PrestonPS.png" height="100px"></image>
+                            <p>
+                                Polystyrene <br />
+                            </p>
+                            @if (Model.PSScore > 3 * Model.PSAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PSScore > 2 * Model.PSAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PSScore > Model.PSAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PSScore > Model.PSAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 7 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+                }
+
+                @if (Model.PPAScore != 0)
+                {
+                    if (ViewBag.LowestProduct == "PPA")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Patty PPA</b></p>
+                            <image src="../../images/PlasticCharacters/PattyPPA.png" height="100px"></image>
+                            <p>
+                                Polyphthalamide <br />
+                                @if (Model.PPAScore > 3 * Model.PPAAvg)
+                                {
+                                    <div align="left" style="background-color:aliceblue; width:90%;">
+                                        <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                    </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+
+                            }
+                            else if (Model.PPAScore > 2 * Model.PPAAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.PPAScore > Model.PPAAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.PPAScore > Model.PPAAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 2 }, null)</span>
+                                </p>
+                            }
+                                </p>
+                            </td>
+                        }
+                    }
 
                 @if (ViewBag.Counter == 3)
                 {
@@ -123,16 +1050,70 @@
 
                 @if (Model.OtherScore != 0)
                 {
-                    <td align="center" valign="top" class="resultBackground">
-                        <p><b>Ollie Other</b></p>
-                        <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
-                        <p>
-                            Other plastic <br />@Model.OtherScore grams per year.<br />
-                            Average: @String.Format("{0:0.00}", @Model.OtherAvg)
-                        </p>
-                    </td>
-                }
+                    if (ViewBag.LowestProduct == "Other")
+                    {
+                        <td align="center" valign="top" class="resultBackground">
+                            <p><b>Ollie Other</b></p>
+                            <image src="../../images/PlasticCharacters/OllieOther.png" height="100px"></image>
+                            <p>
+                                Other plastic <br />
+                            </p>
+                            @if (Model.OtherScore > 3 * Model.OtherAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:red;width:80%;">Very High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
 
+                            }
+                            else if (Model.OtherScore > 2 * Model.OtherAvg)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:hotpink;width:60%;">High</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+
+                            else if (Model.OtherScore > Model.OtherAvg / 2)
+                            {
+
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:green;width:40%;">Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+                            else if (Model.OtherScore > Model.OtherAvg / 3)
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:greenyellow;width:20%;">Very Low</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <div align="left" style="background-color:aliceblue; width:90%;">
+                                    <div align="center" style="background-color:blue;width:50%;">Average</div>
+                                </div>
+                                <p>
+                                    You can find some alternatives<br />
+                                    <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductID = 8 }, null)</span>
+                                </p>
+                            }
+                        </td>
+                    }
+                }
             </tr>
         </table>
         <br />
@@ -143,10 +1124,11 @@
                         <b>@ViewBag.Comment</b><br />
                         <img src=@ViewBag.Image width="50%" />
                         <br />
-                        <div class="fb-share-button" 
-                             data-href="https://developers.facebook.com/docs/plugins/" 
+                        <div class="fb-share-button"
+                             data-href="https://developers.facebook.com/docs/plugins/"
                              data-layout="button_count" data-size="small">
-                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                        </div>
                     </p>
                 </td>
                 <td align="center">

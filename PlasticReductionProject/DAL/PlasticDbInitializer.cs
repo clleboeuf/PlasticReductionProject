@@ -83,6 +83,21 @@ namespace PlasticReductionProject.DAL
             var badges = csv.GetRecords<Badge>();
             badges.ForEach(i => context.Badges.AddOrUpdate(i));
             context.SaveChanges();
+
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Characters.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var characters = csv.GetRecords<Character>();
+            characters.ForEach(i => context.Characters.AddOrUpdate(i));
+            context.SaveChanges();
+
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/BubbleFacts.csv");
+            reader = new StreamReader(path);
+            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var facts = csv.GetRecords <PlasticFact>();
+            facts.ForEach(i => context.PlasticFacts.AddOrUpdate(i));
+            context.SaveChanges();
+
         }
 
 

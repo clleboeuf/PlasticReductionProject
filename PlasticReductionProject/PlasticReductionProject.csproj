@@ -376,6 +376,8 @@
     <Content Include="fonts\GOTHICBI.TTF" />
     <Content Include="fonts\GOTHICI.TTF" />
     <Content Include="DAL\badges.csv" />
+    <Content Include="DAL\BubbleFacts.csv" />
+    <Content Include="DAL\Characters.csv" />
     <None Include="Properties\PublishProfiles\MPFPIteration1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

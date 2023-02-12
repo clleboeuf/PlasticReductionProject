@@ -45,7 +45,6 @@ namespace PlasticReductionProject.Views.Calculator
                     {
                         usedRand.Add(rand);
                         var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
-
                         characterFacts.Add(tuple);
                     }
                 }

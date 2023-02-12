@@ -37,7 +37,7 @@ namespace PlasticReductionProject.Views.Calculator
             {
                 var rand = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
                 var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
-                
+               
                 characterFacts.Add(tuple);
             }
             ViewBag.Characters = characterFacts;
@@ -45,7 +45,7 @@ namespace PlasticReductionProject.Views.Calculator
          }
 
         //post results
-        //[ValidateAntiForgeryToken]
+
         public ActionResult Calculator(int? questions)
         {
 

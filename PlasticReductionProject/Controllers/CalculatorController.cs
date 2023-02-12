@@ -19,7 +19,7 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 5;
+        private int QuestionCount = 10;
 
         private List<ProductResult> productsUsed = new List<ProductResult>();
 

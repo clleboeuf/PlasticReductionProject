@@ -1,9 +1,9 @@
-﻿Plastic_Id,PlasticType,Acronym,CommonProducts,Recyclability,WorldAverage,RecyclingCode,IconImage,AnnualTarget
-1,polypropylene,PP,"Plastic furniture, rope , twine, drinking straws",0.25,0.19,5,../../Images/PlasticCharacters/PollyAndPauliePP.jpg,7748
-2,Polyphthalamide,PPA,"Clothing materials, Nylon, polyester and acrylic ",0.5,0.15,7,../../Images/PlasticCharacters/PattyPPA.jpg,5917
-3,high density polyethylene,HDPE,"Shampoo bottles, toys",1,0.14,2,../../Images/PlasticCharacters/HarryHDPE.jpg,5635
-4,low density polyethylene,LDPE,"Shopping bags, Cling wrap",0.25,0.2,4,../../Images/PlasticCharacters/LarryLDPE.jpg,8030
-5,polyvinyl chloride,PVC,"Water pipes, electric cable, plastic foil, pencil eraser",0.5,0.05,3,../../Images/PlasticCharacters/PedroPVC.jpg,2113
-6,Polyethylene Terephthalate,PET,Bottles water/Soft-drink,1,0.11,1,../../Images/PlasticCharacters/PeteyPET.jpg,4508
-7,Polystyrene,PS,"eating utensils, cups, plates, packaging, egg cartons",0.1,0.06,6,../../Images/PlasticCharacters/PrestonPS.jpg,2395
-8,Other,Other,"Fibreglass, compact discs",0.1,0.1,7,../../Images/PlasticCharacters/OllieOther.jpg,3804
+﻿Plastic_Id,PlasticType,Acronym,CommonProducts,Recyclability,WorldAverage,RecyclingCode,IconImage,CharacterName,AnnualTarget
+1,Polypropylene,PP,"Plastic furniture, rope , twine, drinking straws",0.25,0.19,5,../../Images/PlasticCharacters/PollyAndPauliePP.png,Polly and Paulie PP,7748
+2,Polyphthalamide,PPA,"Clothing materials, Nylon, polyester and acrylic ",0.5,0.15,7,../../Images/PlasticCharacters/PattyPPA.png,Patty PPA,5917
+3,High Density Polyethylene,HDPE,"Shampoo bottles, toys",1,0.14,2,../../Images/PlasticCharacters/HarryHDPE.png,Harry HDPE,5635
+4,Low Density Polyethylene,LDPE,"Shopping bags, Cling wrap",0.25,0.2,4,../../Images/PlasticCharacters/LarryLDPE.png,Larry LDPE,8030
+5,Polyvinyl Chloride,PVC,"Water pipes, electric cable, plastic foil, pencil eraser",0.5,0.05,3,../../Images/PlasticCharacters/PedroPVC.png,Pedro PVC,2113
+6,Polyethylene Terephthalate,PET,Bottles water/Soft-drink,1,0.11,1,../../Images/PlasticCharacters/PeteyPET.png,Petey PET,4508
+7,Polystyrene,PS,"eating utensils, cups, plates, packaging, egg cartons",0.1,0.06,6,../../Images/PlasticCharacters/PrestonPS.png,Preston PS,2395
+8,Other,Other,"Fibreglass, compact discs",0.1,0.1,7,../../Images/PlasticCharacters/OllieOther.png,Ollie Other,3804

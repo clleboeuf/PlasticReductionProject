@@ -34,6 +34,9 @@ namespace PlasticReductionProject.Models
         [Name("IconImage")]
         public string Image { get; set; }
 
+        [Name("CharacterName")]
+        public string CharName { get; set; }
+
         [Name("AnnualTarget")]
         public int AnnualTarget { get; set; }
     }

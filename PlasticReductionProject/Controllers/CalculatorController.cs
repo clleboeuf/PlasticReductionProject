@@ -30,7 +30,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         //post results
         //[ValidateAntiForgeryToken]
-        public ActionResult Calculator()
+        public ActionResult Calculator(int? questions)
         {
 
             cr = new CalculatorResult(5);

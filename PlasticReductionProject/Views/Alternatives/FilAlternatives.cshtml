@@ -19,8 +19,8 @@
         {
             if (Model.Count() > 0)
             {<p class="hero-heading" align="center">
-                Here are some alternatives to a @ViewBag.SubProduct
-            </p>
+                    Here are some alternatives to a @ViewBag.SubProduct
+                </p>
                 <br />
                 <table width="60%" align="center" border="1" style="padding:5px,5px,5px,5px">
 
@@ -55,11 +55,15 @@
                         <td colspand="2" align="center">
                             <span class="btn btn-default" style="margin: 5px">
                                 @Html.ActionLink("Find alternatives to more products", "Alternatives", "Alternatives")
+                            </span>
+                            <span class="btn btn-default" style="margin: 5px">
                                 @Html.ActionLink("Find projects for your community", "Projects", "Projects")
+                            </span>
+                            <span class="btn btn-default" style="margin: 5px">
                                 @Html.ActionLink("Do more research", "Links", "Links")
                             </span>
                         </td>
-                        </tr>
+                    </tr>
                     <tr>
                         <td colspand="2" align="center">
                             <span class="btn btn-default" style="margin: 5px">
@@ -68,23 +72,34 @@
                         </td>
                     </tr>
                 </table>
-                            }
-                        }
-                        else
-                        {
-                            <p class="hero-heading" align="center">
-                                @ViewBag.AltText
-                            </p>
-                            <p class="hero-heading" align="center">
-                                @ViewBag.AltText2
-                            </p><br /><br />
-                            <p class="hero-heading" align="center">
+            }
+        }
+        else
+        {
+            <p class="hero-heading" align="center">
+                @ViewBag.AltText
+            </p>
+            <p class="hero-heading" align="center">
+                @ViewBag.AltText2
+            </p><br /><br />
+            <p align="center">
+                <span class="btn btn-default" style="margin: 5px">
+                    @Html.ActionLink("Find alternatives to more products", "Alternatives", "Alternatives")
+                </span>
+                <span class="btn btn-default" style="margin: 5px">
+                    @Html.ActionLink("Find projects for your community", "Projects", "Projects")
+                </span>
+                <span class="btn btn-default" style="margin: 5px">
+                    @Html.ActionLink("Do more research", "Links", "Links")
+                </span>
+            </p>
+                <p align="center">
+                    <span class="btn btn-default" style="margin: 5px">
+                        @Html.ActionLink("Or calculate your footprint again", "Calculator", "Calculator")
+                    </span>
+                </p>
+                }
 
-                                You can find alternatives for other popular products <br />
-                                <span class="btn btn-default" style="margin: 5px"> @Html.ActionLink("Here", "Alternatives", "Alternatives")</span>
-                            </p>
-                    }
-                
 
-            </div>
+        </div>
 </div>

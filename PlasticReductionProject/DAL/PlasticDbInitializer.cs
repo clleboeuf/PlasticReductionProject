@@ -14,7 +14,7 @@ using System.Runtime.Remoting.Messaging;
 namespace PlasticReductionProject.DAL
 {
 
-    internal class LinkDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
+    internal class PlasticDbInitializer : System.Data.Entity.DropCreateDatabaseAlways<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
 
     {
         protected override void Seed(PlasticDbContext context)
@@ -71,7 +71,7 @@ namespace PlasticReductionProject.DAL
                 // Calculate average utilisation per product
                 var productListOfType = context.Products.Where(prod => prod.Type == pt.Id).ToList();
        
-                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight);
+                double productMassSumForPlasticType = productListOfType.Sum(prod => prod.Weight * prod.PerYearUsage);
                 productListOfType.ForEach(prod => prod.averageUtilisation = prod.Weight / productMassSumForPlasticType * pt.AnnualTarget);
 
             });
@@ -82,20 +82,6 @@ namespace PlasticReductionProject.DAL
             csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             var badges = csv.GetRecords<Badge>();
             badges.ForEach(i => context.Badges.AddOrUpdate(i));
-            context.SaveChanges();
-
-            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Characters.csv");
-            reader = new StreamReader(path);
-            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var characters = csv.GetRecords<Character>();
-            characters.ForEach(i => context.Characters.AddOrUpdate(i));
-            context.SaveChanges();
-
-            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/BubbleFacts.csv");
-            reader = new StreamReader(path);
-            csv = new CsvReader(reader, CultureInfo.InvariantCulture);
-            var facts = csv.GetRecords<PlasticFact>();
-            facts.ForEach(i => context.PlasticFacts.AddOrUpdate(i));
             context.SaveChanges();
         }
 

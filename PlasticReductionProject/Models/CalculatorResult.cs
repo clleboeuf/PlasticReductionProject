@@ -99,6 +99,8 @@ namespace PlasticReductionProject.Models
         public string Name;
         public double Score;
         public double Average;
+        public double ratio
+        { get { return Score / Average; } }
 
         public PlasticScore(string name, double score, double average)
         {

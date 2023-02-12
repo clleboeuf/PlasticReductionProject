@@ -10,9 +10,10 @@ namespace PlasticReductionProject.DAL
 {
     public class PlasticDbContext : DbContext
     {
+        public PlasticDbContext() : base("name=PlasticDbContext")
         public PlasticDbContext() : base("LinkDbContext")
         {
-            Database.SetInitializer(new LinkDbInitializer());
+            Database.SetInitializer(new PlasticDbInitializer());
         }
 
         public DbSet<Link> Links { get; set; }

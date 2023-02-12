@@ -1,4 +1,5 @@
 ﻿using Microsoft.Ajax.Utilities;
+using Owin;
 using PlasticReductionProject.DAL;
 using PlasticReductionProject.Models;
 using System;
@@ -18,6 +19,12 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
+        private int QuestionCount = 10;
+
+        private List<ProductResult> productsUsed = new List<ProductResult>();
+
+
+
 
         // GET: Calculator
         public ActionResult Intro()
@@ -39,14 +46,22 @@ namespace PlasticReductionProject.Views.Calculator
 
         //post results
         //[ValidateAntiForgeryToken]
-        public ActionResult Calculator()
+        public ActionResult Calculator(int? questions)
         {
+
             cr = new CalculatorResult(5);
 
             List<int> usedRand = new List<int>();
             var randomProducts = new List<Product>();
             int productCount = db.Products.Count();
-            while (randomProducts.Count() < 5)
+
+            if (questions > 0 && questions < productCount)
+            {
+                QuestionCount = (int)questions;
+            }
+            cr = new CalculatorResult(QuestionCount);
+
+            while (randomProducts.Count() < QuestionCount)
             {
                 var rand = Randomiser.RandomNumber(1, productCount);
                 if (!usedRand.Contains(rand))
@@ -54,24 +69,28 @@ namespace PlasticReductionProject.Views.Calculator
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
-                    //{
+
                     randomProducts.Add(test);
-                    //}
+
+
                 }
             }
+
             int index = -1;
             cr.Results.ForEach(x =>
             {
                 index++;
                 x.Product = randomProducts[index];
             });
+
+
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
             return View(cr.Results.First());
         }
 
-            //post results
-            [HttpPost]
+        //post results
+        [HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Calculator(ProductResult result)
         {
@@ -137,9 +156,9 @@ namespace PlasticReductionProject.Views.Calculator
 
             ViewBag.QuestionCounter = "Question " + (this.cr.increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
 
-            if (this.cr.increment == 5)
+            if (this.cr.increment == this.cr.Results.Count)
             {
-                //  db.SaveChanges();
+
                 return RedirectToAction("Report");
             }
 
@@ -188,60 +207,168 @@ namespace PlasticReductionProject.Views.Calculator
         }
 
 
+        public ActionResult altButton(int ProductId)
+        {
+            
+            var newResults = new List<ProductResult>();
+            TempData["tempResults"] = this.cr.Results.ToList();
+            TempData["CalcResult"] = this.cr;
+            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"], blah = 5});
+      //      return View();
+        }
+
         // GET: Report
         public ActionResult Report()
         {
-            // addCookieToViewBag();
 
+           
             ViewBag.Page = "Report";
 
-            var totalScore = this.cr.HDPEScore + this.cr.LDPEScore + this.cr.OtherScore + this.cr.PETScore + this.cr.PPAScore + this.cr.PPScore
-                + this.cr.PSScore + this.cr.PVCScore;
-            var totalAvg = this.cr.HDPEAvg + this.cr.LDPEAvg + this.cr.OtherAvg + this.cr.PETAvg + this.cr.PPAAvg + this.cr.PPAvg
-                + this.cr.PSAvg + this.cr.PVCAvg;
+            var totalScore = this.cr.PlasticScores.Sum(x => x.Score);
+            var totalAverage = this.cr.PlasticScores.Sum(x => x.Average);
 
-            var compScore = totalScore / totalAvg;
+            var compScore = totalScore / totalAverage;
 
-            List<Badge> badges = new List<Badge>();
+            List<double> AllScores = new List<double>();
+            List<double> AllAverages = new List<double>();
+            List<double> Rankings = new List<double>();
 
-            badges = db.Badges.ToList();
+            AllScores.Add(this.cr.HDPEScore);
+            AllScores.Add(this.cr.LDPEScore);
+            AllScores.Add(this.cr.OtherScore);
+            AllScores.Add(this.cr.PETScore); 
+            AllScores.Add(this.cr.PPScore);
+            AllScores.Add(this.cr.PPAScore);
+            AllScores.Add(this.cr.PVCScore);
+            AllScores.Add(this.cr.PSScore);
 
-            if (compScore < 0.01)
+            AllAverages.Add(this.cr.HDPEAvg);
+            AllAverages.Add(this.cr.LDPEAvg);
+            AllAverages.Add(this.cr.OtherAvg);
+            AllAverages.Add(this.cr.PETAvg);
+            AllAverages.Add(this.cr.PPAvg);
+            AllAverages.Add(this.cr.PPAAvg);
+            AllAverages.Add(this.cr.PVCAvg);
+            AllAverages.Add(this.cr.PSAvg);
+
+            for (int i =0; i < 8; i++)
             {
-                ViewBag.Comment = badges.ElementAt(5).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(5).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.05)
-            {
-                ViewBag.Comment = badges.ElementAt(4).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(4).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.1)
-            {
-                ViewBag.Comment = badges.ElementAt(3).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(3).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.3)
-            {
-                ViewBag.Comment = badges.ElementAt(2).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(2).BadgeUrl.ToString();
-            }
-            else if (compScore < 0.5)
-            {
-                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
-            }
-            else
-            {
-                ViewBag.Comment = badges.ElementAt(1).Comment.ToString();
-                ViewBag.Image = badges.ElementAt(1).BadgeUrl.ToString();
+                Rankings.Add(AllScores[i] / AllAverages[i]);
             }
 
+            double Highest = Rankings.Max();
+            double Lowest = Rankings.Min();
+            int iCounter = 0;
+            int posH = 0;
+            int posL = 0;
+            int posLowestUsed = 0;
+            double currLow = Highest;
 
+            foreach (double rankings in Rankings)
+            {
+                if (Highest == rankings)
+                {
+                    posH = iCounter++;
+                }
+                if (Lowest == rankings)
+                {
+                    posL = iCounter;
+                }
+                if (rankings < currLow && rankings > 0)
+                {
+                    currLow = rankings;
+                    posLowestUsed = iCounter;
+                }
+                iCounter ++;
+            }
+
+
+            switch (posH)
+            {
+                case 0:
+                    ViewBag.HighestProduct = "HDPE";
+                    break;
+                case 1:
+                    ViewBag.HighestProduct = "LDPE";
+                    break;
+                case 2:
+                    ViewBag.HighestProduct = "Other";
+                    break;
+                case 3:
+                    ViewBag.HighestProduct = "PET";
+                    break;
+                case 4:
+                    ViewBag.HighestProduct = "PP";
+                    break;
+                case 5:
+                    ViewBag.HighestProduct = "PPA";
+                    break;
+                case 6:
+                    ViewBag.HighestProduct = "PVC";
+                    break;
+                case 7:
+                    ViewBag.HighestProduct = "PS";
+                    break;
+
+            }
+
+            switch (posLowestUsed)
+            {
+                case 0:
+                    ViewBag.LowestProduct = "HDPE";
+                    break;
+                case 1:
+                    ViewBag.LowestProduct = "LDPE";
+                    break;
+                case 2:
+                    ViewBag.LowestProduct = "Other";
+                    break;
+                case 3:
+                    ViewBag.LowestProduct = "PET";
+                    break;
+                case 4:
+                    ViewBag.LowestProduct = "PP";
+                    break;
+                case 5:
+                    ViewBag.LowestProduct = "PPA";
+                    break;
+                case 6:
+                    ViewBag.LowestProduct = "PVC";
+                    break;
+                case 7:
+                    ViewBag.LowestProduct = "PS";
+                    break;
+            }
+
+           
+            List<Badge> badges = db.Badges.ToList();
+
+            int turtles = 1;
+
+            switch (compScore)
+            {
+                case var _ when compScore < 0.01:
+                    turtles = 5;
+                    break;
+                case var _ when compScore < 0.05:
+                    turtles = 4;
+                    break;
+                case var _ when compScore < 0.1:
+                    turtles = 3;
+                    break;
+                case var _ when compScore < 0.3:
+                    turtles = 2;
+                    break;
+                default:
+                    break;
+            }
+
+
+            ViewBag.Comment = badges.ElementAt(turtles).Comment.ToString();
+            ViewBag.Image = badges.ElementAt(turtles).BadgeUrl.ToString();
 
             return View(this.cr);
         }
-
 
 
         public ActionResult Products()
@@ -268,37 +395,6 @@ namespace PlasticReductionProject.Views.Calculator
             return View(PlasticTypeList);
         }
 
-        public void addCookieToViewBag()
-        {
 
-            if (HttpContext.Request.Cookies["UserCookie"] == null)
-            {
-                var SessionCookie = new HttpCookie("UserCookie");
-                SessionCookie.Values.Add(Session.SessionID.ToString(), "SessionId");
-                Response.Cookies.Add(SessionCookie);
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = cookie.Values[0];
-            }
-            else
-            {
-                var SessionCookie = new HttpCookie(Session.SessionID.ToString());
-                HttpCookie oldCookie = HttpContext.Request.Cookies["UserCookie"];
-                string oldSessionId = oldCookie.Values["SessionId"].ToString();
-                string currSessionId = Session.SessionID.ToString();
-                string combinedSessionID = oldSessionId + "," + currSessionId;
-                oldCookie.Values.Add("SessionId", combinedSessionID);
-                //SessionCookie.Values.Add("SessionIDs", "SessionId");
-                HttpCookie cookie = HttpContext.Request.Cookies["UserCookie"];
-                ViewBag.SessionCookie = oldCookie.Values["SessionId"];
-                var counter = 0;
-                ViewBag.CookieKey = "";
-                foreach (var value in cookie.Values)
-                {
-                    ViewBag.CookieKey += value.ToString();
-
-                    counter += 1;
-                }
-            }
-        }
     }
 }

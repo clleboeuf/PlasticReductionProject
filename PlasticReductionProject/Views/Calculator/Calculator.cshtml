@@ -12,7 +12,8 @@
             <div class="qOverlay">
                 <div class="question">
                     I @Model.Product.UseVerb @Model.Product.Description
-                    <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100" required="required" oninvalid="this.setCustomValidity('Please enter a number here')"/> per @Html.EnumDropDownListFor(x => x.PeriodUsed)
+                    <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100" required="required" oninvalid="this.setCustomValidity('Please enter a number here')"
+                           oninput="setCustomValidity('')"/> per @Html.EnumDropDownListFor(x => x.PeriodUsed)
                     <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
                 </div>
             </div>

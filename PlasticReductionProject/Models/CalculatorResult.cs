@@ -23,7 +23,8 @@ namespace PlasticReductionProject.Models
 
         public int increment { get; set; }
 
-        public CalculatorResult(int _numberOfProductQuestions) {
+        public CalculatorResult(int _numberOfProductQuestions)
+        {
 
             this.Id = count++;
             this.DateTime = DateTime.Now;
@@ -57,7 +58,7 @@ namespace PlasticReductionProject.Models
             OtherAvg = 0;
 
         }
-        public HashSet<PlasticScore> PlasticScores { get; set; } 
+        public HashSet<PlasticScore> PlasticScores { get; set; }
 
         public double PETScore { get; set; }
 
@@ -91,17 +92,29 @@ namespace PlasticReductionProject.Models
 
         public double OtherAvg { get; set; }
 
+        public PlasticScore FindHighestPlasticScore()
+        {
+            double maxScore = this.PlasticScores.Max(y => y.Score);
+            return this.PlasticScores.First(x => x.Score == maxScore);
+        }
+
+        public PlasticScore FindLowestPlasticScore()
+        {
+            double minScore = this.PlasticScores.Min(y => y.Score);
+            return this.PlasticScores.First(x => x.Score == minScore);
+        }
+
 
     }
+
 
     public class PlasticScore
     {
         public string Name;
         public double Score;
         public double Average;
-        public double ratio
+        public double Ranking
         { get { return Score / Average; } }
-
         public PlasticScore(string name, double score, double average)
         {
             Name = name;

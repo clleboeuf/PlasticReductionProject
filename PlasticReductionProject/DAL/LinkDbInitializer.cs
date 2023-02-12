@@ -91,7 +91,7 @@ namespace PlasticReductionProject.DAL
             characters.ForEach(i => context.Characters.AddOrUpdate(i));
             context.SaveChanges();
 
-            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/Characters.csv");
+            path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"./DAL/BubbleFacts.csv");
             reader = new StreamReader(path);
             csv = new CsvReader(reader, CultureInfo.InvariantCulture);
             var facts = csv.GetRecords<PlasticFact>();

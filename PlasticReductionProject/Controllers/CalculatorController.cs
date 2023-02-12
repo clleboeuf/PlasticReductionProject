@@ -33,7 +33,7 @@ namespace PlasticReductionProject.Views.Calculator
                 
                 characterFacts.Add(tuple);
             }
-            ViewBag.Characters = characters;
+            ViewBag.Characters = characterFacts;
             return View();
          }
 

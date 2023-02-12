@@ -238,121 +238,13 @@ namespace PlasticReductionProject.Views.Calculator
 
             var compScore = totalScore / totalAverage;
 
-          //  List<double> AllScores = new List<double>();
+
             List<double> AllScores = this.cr.PlasticScores.Select(x => x.Score).ToList();
-          //  List<double> AllAverages = new List<double>();
+
             List<double> AllAverages = this.cr.PlasticScores.Select(x => x.Average).ToList();
-         //   List<double> Rankings = new List<double>();
+
             List<double> Rankings = this.cr.PlasticScores.Select(x => x.Score/x.Average).ToList();
 
-
-
-            //AllScores.Add(this.cr.HDPEScore);
-            //AllScores.Add(this.cr.LDPEScore);
-            //AllScores.Add(this.cr.OtherScore);
-            //AllScores.Add(this.cr.PETScore); 
-            //AllScores.Add(this.cr.PPScore);
-            //AllScores.Add(this.cr.PPAScore);
-            //AllScores.Add(this.cr.PVCScore);
-            //AllScores.Add(this.cr.PSScore);
-
-            //AllAverages.Add(this.cr.HDPEAvg);
-            //AllAverages.Add(this.cr.LDPEAvg);
-            //AllAverages.Add(this.cr.OtherAvg);
-            //AllAverages.Add(this.cr.PETAvg);
-            //AllAverages.Add(this.cr.PPAvg);
-            //AllAverages.Add(this.cr.PPAAvg);
-            //AllAverages.Add(this.cr.PVCAvg);
-            //AllAverages.Add(this.cr.PSAvg);
-
-            //for (int i =0; i < 8; i++)
-            //{
-            //    Rankings.Add(AllScores[i] / AllAverages[i]);
-            //}
-
-            //double Highest = Rankings.Max();
-            //double Lowest = Rankings.Min();
-            //int iCounter = 0;
-            //int posH = 0;
-            //int posL = 0;
-            //int posLowestUsed = 0;
-            //double currLow = Highest;
-
-            //foreach (double rankings in Rankings)
-            //{
-            //    if (Highest == rankings)
-            //    {
-            //        posH = iCounter++;
-            //    }
-            //    if (Lowest == rankings)
-            //    {
-            //        posL = iCounter;
-            //    }
-            //    if (rankings < currLow && rankings > 0)
-            //    {
-            //        currLow = rankings;
-            //        posLowestUsed = iCounter;
-            //    }
-            //    iCounter ++;
-            //}
-
-
-            //switch (posH)
-            //{
-            //    case 0:
-            //        ViewBag.HighestProduct = "HDPE";
-            //        break;
-            //    case 1:
-            //        ViewBag.HighestProduct = "LDPE";
-            //        break;
-            //    case 2:
-            //        ViewBag.HighestProduct = "Other";
-            //        break;
-            //    case 3:
-            //        ViewBag.HighestProduct = "PET";
-            //        break;
-            //    case 4:
-            //        ViewBag.HighestProduct = "PP";
-            //        break;
-            //    case 5:
-            //        ViewBag.HighestProduct = "PPA";
-            //        break;
-            //    case 6:
-            //        ViewBag.HighestProduct = "PVC";
-            //        break;
-            //    case 7:
-            //        ViewBag.HighestProduct = "PS";
-            //        break;
-
-            //}
-
-            //switch (posLowestUsed)
-            //{
-            //    case 0:
-            //        ViewBag.LowestProduct = "HDPE";
-            //        break;
-            //    case 1:
-            //        ViewBag.LowestProduct = "LDPE";
-            //        break;
-            //    case 2:
-            //        ViewBag.LowestProduct = "Other";
-            //        break;
-            //    case 3:
-            //        ViewBag.LowestProduct = "PET";
-            //        break;
-            //    case 4:
-            //        ViewBag.LowestProduct = "PP";
-            //        break;
-            //    case 5:
-            //        ViewBag.LowestProduct = "PPA";
-            //        break;
-            //    case 6:
-            //        ViewBag.LowestProduct = "PVC";
-            //        break;
-            //    case 7:
-            //        ViewBag.LowestProduct = "PS";
-            //        break;
-            //}
 
             ViewBag.LowestProduct = this.cr.FindLowestPlasticScore().Name.ToString();
             ViewBag.HighestProduct = this.cr.FindHighestPlasticScore().Name.ToString();

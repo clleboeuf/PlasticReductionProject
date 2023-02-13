@@ -47,13 +47,13 @@
                         stringStyle = "background-color:hotpink;width:60%";
                         resultString = "High";
                     }
-                    else if (highest.Score < highest.Average / 2)
+                    else if (highest.Score < highest.Average / 1.5)
                     {
                         barStyle = "background-color:aliceblue; width:90%;";
                         stringStyle = "background-color:green;width:40%";
                         resultString = "Low";
                     }
-                    else if (highest.Score > 3 * highest.Average)
+                    else if (highest.Score < highest.Average / 2)
                     {
                         barStyle = "background-color:aliceblue; width:20%;";
                         stringStyle = "background-color:greenyellow;width:80%;";
@@ -99,13 +99,13 @@
                         stringStyle = "background-color:hotpink;width:60%";
                         resultString = "High";
                     }
-                    else if (lowest.Score < lowest.Average / 2)
+                    else if (lowest.Score < lowest.Average / 1.5)
                     {
                         barStyle = "background-color:aliceblue; width:90%;";
                         stringStyle = "background-color:green;width:40%";
                         resultString = "Low";
                     }
-                    else if (lowest.Score > 3 * lowest.Average)
+                    else if (lowest.Score < lowest.Average /2)
                     {
                         barStyle = "background-color:aliceblue; width:20%;";
                         stringStyle = "background-color:greenyellow;width:80%;";

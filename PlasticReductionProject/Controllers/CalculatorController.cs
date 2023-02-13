@@ -80,8 +80,6 @@ namespace PlasticReductionProject.Views.Calculator
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
 
                     randomProducts.Add(test);
-
-
                 }
             }
 
@@ -91,8 +89,14 @@ namespace PlasticReductionProject.Views.Calculator
                 index++;
                 x.Product = randomProducts[index];
             });
+            var characterFacts = new List<(Character character, PlasticFact fact)>();          
+            var randFact = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
+            var randCharacter = Randomiser.RandomNumber(1, db.Characters.Count());
+            var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
+            characterFacts.Add(tuple);
 
-
+   
+            ViewBag.Characters = characterFacts;
             ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
             return View(cr.Results.First());
@@ -135,6 +139,15 @@ namespace PlasticReductionProject.Views.Calculator
 
                 return RedirectToAction("Report");
             }
+
+            var characterFacts = new List<(Character character, PlasticFact fact)>();
+            var randFact = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
+            var randCharacter = Randomiser.RandomNumber(1, db.Characters.Count());
+            var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
+            characterFacts.Add(tuple);
+
+
+            ViewBag.Characters = characterFacts;
 
             return View(this.cr.Results.ElementAt(this.cr.Increment));
         }

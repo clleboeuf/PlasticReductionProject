@@ -21,7 +21,13 @@
     }
 </div>
 
-
+<div>
+    @foreach (var tuple in ViewBag.Characters)
+    {
+            <p class="bubble"><em> DID YOU KNOW <br /> @tuple.Item2.Text </em></p>
+            <img src=@tuple.Item1.URL style="height: 250px " />
+    }
+</div>
 <!--<div class="img-slider">
     <div class="slider-container">
         <div class="slide">

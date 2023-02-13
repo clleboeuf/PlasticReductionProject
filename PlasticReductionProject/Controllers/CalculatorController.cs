@@ -183,7 +183,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         public ActionResult altButton(int ProductId)
         {
-            
+            // this code is necessary to pass the results object to the alternatives page, it loses scope otherwise.
             var newResults = new List<ProductResult>();
             TempData["tempResults"] = this.cr.Results.ToList();
             TempData["CalcResult"] = this.cr;

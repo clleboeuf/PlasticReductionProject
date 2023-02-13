@@ -187,7 +187,7 @@ namespace PlasticReductionProject.Views.Calculator
             var newResults = new List<ProductResult>();
             TempData["tempResults"] = this.cr.Results.ToList();
             TempData["CalcResult"] = this.cr;
-            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"], blah = 5});
+            return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"] });
       //      return View();
         }
 

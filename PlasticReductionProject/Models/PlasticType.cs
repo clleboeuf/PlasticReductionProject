@@ -39,5 +39,9 @@ namespace PlasticReductionProject.Models
 
         [Name("AnnualTarget")]
         public int AnnualTarget { get; set; }
+
+        [Name("Description")]
+        public string Description { get; set; }
+
     }
 }

@@ -47,7 +47,7 @@ namespace PlasticReductionProject.Controllers
             return View(productName);
         }
 
-        public ActionResult FilAlternatives(int ProductID, List<ProductResult> ResultsList, int blah)
+        public ActionResult FilAlternatives(int ProductID, List<ProductResult> ResultsList)
         {
             ViewBag.Page = "Alternatives";
 

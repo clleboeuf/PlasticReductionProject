@@ -7,19 +7,19 @@
         <p style="color: white; font-size: 40px;">To determine how your plastic usage is affecting the environment, please answer the following questions by using a number and frequency for each product.</p>
         <br /><p class="btn btn-default">@Html.ActionLink("Calculate Now", "Calculator", "Calculator")</p>
     </div>
-    <table>
-        <tr>
-            @foreach (var tuple in ViewBag.Characters)
-            {
-                <td>
-                    <p class="bubble"><em> @tuple.Item2.Text </em></p>
-                    <img src=@tuple.Item1.URL style="height: 250px " />
-                </td>
-            }
+    <!--     <table>
+            <tr>
+                @foreach (var tuple in ViewBag.Characters)
+                {
+                    <td>
+                        <p class="bubble"><em> @tuple.Item2.Text </em></p>
+                        <img src=@tuple.Item1.URL style="height: 250px " />
+                    </td>
+                }
 
-        </tr>
-    </table>
-
+            </tr>
+        </table>
+    -->
 </body>
 
 

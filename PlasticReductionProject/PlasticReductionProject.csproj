@@ -274,6 +274,7 @@
     <Content Include="Images\LinksImages\PSFlogo.jpg" />
     <Content Include="Images\LinksImages\UNEPLogo.png" />
     <Content Include="Images\LinksImages\WWFLogo.jpg" />
+    <Content Include="Images\MainTurtle.png" />
     <Content Include="Images\MarineGifs\clam.gif" />
     <Content Include="Images\MarineGifs\dolphin2.gif" />
     <Content Include="Images\MarineGifs\Fish.gif" />

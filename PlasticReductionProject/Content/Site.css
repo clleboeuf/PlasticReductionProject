@@ -566,4 +566,9 @@ img.bg {
     border-bottom: 20px solid transparent;
     left: 32px;
     bottom: -24px;
-}​
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}

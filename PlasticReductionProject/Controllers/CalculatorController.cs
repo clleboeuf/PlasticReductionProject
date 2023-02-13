@@ -194,20 +194,15 @@ namespace PlasticReductionProject.Views.Calculator
         // GET: Report
         public ActionResult Report()
         {
-
-           
             ViewBag.Page = "Report";
 
             var totalScore = this.cr.PlasticScores.Sum(x => x.Score);
             var totalAverage = this.cr.PlasticScores.Sum(x => x.Average);
-
             var compScore = totalScore / totalAverage;
 
 
             List<double> AllScores = this.cr.PlasticScores.Select(x => x.Score).ToList();
-
             List<double> AllAverages = this.cr.PlasticScores.Select(x => x.Average).ToList();
-
             List<double> Rankings = this.cr.PlasticScores.Select(x => x.Score/x.Average).ToList();
 
 

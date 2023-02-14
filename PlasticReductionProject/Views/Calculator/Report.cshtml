@@ -164,6 +164,31 @@
                             You can find some alternatives<br />
                             <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("here", "altButton", "Calculator", new { ProductId = lowest.Type.Id }, null)</span>
                         </p>
+                    </td>
+                }
+
+
+            </tr>
+        </table>
+        <br />
+        <table align="center" width="80%">
+            <tr>
+                <td align="center" width="40%">
+                    <p>
+                        <b>@ViewBag.Comment</b><br />
+                        <img src=@ViewBag.Image width="50%" />
+                        <br />
+                        <div class="fb-share-button"
+                             data-href="https://developers.facebook.com/docs/plugins/"
+                             data-layout="button_count" data-size="small">
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                        </div>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    </div>
                 </td>
             }
         </tr>

@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "MPFPIteration1",
+      "defaultValue": "MPFPIteration2",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }

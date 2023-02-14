@@ -53,6 +53,7 @@
                 var characterName = highest.Type.CharName;
                 var charImageURL = highest.Type.Image;
                 var plasticName = highest.Type.Type;
+                var plasticDescription = highest.Type.Description;
                 var barStyle = "";
                 var stringStyle = "";
                 var resultString = "";
@@ -91,17 +92,7 @@
                     <p><b>@characterName</b></p>
                     <image class="image" src=@charImageURL height="100px">
                         <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: 13px ">
-                            Plastic number 2 can be reused without any harm. The durability and reliability of HDPE 2 make it efficient to use in the manufacture of various items like:
-
-                            Sturdy bottles for cosmetics and household cleaner
-                            Stools, chairs, sunbeds for outdoor use
-                            Toys and playground equipment
-                            Some plastic bags
-                            Flexible pipes
-                            Bottle crates
-                            Rope
-                            Plastic envelopes
-                            Water, juice and milk jugs
+                            @plasticDescription
                         </p>
                         <p>@plasticName</p>
                         <div align="left" style=@barStyle>
@@ -118,6 +109,7 @@
                 characterName = lowest.Type.CharName;
                 charImageURL = lowest.Type.Image;
                 plasticName = lowest.Type.Type;
+                plasticDescription = lowest.Type.Description;
                 barStyle = "";
                 stringStyle = "";
                 resultString = "";
@@ -155,7 +147,7 @@
                 <td align="center" valign="top" class="resultBackground">
                     <p><b>@characterName</b></p>
                     <image class="image" src=@charImageURL height="100px">
-                        <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: 13px ">testing</p>
+                        <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: 13px ">@plasticDescription</p>
                         <p>@plasticName</p>
                         <div align="left" style=@barStyle>
                             <div align="center" style=@stringStyle>@resultString</div>
@@ -171,27 +163,4 @@
             </tr>
         </table>
         <br />
-        <table align="center" width="80%">
-            <tr>
-                <td align="center" width="40%">
-                    <p>
-                        <b>@ViewBag.Comment</b><br />
-                        <img src=@ViewBag.Image width="50%" />
-                        <br />
-                        <div class="fb-share-button"
-                             data-href="https://developers.facebook.com/docs/plugins/"
-                             data-layout="button_count" data-size="small">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-                        </div>
-                    </p>
-                </td>
-            </tr>
-        </table>
-
-    </div>
-                </td>
-            }
-        </tr>
-    </table>
-    <br />
 </div>

@@ -7,9 +7,19 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+
+
 </head>
 <body>
+    <img class="bg" src="~/Images/SeaBackground.jpg" />
+
     <div class="top_right"> <img src="~/Images/MPFLogo.png" style="width:45%" onclick="openNav()" z-index:999 /></div>
+    <div class="topnav" style="z-index: 999; ">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -51,4 +61,6 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
 

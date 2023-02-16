@@ -27,19 +27,21 @@
                         if (counter % 2 > 0)
                         {
                             <td width="50%" align ="center" class="altTD" style="background-image:url(@item.Image.ToString());background-size:contain;background-repeat:repeat-x">
-                                <span class="resultBackground2" style="margin: 5px">
+                                <p><span class="resultBackground2" style="margin: 5px">
                                     @item.Description
-                                </span>
+                                </span></p>
 
                             </td>
                         }
                         else
                         {
                             <td width="50%" align ="center" class="altTD" style="background-image:url(@item.Image.ToString());">
-                                <span class="resultBackground2" style="margin: 5px">
-                                    @item.Description
-                                </span>
-                            </td>
+                                <p>
+                                    <span class="resultBackground2" style="margin: 5px">
+                                        @item.Description
+                                    </span>
+                                </p>
+</td>
                             @Html.Raw("</tr><tr>")
                         }
                         counter += 1;

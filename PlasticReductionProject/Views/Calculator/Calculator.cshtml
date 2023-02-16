@@ -14,11 +14,13 @@
 
             <img class="qImage" src="@Model.Product.Image" alt="@Model.Product.Description" />
             <div class="qOverlay">
-                <h1 style="color:white; font-size:80px">@ViewBag.QuestionCounter</h1>
+                <p style="font-size:80px">@ViewBag.QuestionCounter</p>
                 <div class="question">
-                    I @Model.Product.UseVerb @Model.Product.Description
-                    <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100" required="required" oninvalid="this.setCustomValidity('Please enter a number here')"
-                           oninput="setCustomValidity('')" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed)
+                    <p>
+                        I @Model.Product.UseVerb @Model.Product.Description
+                        <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100" required="required" oninvalid="this.setCustomValidity('Please enter a number here')"
+                               oninput="setCustomValidity('')" /> per @Html.EnumDropDownListFor(x => x.PeriodUsed)
+                        </p>
                         <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
                     </div>
                 </div>

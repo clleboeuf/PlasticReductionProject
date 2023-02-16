@@ -24,7 +24,8 @@
 
 p {
     font-family: 'Franklin Gothic Medium';
-    font-size: large;
+    font-size: 30px;
+    color:white;
 }
 
 .btn-default {

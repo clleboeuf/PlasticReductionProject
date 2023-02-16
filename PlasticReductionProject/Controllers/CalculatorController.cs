@@ -24,42 +24,17 @@ namespace PlasticReductionProject.Views.Calculator
         private List<ProductResult> productsUsed = new List<ProductResult>();
 
 
-
-
         // GET: Calculator
         public ActionResult Intro()
         {
 
             ViewBag.Page = "Intro";
-            List<int> usedRand = new List<int>();
-            var characterFacts = new List<(Character character, PlasticFact fact)>();
-            List<Character> characters = db.Characters.ToList();
-            foreach (Character ch in characters)
-            {
-                var unused = false;
-                while (!unused)
-                {
-                    var rand = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
-                    unused = !usedRand.Contains(rand);
-                    if (unused)
-                    {
-                        usedRand.Add(rand);
-                        var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
-                        characterFacts.Add(tuple);
-                    }
-                }
-            }
-            ViewBag.Characters = characterFacts;
             return View();
          }
 
-        //post results
-
+        // This version of Calculator lets a set number of questions be passed to allow faster testing
         public ActionResult Calculator(int? questions)
         {
-
-            cr = new CalculatorResult(5);
-
             List<int> usedRand = new List<int>();
             var randomProducts = new List<Product>();
             int productCount = db.Products.Count();
@@ -94,7 +69,6 @@ namespace PlasticReductionProject.Views.Calculator
             var randCharacter = Randomiser.RandomNumber(1, db.Characters.Count());
             var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
             characterFacts.Add(tuple);
-
    
             ViewBag.Characters = characterFacts;
             ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
@@ -136,7 +110,6 @@ namespace PlasticReductionProject.Views.Calculator
 
             if (this.cr.Increment == this.cr.Results.Count)
             {
-
                 return RedirectToAction("Report");
             }
 

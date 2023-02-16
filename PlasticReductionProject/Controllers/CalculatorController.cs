@@ -32,7 +32,7 @@ namespace PlasticReductionProject.Views.Calculator
             return View();
          }
 
-        // This version of Calculator lets a set number of questions be passed to allow faster testing
+        // Call Calculator with a specified number of questions to allow faster testing
         public ActionResult Calculator(int? questions)
         {
             List<int> usedRand = new List<int>();
@@ -119,7 +119,6 @@ namespace PlasticReductionProject.Views.Calculator
             var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
             characterFacts.Add(tuple);
 
-
             ViewBag.Characters = characterFacts;
 
             return View(this.cr.Results.ElementAt(this.cr.Increment));
@@ -163,7 +162,6 @@ namespace PlasticReductionProject.Views.Calculator
             //double score = result.AmountUsed * usedMultiplier * result.Product.Weight - result.AmountRecycled * recycledMultiplier * result.Product.Weight;
             double score = result.AmountUsed * usedMultiplier * result.Product.Weight;
             return score;
-
         }
 
 
@@ -174,7 +172,7 @@ namespace PlasticReductionProject.Views.Calculator
             TempData["tempResults"] = this.cr.Results.ToList();
             TempData["CalcResult"] = this.cr;
             return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"] });
-      //      return View();
+ 
         }
 
         // GET: Report
@@ -186,15 +184,12 @@ namespace PlasticReductionProject.Views.Calculator
             var totalAverage = this.cr.PlasticScores.Sum(x => x.Average);
             var compScore = totalScore / totalAverage;
 
-
             List<double> AllScores = this.cr.PlasticScores.Select(x => x.Score).ToList();
             List<double> AllAverages = this.cr.PlasticScores.Select(x => x.Average).ToList();
             List<double> Rankings = this.cr.PlasticScores.Select(x => x.Score/x.Average).ToList();
 
-
             ViewBag.LowestProduct = this.cr.FindLowestPlasticScore().Name.ToString();
             ViewBag.HighestProduct = this.cr.FindHighestPlasticScore().Name.ToString();
-
 
             List<Badge> badges = db.Badges.ToList();
 
@@ -229,24 +224,18 @@ namespace PlasticReductionProject.Views.Calculator
         public ActionResult Products()
         {
             ViewBag.Page = "Products";
-
-
             List<Product> ProductList = (List<Product>)(from productID in db.Products
                                                         select productID)
                                                         .ToList().Distinct().ToList();
-
             return View(ProductList);
         }
 
         public ActionResult PlasticTypes()
         {
             ViewBag.Page = "PlasticTypes";
-
-
             List<PlasticType> PlasticTypeList = (List<PlasticType>)(from plastic_Id in db.PlasticTypes
                                                                     select plastic_Id)
                                                         .ToList().Distinct().ToList();
-
             return View(PlasticTypeList);
         }
 

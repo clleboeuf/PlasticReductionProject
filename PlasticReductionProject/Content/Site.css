@@ -34,7 +34,7 @@ p {
     color:white;
 }
 
-.btn-default {
+/*.btn-default {
     appearance: button;
     background-color: white;
     border: solid transparent;
@@ -65,6 +65,45 @@ p {
     width: fit-content;
 }
 
+
+
+btn-default:focus {
+    user-select: auto;
+}
+
+btn-default:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+}
+
+btn-default:disabled {
+    cursor: auto;
+} */
+
+/**/
+.btn-default {
+    padding: 13px 16px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 20px;
+    text-decoration: none;
+    margin: auto;
+    width: fit-content;
+}
+
 btn-default:after {
     background-clip: padding-box;
     background-color: #1CB0F6;
@@ -80,18 +119,16 @@ btn-default:after {
     z-index: -1;
 }
 
-btn-default:focus {
-    user-select: auto;
-}
+    .btn-default:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 
-btn-default:hover:not(:disabled) {
-    filter: brightness(1.1);
-    -webkit-filter: brightness(1.1);
-}
-
-btn-default:disabled {
-    cursor: auto;
-}
+    .btn-default:active {
+        transform: scale(0.95);
+    }
 
 
 
@@ -575,9 +612,6 @@ img.bg {
     bottom: -24px;
 }
 
-.image {
-
-}
 
 
 .bubbleHover {

@@ -116,7 +116,7 @@
                             <div align="center" style=@stringStyle>@resultString</div>
                         </div>
 
-                        <span class="btn btn-default" align="center" style="margin: 5px"> @Html.ActionLink("Consider Alternatives", "altButton", "Calculator", new { ProductId = highest.Type.Id }, null)</span>
+                        <span align="center" style="margin: 5px"> @Html.ActionLink("Consider Alternatives", "altButton", "Calculator", new { ProductId = highest.Type.Id }, new { @class = "btn btn-default" })</span>
 
                     </td>
 
@@ -180,8 +180,8 @@
                             @if (lowest.Score >= lowest.Average)
                             {
                                 <p>
-                                    <span class="btn btn-default" align="center" style="margin: 5px">
-                                        @Html.ActionLink("Consider Alternatives", "altButton", "Calculator", new { ProductId = lowest.Type.Id }, null)
+                                    <span align="center" style="margin: 5px">
+                                        @Html.ActionLink("Consider Alternatives", "altButton", "Calculator", new { ProductId = lowest.Type.Id }, new { @class = "btn btn-default" })
                                     </span>
                                 </p>
                             }

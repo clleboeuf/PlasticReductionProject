@@ -2,7 +2,9 @@
     ViewBag.Title = "Home Page";
 }
 
-
+<br />
+<br />
+<br />
 <div style="position:relative; top:100px;" class="grid-container">
     <div >
         <img src="~/Images/MainTurtle.png" style="position: absolute; top: 20%; left: 20%; transform:rotate(12deg)" />
@@ -14,8 +16,8 @@
     <div class="hero-font">
         CAN YOU HELP <br /> <br />THE TURTLES?
         <br /><br />
-        <span class="btn cta-button" style="text-decoration: none">
-            @Html.ActionLink("Find out now!", "Intro", "Calculator")
+        <span>
+            @Html.ActionLink("Find out now", "Intro", "Calculator", null, new { @class = "btn btn-default" })
         </span>
     </div>
 

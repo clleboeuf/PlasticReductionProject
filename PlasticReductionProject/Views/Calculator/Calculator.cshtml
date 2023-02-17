@@ -14,18 +14,18 @@
 
             <img class="qImage" src="@Model.Product.Image" alt="@Model.Product.Description" />
             <div class="qOverlay">
-                <p style="color: white; font-size: 40px;">
+                <p style="font-size: 80px;">
                     @ViewBag.QuestionCounter
                 </p>
                 <div style="position: relative; top: 30%;">
-                    <p style="color: white; font-size: 40px; ">
+                    <p style="font-size: 40px; ">
                         I @Model.Product.UseVerb @Model.Product.Description
                     </p>
-                    <p style="color: white; font-size: 40px;">
+                    <p style="font-size: 40px;">
                         <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100" required="required" oninvalid="this.setCustomValidity('Please enter a number here')"
                                oninput="setCustomValidity('')" />
                         per @Html.EnumDropDownListFor(x => x.PeriodUsed)
-                        <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
+                    <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
                     </p>
                     <input type="hidden" name="Id" value=@Model.Id />
                 </div>
@@ -33,24 +33,14 @@
         </div>
 
     }
+    </div>
 
-<div>
+<div style="position: absolute; top: 200px; left: 80px">
     @foreach (var tuple in ViewBag.Characters)
     {
-            <p class="bubble bubble-bottom-left"><em> <strong>DID YOU KNOW</strong> <br /> @tuple.Item2.Text </em></p>
-            <img src=@tuple.Item1.URL style="height: 250px " />
+        <p class="bubble bubble-bottom-left"><em> <strong>DID YOU KNOW</strong> <br /> @tuple.Item2.Text </em></p>
+        <img src=@tuple.Item1.URL />
     }
 </div>
-<!--<div class="img-slider">
-    <div class="slider-container">
-        <div class="slide">
-            <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-TURTLES.jpg" />
-        </div>
-        <div class="slide">
-            <img src="~/Images/RollingFacts/WWF-Plastics-Feature-Images-WHALES.1aa1813.width-1600.b1b7407.jpg" />
-        </div>
-        <div class="slide">
-            <img src="~/Images/RollingFacts/marinePlasticFacts.jpg" />
-        </div>
-    </div>
-</div>-->
+
+   

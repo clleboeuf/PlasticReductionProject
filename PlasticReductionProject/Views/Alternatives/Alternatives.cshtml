@@ -25,8 +25,8 @@
                     if (counter % 3 > 0)
                     {
                         <td class="altTD" style="background-image:url(@item.Image.ToString());">
-                            <span class="btn btn-default" style="margin: 5px">
-                                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, null)
+                            <span style="margin: 5px">
+                                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
                             </span>
 
                         </td>
@@ -35,8 +35,8 @@
                     else
                     {
                         <td class="altTD" style="background-image:url(@item.Image.ToString());">
-                            <span class="btn btn-default" style="margin: 5px">
-                                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, null)
+                            <span style="margin: 5px">
+                                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
                             </span>
                         </td>
                         <td width="2%"></td>

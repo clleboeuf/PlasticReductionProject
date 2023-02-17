@@ -35,11 +35,11 @@
     }
     </div>
 
-<div style="position: absolute; top: 200px; left: 80px; height: 10px; width: 10px">
+<div style="position: absolute; top: 200px; left: 80px;">
     @foreach (var tuple in ViewBag.Characters)
     {
         <p class="bubble bubble-bottom-left"><em> <strong>DID YOU KNOW</strong> <br /> @tuple.Item2.Text </em></p>
-        <img src=@tuple.Item1.URL />
+        <img class="animated-gif" src=@tuple.Item1.URL />
     }
 </div>
 

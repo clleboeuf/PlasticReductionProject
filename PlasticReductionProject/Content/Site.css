@@ -677,3 +677,9 @@ img.bg {
             background-color: #04AA6D;
             color: white;
         }
+
+img.animated-gif {
+    width: 350px;
+    height: auto;
+    max-height: 350px
+}

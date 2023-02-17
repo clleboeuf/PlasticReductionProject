@@ -30,12 +30,12 @@ p {
 
 .btn-default {
     appearance: button;
-    background-color: skyblue;
+    background-color: white;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
     box-sizing: border-box;
-    color: #FFFFFF;
+    color: coral;
     cursor: pointer;
     display: inline-block;
     font-family: din-round,sans-serif;
@@ -61,7 +61,7 @@ p {
 
 btn-default:after {
     background-clip: padding-box;
-    background-color: #1CB0F6;
+    background-color: coral;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;

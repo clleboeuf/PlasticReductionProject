@@ -14,7 +14,7 @@ using System.Runtime.Remoting.Messaging;
 namespace PlasticReductionProject.DAL
 {
 
-    internal class PlasticDbInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
+    internal class PlasticDbInitializer : System.Data.Entity.CreateDatabaseIfNotExists<PlasticDbContext>  //  DropCreateDatabaseIfModelChanges<LinkDbContext>  or DropCreateDatabaseAlways<LinkDbContext>
 
     {
         protected override void Seed(PlasticDbContext context)

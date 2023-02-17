@@ -18,10 +18,10 @@
         {
             if (Model.Count() > 0)
             {<p class="hero-heading" align="center">
-                    Here are some alternatives to a @ViewBag.SubProduct
+                    Here are some alternatives to @ViewBag.SubProduct
                 </p>
                 <br />
-                <table width="60%" align="center" border="1" style="padding:5px,5px,5px,5px">
+                <table width="60%" align="center">
 
                     @{var counter = 1;
                     }
@@ -31,20 +31,24 @@
 
                             if (counter % 2 > 0)
                             {
-                                <td class="altTD" style="background-image:url(@item.Image.ToString());">
+                                <td class="altTD" style="background-image: url( @item.Image.ToString() );background-size: contain;background-repeat: repeat-x">
                                     <span class="resultBackground2" style="margin: 5px">
                                         @item.Description
                                     </span>
-
                                 </td>
+                                <td width="2%"></td>
                             }
                             else
                             {
-                                <td class="altTD" style="background-image:url(@item.Image.ToString());">
+                                <td class="altTD" style="background-image: url( @item.Image.ToString() );background-size: contain;background-repeat: repeat-x">
                                     <span class="resultBackground2" style="margin: 5px">
                                         @item.Description
                                     </span>
                                 </td>
+                                @Html.Raw("</tr><tr>")
+                                <td height="20px"></td>
+                                <td height="20px"></td>
+                                <td height="20px"></td>
                                 @Html.Raw("</tr><tr>")
                             }
                             counter += 1;
@@ -69,7 +73,7 @@
                     <tr>
                         <td align="center">
                             <span class="btn btn-default" style="margin: 5px">
-                                @Html.ActionLink("Or calculate your footprint again", "Calculator", "Calculator")
+                                @Html.ActionLink("Calculate your footprint again", "Calculator", "Calculator")
                             </span>
                         </td>
                     </tr>
@@ -97,8 +101,10 @@
             </p>
                 <p align="center">
                     <span class="btn btn-default" style="margin: 5px">
-                        @Html.ActionLink("Or calculate your footprint again", "Calculator", "Calculator")
+                        @Html.ActionLink("Calculate your footprint again", "Calculator", "Calculator")
                     </span>
                 </p>
                 }
+
+
         </div>

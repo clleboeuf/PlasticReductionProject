@@ -13,7 +13,7 @@
             <td align="center" width="40%">
                 <p>
 
-                    <img src=@ViewBag.Image width="30%" />
+                    <img src=@ViewBag.Image width="35%" />
                     <br />
 
                     <div class="fb-share-button"
@@ -33,17 +33,24 @@
     <div class="result" align="center">
 
         <table style="width:90%">
-            <tr>
-                @{
-                    var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestProduct);
-                    var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestProduct);
-                    var multipleScores = (ViewBag.HighestProduct != ViewBag.LowestProduct);
-                    var lowScoreComment = "You did well with ";
-                    var highScoreComment = "You could do better with ";
-                    if (lowest.Score >= lowest.Average)
-                    {
-                        lowScoreComment = "You could do better with ";
-                    }
+
+            @{
+                var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestProduct);
+                var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestProduct);
+                var multipleScores = (ViewBag.HighestProduct != ViewBag.LowestProduct);
+                var lowScoreComment = "You did well with ";
+                var highScoreComment = "You could do better with ";
+                var firstRowStyle = "width:45%;text-align:center;color:white;font-size:3rem;";
+                if (multipleScores)
+                {
+                    firstRowStyle = "width:50%;text-align:center;color:white;font-size:3rem;";
+                }
+
+
+                if (lowest.Score >= lowest.Average)
+                {
+                    lowScoreComment = "You could do better with ";
+                }
 
                     var productList = Model.Results.ToList().Where(x => x.Product.Type == highest.Type.Id).ToList();
                     var barStyle = "";
@@ -85,22 +92,34 @@
 
 
                 <tr>
-                    <th align="center" style="width: 45%; text-align:center; color: white; font-size: 3rem;">
-                        @highScoreComment
-                    </th>
-                    <th style="width:10%"></th>
                     @if (multipleScores)
                     {
+                        <th align="center" style=@firstRowStyle>
+                            @highScoreComment
+                        </th>
+                        <th style="width:10%"></th>
                         <th align="center" style="width: 45%; text-align: center; color: white; font-size: 3rem;">
                             @lowScoreComment
                         </th>
                     }
+                    else
+                    {
+                        <th style="width:25%"></th>
+                        <th align="center" style=@firstRowStyle>
+                            @highScoreComment
+                        </th>
+                        <th style="width:25%"></th>
+                    }
                 </tr>
 
                 <tr>
+                    @if (!multipleScores)
+                    {
+                        <td></td>
+                    }
                     <td align="center" valign="top">
                         <p style="color: white; font-size: 3rem;">@highest.Type.CharName</p>
-                        <image class="image" src=@highest.Type.Image height="300px" />
+                        <image class="image" src=@highest.Type.Image height="200px" />
                         <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: small">
                             @highest.Type.Description <br /> The products tested in this category were:
                             @foreach (var item in productList)
@@ -109,9 +128,6 @@
                                 <br />
                             }
                         </p>
-                        @*<p style="color: white; font-size: 2rem;">
-                                @highest.Type.Type
-                            </p>*@
                         <div align="left" style=@barStyle>
                             <div align="center" style=@stringStyle>@resultString</div>
                         </div>
@@ -164,7 +180,7 @@
 
                         <td align="center" valign="top">
                             <p style="color: white; font-size: 3rem;">@lowest.Type.CharName</p>
-                            <image class="image" src=@lowest.Type.Image height="300px" />
+                            <image class="image" src=@lowest.Type.Image height="200px" />
                             <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: small ">
                                 @lowest.Type.Description<br />
                                 The products tested in this category were:

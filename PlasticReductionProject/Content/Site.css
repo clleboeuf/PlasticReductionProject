@@ -119,6 +119,15 @@ btn-default:after {
     z-index: -1;
 }
 
+btn-default:focus {
+    user-select: auto;
+}
+
+btn-default:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+    background-color: orange;
+}
     .btn-default:hover {
         background-position: right center;
         /* change the direction of the change here */

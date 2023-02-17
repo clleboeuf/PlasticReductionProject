@@ -26,33 +26,35 @@
         </div>
     </div>
 
-    <script>
-        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        }
-
-        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-            document.body.style.backgroundColor = "white";
-        }
-    </script>
 
 
-
-    <div class="container body-content">
+    <div class="container body-content" id="body-content">
+        <img class="bg" src="~/Images/SeaBackground.jpg" />
         @RenderBody()
-
 
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("body-content").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("body-content").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+
 </body>
 </html>
 

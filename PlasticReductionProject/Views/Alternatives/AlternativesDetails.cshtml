@@ -16,22 +16,25 @@
             Here are some alternatives for @ViewBag.Product
         </p>
         <br />
-        <table width="60%" align="center" border="1" style="padding:5px,5px,5px,5px">
+        <table width="60%" align="center"">
             @if (Model.Count() > 0)
             {
                 var counter = 1;
                 <tr>
                     @foreach (var item in Model)
                     {
-
                         if (counter % 2 > 0)
                         {
                             <td width="50%" align ="center" class="altTD" style="background-image:url(@item.Image.ToString());background-size:contain;background-repeat:repeat-x">
                                 <p><span class="resultBackground2" style="margin: 5px">
+                            <td width="50%" align="center" class="altTD" style="background-image:url(@item.Image.ToString());background-size:contain;background-repeat:repeat-x">
+                                <span class="resultBackground2" style="margin: 5px">
                                     @item.Description
                                 </span></p>
 
+                                </span>
                             </td>
+                            <td width="2%"></td>
                         }
                         else
                         {
@@ -42,6 +45,15 @@
                                     </span>
                                 </p>
 </td>
+                            <td width="50%" align="center" class="altTD" style="background-image: url( @item.Image.ToString() );background-size: contain;background-repeat: repeat-x">
+                                <span class="resultBackground2" style="margin: 5px">
+                                    @item.Description
+                                </span>
+                            </td>
+                            @Html.Raw("</tr><tr>")
+                            <td height="20px"></td>
+                            <td height="20px"></td>
+                            <td height="20px"></td>
                             @Html.Raw("</tr><tr>")
                         }
                         counter += 1;
@@ -57,4 +69,3 @@
             }
 
         </table>
-    </div>

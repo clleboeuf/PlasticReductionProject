@@ -3,21 +3,22 @@
 }
 
 
-<div> 
-    <img src="~/Images/MainTurtle.png" style="position: absolute; top: 20%; left: 20%; transform:rotate(12deg)" />
-    <p class="bubble bubble-bottom-left" style="position: absolute; top: 25%; left: 20%; transform: rotate(-12deg)">
-    <em> <strong>Every year over 1000 of my brothers and sisters die from plastic waste!</strong> </em></p>
-</div>
+<div style="position:relative; top:100px;" class="grid-container">
+    <div >
+        <img src="~/Images/MainTurtle.png" style="position: absolute; top: 20%; left: 20%; transform:rotate(12deg)" />
+        <p class="bubble bubble-bottom-left" style="position: absolute; top: 25%; left: 20%; transform: rotate(-12deg)">
+            <em> <strong>Every year over 1000 turtles die from plastic waste!</strong> </em>
+        </p>
+    </div>
 
-
-<div class="container">
     <div class="hero-font">
         CAN YOU HELP <br /> <br />THE TURTLES?
         <br /><br />
-        <span class="btn-default" >
-            @Html.ActionLink("Find out now", "Intro", "Calculator")
+        <span class="btn cta-button" style="text-decoration: none">
+            @Html.ActionLink("Find out now!", "Intro", "Calculator")
         </span>
     </div>
+
 </div>
 
 

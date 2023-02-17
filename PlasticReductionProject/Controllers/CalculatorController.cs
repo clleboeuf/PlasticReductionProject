@@ -19,11 +19,9 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 10;
+        private int QuestionCount = 2;
 
         private List<ProductResult> productsUsed = new List<ProductResult>();
-
-
 
 
         // GET: Calculator
@@ -31,35 +29,12 @@ namespace PlasticReductionProject.Views.Calculator
         {
 
             ViewBag.Page = "Intro";
-            List<int> usedRand = new List<int>();
-            var characterFacts = new List<(Character character, PlasticFact fact)>();
-            List<Character> characters = db.Characters.ToList();
-            foreach (Character ch in characters)
-            {
-                var unused = false;
-                while (!unused)
-                {
-                    var rand = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
-                    unused = !usedRand.Contains(rand);
-                    if (unused)
-                    {
-                        usedRand.Add(rand);
-                        var tuple = (character: ch, fact: db.PlasticFacts.Find(rand));
-                        characterFacts.Add(tuple);
-                    }
-                }
-            }
-            ViewBag.Characters = characterFacts;
             return View();
          }
 
-        //post results
-
+        // Call Calculator with a specified number of questions to allow faster testing
         public ActionResult Calculator(int? questions)
         {
-
-            cr = new CalculatorResult(5);
-
             List<int> usedRand = new List<int>();
             var randomProducts = new List<Product>();
             int productCount = db.Products.Count();
@@ -77,9 +52,10 @@ namespace PlasticReductionProject.Views.Calculator
                 {
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
-                    //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
-
-                    randomProducts.Add(test);
+                    //if (test.Type == 3)
+                    //{
+                        randomProducts.Add(test);
+                   // }
                 }
             }
 
@@ -94,7 +70,6 @@ namespace PlasticReductionProject.Views.Calculator
             var randCharacter = Randomiser.RandomNumber(1, db.Characters.Count());
             var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
             characterFacts.Add(tuple);
-
    
             ViewBag.Characters = characterFacts;
             ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
@@ -107,6 +82,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         public ActionResult Calculator(ProductResult result)
         {
+            this.cr.Increment = result.Id - 1;
             ProductResult toSave = this.cr.Results.ElementAt(this.cr.Increment);
             PlasticType plasticType = db.PlasticTypes.Find(toSave.Product.Type);
             Product product = toSave.Product;
@@ -136,7 +112,6 @@ namespace PlasticReductionProject.Views.Calculator
 
             if (this.cr.Increment == this.cr.Results.Count)
             {
-
                 return RedirectToAction("Report");
             }
 
@@ -145,7 +120,6 @@ namespace PlasticReductionProject.Views.Calculator
             var randCharacter = Randomiser.RandomNumber(1, db.Characters.Count());
             var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
             characterFacts.Add(tuple);
-
 
             ViewBag.Characters = characterFacts;
 
@@ -190,7 +164,6 @@ namespace PlasticReductionProject.Views.Calculator
             //double score = result.AmountUsed * usedMultiplier * result.Product.Weight - result.AmountRecycled * recycledMultiplier * result.Product.Weight;
             double score = result.AmountUsed * usedMultiplier * result.Product.Weight;
             return score;
-
         }
 
 
@@ -201,7 +174,7 @@ namespace PlasticReductionProject.Views.Calculator
             TempData["tempResults"] = this.cr.Results.ToList();
             TempData["CalcResult"] = this.cr;
             return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"] });
-      //      return View();
+ 
         }
 
         // GET: Report
@@ -213,15 +186,12 @@ namespace PlasticReductionProject.Views.Calculator
             var totalAverage = this.cr.PlasticScores.Sum(x => x.Average);
             var compScore = totalScore / totalAverage;
 
-
             List<double> AllScores = this.cr.PlasticScores.Select(x => x.Score).ToList();
             List<double> AllAverages = this.cr.PlasticScores.Select(x => x.Average).ToList();
             List<double> Rankings = this.cr.PlasticScores.Select(x => x.Score/x.Average).ToList();
 
-
             ViewBag.LowestProduct = this.cr.FindLowestPlasticScore().Name.ToString();
             ViewBag.HighestProduct = this.cr.FindHighestPlasticScore().Name.ToString();
-
 
             List<Badge> badges = db.Badges.ToList();
 
@@ -256,24 +226,18 @@ namespace PlasticReductionProject.Views.Calculator
         public ActionResult Products()
         {
             ViewBag.Page = "Products";
-
-
             List<Product> ProductList = (List<Product>)(from productID in db.Products
                                                         select productID)
                                                         .ToList().Distinct().ToList();
-
             return View(ProductList);
         }
 
         public ActionResult PlasticTypes()
         {
             ViewBag.Page = "PlasticTypes";
-
-
             List<PlasticType> PlasticTypeList = (List<PlasticType>)(from plastic_Id in db.PlasticTypes
                                                                     select plastic_Id)
                                                         .ToList().Distinct().ToList();
-
             return View(PlasticTypeList);
         }
 

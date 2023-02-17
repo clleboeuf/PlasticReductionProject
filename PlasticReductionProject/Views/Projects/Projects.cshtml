@@ -3,52 +3,39 @@
     ViewBag.Title = "Projects";
 }
 
-<h2>Projects</h2>
-<img class="bg" src="~/Images/SeaBackground.jpg" />
+<div style="position:relative; top:100px;">
 
-<!-- add this when there is an administrator that wants to
-                work on links using the webpage
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <img class="bg" src="~/Images/SeaBackground.jpg" />
 
-    -->
-<table class="table" style="width:100%"">
+    <table class="table" style="width:100%" ">
 
 
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
 
-        <tr>
-            <td style="width:30%">
-                <br /><image src=@item.Image.ToString() width="100%"></image>
-            </td>
-            <td style="width:10%">
-                
-            </td>
-            <td style="width:50%;vertical-align:middle;text-align:left">
-                <h2><b>@item.Name</b></h2>
-                <p style="font-size : x-large ">
+            <tr>
+                <td style="width: 30%; padding: 30px;">
+                    <br /><image src=@item.Image.ToString() width="100%"></image>
+                </td>
+                <td style="width:10%">
+                </td>
+                <td style="width:50%;vertical-align:middle;text-align:left">
+                    <p style="color: white; font-size: calc(25px + 0.390625vw); "><b>@item.Name</b></p>
+                    <p style="color: white; font-size: calc(15px + 0.390625vw);">
                         @Html.DisplayFor(modelItem => item.Description)
-                </p>
-            </td>
-            <td style="vertical-align:bottom">
-                <p>
-                    <a class="btn btn-default" onClick="return confirm('This will take you to an external site')" style="margin: 5px" href=@item.LinkUrl target="_blank">
-                        Go to Project
-                    </a>
-                </p>
-            </td>
+                    </p>
+                </td>
+                <td style="vertical-align:bottom">
+                    <p>
+                        <a class="btn btn-default" onClick="return confirm('This will take you to an external site')" style="margin: 5px" href=@item.LinkUrl target="_blank">
+                            Go to Project
+                        </a>
+                    </p>
+                </td>
 
-            <!-- add this when there is an administrator that wants to
-                work on links using the webpage
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-        -->
-        </tr>
-    }
+            </tr>
+        }
 
-</table>
+    </table>
+
+</div>

@@ -25,20 +25,24 @@
                     {
                         if (counter % 2 > 0)
                         {
+                               
                             <td width="50%" align="center" class="altTD" style="background-image:url(@item.Image.ToString());background-size:contain;background-repeat:repeat-x">
-                                <span class="resultBackground2" style="margin: 5px">
-                                    @item.Description
-                                </span>
+                                <p><span class="resultBackground2" style="margin: 5px">
+    @item.Description
+</span></p>
+                                
                             </td>
                             <td width="2%"></td>
                         }
                         else
                         {
-                            <td width="50%" align="center" class="altTD" style="background-image: url( @item.Image.ToString() );background-size: contain;background-repeat: repeat-x">
-                                <span class="resultBackground2" style="margin: 5px">
-                                    @item.Description
-                                </span>
-                            </td>
+                            <td width="50%" align ="center" class="altTD" style="background-image:url(@item.Image.ToString());">
+                                <p>
+                                    <span class="resultBackground2" style="margin: 5px">
+                                        @item.Description
+                                    </span>
+                                </p>
+</td>
                             @Html.Raw("</tr><tr>")
                             <td height="20px"></td>
                             <td height="20px"></td>
@@ -50,8 +54,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <span class="btn btn-default" style="margin: 5px">
-                            @Html.ActionLink("Back", "Alternatives", "Alternatives")
+                        <span style="margin: 5px">
+                            @Html.ActionLink("Back", "Alternatives", "Alternatives", null, new { @class = "btn btn-default" })
                         </span>
                     </td>
                 </tr>

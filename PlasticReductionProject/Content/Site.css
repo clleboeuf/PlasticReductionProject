@@ -488,12 +488,12 @@ img.bg {
     z-index: -1;
 }
 
-@media screen and (max-width: 1229px) { /* Specific to this particular image */
-    img.bg {
+/*@media screen and (max-width: 1229px) {*/ /* Specific to this particular image */
+    /*img.bg {
         left: 50%;
-        margin-left: -512px; /* 50% */
-    }
-}
+        margin-left: -512px;*/ /* 50% */
+    /*}
+}*/
 
 .thought {
     position: relative;

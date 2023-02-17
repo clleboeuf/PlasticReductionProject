@@ -27,13 +27,14 @@
                 </div>
             </div>
         </div>
-        
+
     }
-</div>
-<div>
-    @foreach (var tuple in ViewBag.Characters)
-    {
-        <p class="bubble bubble-bottom-left"><em> <strong>DID YOU KNOW</strong> <br /> @tuple.Item2.Text </em></p>
-        <img src=@tuple.Item1.URL style="height: 250px " />
-    }
+
+    <div style="position: absolute; top: 200px; left: 80px">
+        @foreach (var tuple in ViewBag.Characters)
+        {
+            <p class="bubble bubble-bottom-left"><em> <strong>DID YOU KNOW</strong> <br /> @tuple.Item2.Text </em></p>
+            <img src=@tuple.Item1.URL style="height: 250px " />
+        }
+    </div>
 </div>

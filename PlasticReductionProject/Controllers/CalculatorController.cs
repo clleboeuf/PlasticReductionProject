@@ -53,7 +53,6 @@ namespace PlasticReductionProject.Views.Calculator
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
-
                     randomProducts.Add(test);
                 }
             }
@@ -81,6 +80,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         public ActionResult Calculator(ProductResult result)
         {
+            this.cr.Increment = result.Id - 1;
             ProductResult toSave = this.cr.Results.ElementAt(this.cr.Increment);
             PlasticType plasticType = db.PlasticTypes.Find(toSave.Product.Type);
             Product product = toSave.Product;

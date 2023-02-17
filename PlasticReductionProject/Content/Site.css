@@ -7,6 +7,12 @@
     padding: 0px 0px 0px 0px;
 }
 
+.grid-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:50px;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

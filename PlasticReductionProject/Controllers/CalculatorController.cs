@@ -19,7 +19,7 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 10;
+        private int QuestionCount = 2;
 
         private List<ProductResult> productsUsed = new List<ProductResult>();
 
@@ -52,8 +52,10 @@ namespace PlasticReductionProject.Views.Calculator
                 {
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
-                    //if (test.Type == 3 || test.Type == 7 || test.Type == 2)
-                    randomProducts.Add(test);
+                    //if (test.Type == 3)
+                    //{
+                        randomProducts.Add(test);
+                   // }
                 }
             }
 

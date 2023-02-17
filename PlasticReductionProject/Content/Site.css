@@ -7,6 +7,12 @@
     padding: 0px 0px 0px 0px;
 }
 
+.grid-container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:50px;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -24,7 +30,7 @@
 
 p {
     font-family: 'Franklin Gothic Medium';
-    font-size: large;
+    font-size: calc(15px + 0.390625vw);
 }
 
 .btn-default {
@@ -351,7 +357,7 @@ body {
         font-size: 25px;
         color: #b4cce1;
         display: block;
-        transition: 0.3s;
+        transition: 0.5s;
     }
         /* Adds hover color highlight for side navigation bar links */
         .sidenav a:hover {
@@ -488,12 +494,12 @@ img.bg {
     z-index: -1;
 }
 
-@media screen and (max-width: 1229px) { /* Specific to this particular image */
-    img.bg {
+/*@media screen and (max-width: 1229px) {*/ /* Specific to this particular image */
+    /*img.bg {
         left: 50%;
-        margin-left: -512px; /* 50% */
-    }
-}
+        margin-left: -512px;*/ /* 50% */
+    /*}
+}*/
 
 .thought {
     position: relative;

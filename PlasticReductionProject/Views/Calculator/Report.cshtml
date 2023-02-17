@@ -13,19 +13,19 @@
             <td align="center" width="40%">
                 <p>
 
-                    <img src=@ViewBag.Image width="50%" />
+                    <img src=@ViewBag.Image width="30%" />
                     <br />
 
-                <div class="fb-share-button"
-                     data-href="https://mpfpiteration2.azurewebsites.net"         
-                     data-layout="button_count" data-size="large">
-                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-                </div>
-            </p>
-        </td>
-        <td align="center" width="40%">
-             <p style="color: white; font-size: 40px;">@ViewBag.Comment</p>
-            <br />
+                    <div class="fb-share-button"
+                         data-href="https://mpfpiteration2.azurewebsites.net"
+                         data-layout="button_count" data-size="large">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+                    </div>
+                </p>
+            </td>
+            <td align="center" width="40%">
+                <p style="color: white; font-size: 40px;">@ViewBag.Comment</p>
+                <br />
             </td>
         </tr>
     </table>
@@ -33,66 +33,55 @@
     <div class="result" align="center">
 
         <table style="width:90%">
+            <tr>
+                @{
+                    var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestProduct);
+                    var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestProduct);
+                    var multipleScores = (ViewBag.HighestProduct != ViewBag.LowestProduct);
+                    var lowScoreComment = "You did well with ";
+                    var highScoreComment = "You could do better with ";
+                    if (lowest.Score >= lowest.Average)
+                    {
+                        lowScoreComment = "You could do better with ";
+                    }
 
-    <table style="width:80%">
-        <tr>
-            <td align="center">
-                The area where you could improve
-            </td>
-            <td align="center">
-                The area where you did the best
-            </td>
-        </tr>
+                    var productList = Model.Results.ToList().Where(x => x.Product.Type == highest.Type.Id).ToList();
+                    var barStyle = "";
+                    var stringStyle = "";
+                    var resultString = "";
+                    if (highest.Score > 3 * highest.Average)
+                    {
+                        barStyle = "background-color:aliceblue; width:90%;";
+                        stringStyle = "background-color:red;width:80%;";
+                        resultString = "Very High";
+                    }
+                    else if (highest.Score > 2 * highest.Average)
+                    {
+                        barStyle = "background-color:aliceblue; width:90%;";
+                        stringStyle = "background-color:hotpink;width:60%";
+                        resultString = "High";
+                    }
+                    else if (highest.Score < highest.Average / 1.5)
+                    {
+                        barStyle = "background-color:aliceblue; width:90%;";
+                        stringStyle = "background-color:green;width:40%";
+                        resultString = "Low";
+                        highScoreComment = "You did well with ";
+                    }
+                    else if (highest.Score < highest.Average / 2)
+                    {
+                        barStyle = "background-color:aliceblue; width:20%;";
+                        stringStyle = "background-color:greenyellow;width:80%;";
+                        resultString = "Very Low";
+                        highScoreComment = "You did well with ";
+                    }
+                    else
+                    {
+                        barStyle = "background-color:aliceblue; width:50%;";
+                        stringStyle = "background-color:blue;width:80%;";
+                        resultString = "Average";
 
-        <tr>
-            @{
-                var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestProduct);
-                var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestProduct);
-                var multipleScores = (ViewBag.HighestProduct != ViewBag.LowestProduct);
-                var lowScoreComment = "You did well with ";
-                var highScoreComment = "You could do better with ";
-                if (lowest.Score >= lowest.Average)
-                {
-                    lowScoreComment = "You could do better with ";
-                }
-
-                var productList = Model.Results.ToList().Where(x => x.Product.Type == highest.Type.Id).ToList();
-                var barStyle = "";
-                var stringStyle = "";
-                var resultString = "";
-                if (highest.Score > 3 * highest.Average)
-                {
-                    barStyle = "background-color:aliceblue; width:90%;";
-                    stringStyle = "background-color:red;width:80%;";
-                    resultString = "Very High";
-                }
-                else if (highest.Score > 2 * highest.Average)
-                {
-                    barStyle = "background-color:aliceblue; width:90%;";
-                    stringStyle = "background-color:hotpink;width:60%";
-                    resultString = "High";
-                }
-                else if (highest.Score < highest.Average / 1.5)
-                {
-                    barStyle = "background-color:aliceblue; width:90%;";
-                    stringStyle = "background-color:green;width:40%";
-                    resultString = "Low";
-                    highScoreComment = "You did well with ";
-                }
-                else if (highest.Score < highest.Average / 2)
-                {
-                    barStyle = "background-color:aliceblue; width:20%;";
-                    stringStyle = "background-color:greenyellow;width:80%;";
-                    resultString = "Very Low";
-                    highScoreComment = "You did well with ";
-                }
-                else
-                {
-                    barStyle = "background-color:aliceblue; width:50%;";
-                    stringStyle = "background-color:blue;width:80%;";
-                    resultString = "Average";
-
-                }
+                    }
 
 
                 <tr>
@@ -102,27 +91,27 @@
                     <th style="width:10%"></th>
                     @if (multipleScores)
                     {
-                        <td align="center" style="width: 45%; text-align: center; color: white; font-size: 3rem;">
+                        <th align="center" style="width: 45%; text-align: center; color: white; font-size: 3rem;">
                             @lowScoreComment
-                        </td>
+                        </th>
                     }
                 </tr>
 
                 <tr>
                     <td align="center" valign="top">
                         <p style="color: white; font-size: 3rem;">@highest.Type.CharName</p>
-                        <image class="image" src=@highest.Type.Image height="100px" />
+                        <image class="image" src=@highest.Type.Image height="300px" />
                         <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: small">
                             @highest.Type.Description <br /> The products tested in this category were:
                             @foreach (var item in productList)
-            {
-                @item.Product.Description
+                            {
+                                @item.Product.Description
                                 <br />
                             }
                         </p>
                         @*<p style="color: white; font-size: 2rem;">
-                            @highest.Type.Type
-                        </p>*@
+                                @highest.Type.Type
+                            </p>*@
                         <div align="left" style=@barStyle>
                             <div align="center" style=@stringStyle>@resultString</div>
                         </div>
@@ -175,7 +164,7 @@
 
                         <td align="center" valign="top">
                             <p style="color: white; font-size: 3rem;">@lowest.Type.CharName</p>
-                            <image class="image" src=@lowest.Type.Image height="100px" />
+                            <image class="image" src=@lowest.Type.Image height="300px" />
                             <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: small ">
                                 @lowest.Type.Description<br />
                                 The products tested in this category were:
@@ -201,8 +190,8 @@
 
 
                 </tr>
-            }
-        </table>
-        <br />
+                }
+            </table>
+            <br />
+        </div>
     </div>
-</div>

@@ -86,6 +86,7 @@ btn-default:focus {
 btn-default:hover:not(:disabled) {
     filter: brightness(1.1);
     -webkit-filter: brightness(1.1);
+    background-color: orange;
 }
 
 btn-default:disabled {

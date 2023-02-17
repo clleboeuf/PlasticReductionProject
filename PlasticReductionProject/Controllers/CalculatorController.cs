@@ -55,7 +55,7 @@ namespace PlasticReductionProject.Views.Calculator
                     //if (test.Type == 3)
                     //{
                         randomProducts.Add(test);
-                   // }
+                //    }
                 }
             }
 

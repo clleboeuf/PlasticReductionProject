@@ -85,13 +85,13 @@
 
 
                 <tr>
-                    <th align="center" style="width: 45%; color: white; font-size: 3rem;">
+                    <th align="center" style="width: 45%; text-align:center; color: white; font-size: 3rem;">
                         @highScoreComment
                     </th>
                     <th style="width:10%"></th>
                     @if (multipleScores)
                     {
-                        <td align="center" style="width:45%; color: white; font-size: 5rem;">
+                        <td align="center" style="width: 45%; text-align: center; color: white; font-size: 3rem;">
                             @lowScoreComment
                         </td>
                     }
@@ -101,7 +101,7 @@
                     <td align="center" valign="top">
                         <p style="color: white; font-size: 3rem;">@highest.Type.CharName</p>
                         <image class="image" src=@highest.Type.Image height="100px" />
-                        <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: medium ">
+                        <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: small">
                             @highest.Type.Description <br /> The products tested in this category were:
                             @foreach (var item in productList)
                             {
@@ -109,9 +109,9 @@
                                 <br />
                             }
                         </p>
-                        <p style="color: white; font-size: 2rem;">
+                        @*<p style="color: white; font-size: 2rem;">
                             @highest.Type.Type
-                        </p>
+                        </p>*@
                         <div align="left" style=@barStyle>
                             <div align="center" style=@stringStyle>@resultString</div>
                         </div>
@@ -165,7 +165,7 @@
                         <td align="center" valign="top">
                             <p style="color: white; font-size: 3rem;">@lowest.Type.CharName</p>
                             <image class="image" src=@lowest.Type.Image height="100px" />
-                            <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: medium ">
+                            <p class="bubbleHover bubble-bottom-left-hover" style="position: absolute; bottom: 280px; font-size: small ">
                                 @lowest.Type.Description<br />
                                 The products tested in this category were:
                                 @foreach (var item in productList)
@@ -173,7 +173,7 @@
                                     @item.Product.Description
                                 }
                             </p>
-                            <p style="color: white; font-size: 2rem;">@lowest.Type.Type</p>
+                            @*<p style="color: white; font-size: 2rem;">@lowest.Type.Type</p>*@
                             <div align="left" style=@barStyle>
                                 <div align="center" style=@stringStyle>@resultString</div>
                             </div>

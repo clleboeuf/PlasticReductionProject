@@ -52,10 +52,10 @@ namespace PlasticReductionProject.Views.Calculator
                 {
                     usedRand.Add(rand);
                     var test = db.Products.Find(rand);
-                    if (test.Type == 3)
-                    {
+                    //if (test.Type == 3)
+                    //{
                         randomProducts.Add(test);
-                    }
+                   // }
                 }
             }
 

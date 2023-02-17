@@ -35,7 +35,7 @@ p {
     border-radius: 16px;
     border-width: 0 0 4px;
     box-sizing: border-box;
-    color: coral;
+    color: #FFFFFF;
     cursor: pointer;
     display: inline-block;
     font-family: din-round,sans-serif;
@@ -61,7 +61,7 @@ p {
 
 btn-default:after {
     background-clip: padding-box;
-    background-color: coral;
+    background-color: #1CB0F6;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;

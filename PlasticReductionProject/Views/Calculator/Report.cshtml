@@ -135,6 +135,10 @@
                         {
                             <span align="center" style="margin: 5px"> @Html.ActionLink("Consider Alternatives", "altButton", "Calculator", new { ProductId = highest.Type.Id }, new { @class = "btn btn-default" })</span>
                         }
+                        else
+                        {
+                            <p style="color: white; font-size: 3rem;">Try to recycle these as there are no non-plastic alternatives</p>
+                        }
                     </td>
 
                     <td></td>

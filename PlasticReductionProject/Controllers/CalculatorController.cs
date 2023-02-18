@@ -4,9 +4,11 @@ using PlasticReductionProject.DAL;
 using PlasticReductionProject.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace PlasticReductionProject.Views.Calculator
 {
@@ -128,6 +130,7 @@ namespace PlasticReductionProject.Views.Calculator
 
         private double CalculateResultForProduct(ProductResult result)
         {
+
 
             var usedMultiplier = 1;
             // var recycledMultiplier = 1;

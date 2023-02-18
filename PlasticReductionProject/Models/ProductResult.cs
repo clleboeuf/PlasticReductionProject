@@ -15,7 +15,7 @@ namespace PlasticReductionProject.Models
 
         public FrequencySelection Usage { get; set; }   
 
-        public TimePeriodSelection? PeriodUsed { get; set; } 
+        public TimePeriodSelection PeriodUsed { get; set; } 
 
         public TimePeriodSelection PeriodRecycled { get; set; }
 
@@ -24,7 +24,6 @@ namespace PlasticReductionProject.Models
         public int AmountRecycled { get; set; }
 
         public Product Product { get; set; }
-
 
     }
 

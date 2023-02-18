@@ -23,9 +23,7 @@
                 <div class="altGridItem">
                     <div style="background-image:url(@item.Image.ToString());background-size:cover;height:100%;">
                     </div>
-                    @*<span style="margin: 1px">
-                        @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
-                    </span>*@
+               
                     <p style="margin:5px;text-align:center;">
                         @item.Description
                     </p>
@@ -35,49 +33,6 @@
 
         </div>
     <br />
-    @*<table width="60%" align="center" ">
-        @if (Model.Count() > 0)
-        {
-            var counter = 1;
-            <tr>
-                @foreach (var item in Model)
-                {
-                    if (counter % 2 > 0)
-                    {
-
-                        <td width="50%" align="center" class="altTD" style="background-image:url(@item.Image.ToString());background-size:contain;background-repeat:repeat-x">
-                            <p>
-                                <span class="resultBackground2" style="margin: 5px">
-                                    @item.Description
-                                </span>
-                            </p>
-
-                        </td>
-                        <td width="2%"></td>
-                    }
-                    else
-                    {
-                        <td width="50%" align="center" class="altTD" style="background-image:url(@item.Image.ToString());">
-                            <p>
-                                <span class="resultBackground2" style="margin: 5px">
-                                    @item.Description
-                                </span>
-                            </p>
-                        </td>
-                        @Html.Raw("</tr><tr>")
-                        <td height="20px"></td>
-                        <td height="20px"></td>
-                        <td height="20px"></td>
-                        @Html.Raw("</tr><tr>")
-                    }
-                    counter += 1;
-                }
-            </tr>
-
-        }
-
-    </table>
-    <br/>*@
     <div>
         <span style="align-self:center">
             @Html.ActionLink("Back", "Alternatives", "Alternatives", null, new { @class = "btn btn-default" })

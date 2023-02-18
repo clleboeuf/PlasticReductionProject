@@ -247,6 +247,16 @@ btn-default:focus {
     justify-content: space-between;
 }
 
+.altDetailGrid {
+    display: grid;
+    width: 50%;
+    margin: auto;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto, 20px);
+    align-items: center;
+    justify-content: space-between;
+}
 
 .heading1 {
     font-size: 100px;

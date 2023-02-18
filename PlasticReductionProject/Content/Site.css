@@ -268,11 +268,8 @@ btn-default:focus {
     width: 25%;
     height: 300px;
     background-repeat: no-repeat;
-/*    background: center;*/
     background-size: cover;
-
     text-align:center;
-
 }
 
 .altGridItem {

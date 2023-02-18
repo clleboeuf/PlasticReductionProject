@@ -446,7 +446,6 @@
     <Content Include="Views\Alternatives\FilAlternatives.cshtml" />
     <Content Include="Views\Calculator\Report.cshtml" />
     <Content Include="Views\Calculator\Intro.cshtml" />
-    <Content Include="Views\Alternatives\FilAlternatives - Copy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

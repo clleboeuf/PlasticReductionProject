@@ -1,5 +1,6 @@
 ﻿using Microsoft.Ajax.Utilities;
 using Owin;
+using PlasticReductionProject.Controllers;
 using PlasticReductionProject.DAL;
 using PlasticReductionProject.Models;
 using System;
@@ -21,7 +22,7 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 10;
+        private int QuestionCount = 3;
 
         private List<ProductResult> productsUsed = new List<ProductResult>();
 
@@ -206,17 +207,22 @@ namespace PlasticReductionProject.Views.Calculator
             {
                 case var _ when compScore < 0.01:
                     turtles = 5;
+                    ViewBag.NextStep = "Project";
                     break;
                 case var _ when compScore < 0.05:
                     turtles = 4;
+                    ViewBag.NextStep = "Project";
                     break;
                 case var _ when compScore < 0.1:
                     turtles = 3;
+                    ViewBag.NextStep = "Project";
                     break;
                 case var _ when compScore < 0.3:
                     turtles = 2;
+                    ViewBag.NextStep = "Alternatives";
                     break;
                 default:
+                    ViewBag.NextStep = "Alternatives";
                     break;
             }
 

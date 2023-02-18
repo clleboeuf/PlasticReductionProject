@@ -1,6 +1,8 @@
 ﻿@model PlasticReductionProject.Models.CalculatorResult
 @{
     ViewBag.Title = "Your Plastic Footprint";
+    var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestPlastic);
+    var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestPlastic);
 }
 
 <div id="fb-root"></div>
@@ -25,7 +27,20 @@
             </td>
             <td align="center" width="40%">
                 <p style="color: white; font-size: 40px;">@ViewBag.Comment</p>
-                <br />
+
+                @if (!(ViewBag.LowestHasAlternatives && lowest.Score >= lowest.Average) && !ViewBag.HighestHasAlternatives)
+                {
+                    if (ViewBag.NextStep == "Alternatives")
+                    {
+                        <span align="center" style="margin: 5px"> @Html.ActionLink("Alternatives", "Alternatives", "Alternatives", null, new { @class = "btn btn-default", @style = "z-index:999" })</span>
+                        <p style="color: white; font-size: 30px;">Here are some plastic alternatives to help reduce your footprint</p>
+                    }
+                    else
+                    {
+                        <span align="center" style="margin: 5px"> @Html.ActionLink("Project Opportunities", "Projects", "Projects", null, new { @class = "btn btn-default", @style = "z-index:999" })</span>
+                        <p style="color: white; font-size: 30px;">Great Work! Why not get others involved in a project?</p>
+                    }
+                }
             </td>
         </tr>
     </table>
@@ -35,8 +50,7 @@
         <table style="width:90%">
 
             @{
-                var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestPlastic);
-                var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestPlastic);
+                
                 var multipleScores = (ViewBag.HighestPlastic != ViewBag.LowestPlastic);
                 var lowScoreComment = "You did well with ";
                 var highScoreComment = "You could do better with ";
@@ -137,7 +151,7 @@
                         }
                         else
                         {
-                            <p style="color: white; font-size: 3rem;">Try to recycle these as there are no non-plastic alternatives</p>
+                            <p style="color: white; font-size: 3rem;">These products dont have non-plastic alternatives</p>
                         }
                     </td>
 
@@ -192,7 +206,7 @@
                                 @foreach (var item in productList)
                                 {
                                     @item.Product.Description
-                                    <br/>
+                                    <br />
                                 }
                             </p>
                             @*<p style="color: white; font-size: 2rem;">@lowest.Type.Type</p>*@
@@ -209,8 +223,6 @@
                             }
                         </td>
                     }
-
-
                 </tr>
             }
         </table>

@@ -68,7 +68,7 @@ namespace PlasticReductionProject.Controllers
                         }
                     }
                 }
-     //       }
+   
             
             if(currProducts.Count > 0)
             {

@@ -19,7 +19,7 @@ namespace PlasticReductionProject.Views.Calculator
             get { return Session["CalculatorResults"] as CalculatorResult; }
             set { Session["CalculatorResults"] = value; }
         }
-        private int QuestionCount = 2;
+        private int QuestionCount = 10;
 
         private List<ProductResult> productsUsed = new List<ProductResult>();
 
@@ -30,7 +30,7 @@ namespace PlasticReductionProject.Views.Calculator
 
             ViewBag.Page = "Intro";
             return View();
-         }
+        }
 
         // Call Calculator with a specified number of questions to allow faster testing
         public ActionResult Calculator(int? questions)
@@ -54,8 +54,8 @@ namespace PlasticReductionProject.Views.Calculator
                     var test = db.Products.Find(rand);
                     //if (test.Type == 3)
                     //{
-                        randomProducts.Add(test);
-                //    }
+                    randomProducts.Add(test);
+                    //    }
                 }
             }
 
@@ -65,15 +65,16 @@ namespace PlasticReductionProject.Views.Calculator
                 index++;
                 x.Product = randomProducts[index];
             });
-            var characterFacts = new List<(Character character, PlasticFact fact)>();          
+            var characterFacts = new List<(Character character, PlasticFact fact)>();
             var randFact = Randomiser.RandomNumber(1, db.PlasticFacts.Count());
             var randCharacter = Randomiser.RandomNumber(1, db.Characters.Count());
             var tuple = (character: db.Characters.Find(randCharacter), fact: db.PlasticFacts.Find(randFact));
             characterFacts.Add(tuple);
-   
+
             ViewBag.Characters = characterFacts;
             ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
+            ViewBag.TimeSelected = " ";
             return View(cr.Results.First());
         }
 
@@ -174,7 +175,7 @@ namespace PlasticReductionProject.Views.Calculator
             TempData["tempResults"] = this.cr.Results.ToList();
             TempData["CalcResult"] = this.cr;
             return RedirectToAction("FilAlternatives", "Alternatives", new { ProductID = ProductId, ResultsList = TempData["tempResults"] });
- 
+
         }
 
         // GET: Report
@@ -188,10 +189,12 @@ namespace PlasticReductionProject.Views.Calculator
 
             List<double> AllScores = this.cr.PlasticScores.Select(x => x.Score).ToList();
             List<double> AllAverages = this.cr.PlasticScores.Select(x => x.Average).ToList();
-            List<double> Rankings = this.cr.PlasticScores.Select(x => x.Score/x.Average).ToList();
+            List<double> Rankings = this.cr.PlasticScores.Select(x => x.Score / x.Average).ToList();
 
-            ViewBag.LowestProduct = this.cr.FindLowestPlasticScore().Name.ToString();
-            ViewBag.HighestProduct = this.cr.FindHighestPlasticScore().Name.ToString();
+            ViewBag.LowestPlastic = this.cr.FindLowestPlasticScore().Name.ToString();
+            ViewBag.LowestHasAlternatives = scoredProductHasAlternatives(this.cr.PlasticScores.First(x => x.Name == ViewBag.LowestPlastic));
+            ViewBag.HighestPlastic = this.cr.FindHighestPlasticScore().Name.ToString();
+            ViewBag.HighestHasAlternatives = scoredProductHasAlternatives(this.cr.PlasticScores.First(x => x.Name == ViewBag.HighestPlastic));
 
             List<Badge> badges = db.Badges.ToList();
 
@@ -239,6 +242,23 @@ namespace PlasticReductionProject.Views.Calculator
                                                                     select plastic_Id)
                                                         .ToList().Distinct().ToList();
             return View(PlasticTypeList);
+        }
+
+        public bool scoredProductHasAlternatives (PlasticScore toCheck)
+        {
+            var resultsToCheck = this.cr.Results.Where(x => x.Product.Type == toCheck.Type.Id).ToList();
+            var productsToCheck = resultsToCheck.Select(x => x.Product).ToList();
+            var result = false;
+            foreach (Product product in productsToCheck)
+            {
+                var foundAlternative = db.Alternatives.Where(x => x.ProductId.Equals(product.Id)).FirstOrDefault();
+                if (foundAlternative != null)
+                {
+                    result = true;
+                    break;
+                }
+            }
+            return result;
         }
 
 

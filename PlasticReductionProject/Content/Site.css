@@ -17,6 +17,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    transition: 0.75s;
 }
 
 .w3-container, .w3-panel {
@@ -80,7 +81,7 @@ btn-default:disabled {
     cursor: auto;
 } */
 
-/**/
+/*
 .btn-default {
     padding: 13px 16px;
     text-align: center;
@@ -122,6 +123,53 @@ btn-default:after {
 btn-default:focus {
     user-select: auto;
 }
+*/
+.btn-default {
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: black;
+    border-color: black;
+    cursor: pointer;
+    display: block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-size: 20px;
+    text-decoration: none;
+    margin: auto;
+    width: fit-content;
+}
+
+    .btn-default:hover {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+        transform: translate3d(0, 2px, 0);
+        background-color: royalblue;
+    }
+
+    .btn-default:focus {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+        background-color: blue;
+    }
 
 /*  
     This is copied from original master for hover over orange effect 
@@ -132,16 +180,16 @@ btn-default:focus {
     -webkit-filter: brightness(1.1);
     background-color: orange;
 }*/
-    .btn-default:hover {
+   /* .btn-default:hover {
         background-position: right center;
-        /* change the direction of the change here */
+        /* change the direction of the change here 
         color: #fff;
         text-decoration: none;
     }
 
     .btn-default:active {
         transform: scale(0.95);
-    }
+    }*/
 
 
 
@@ -221,11 +269,8 @@ btn-default:focus {
     width: 25%;
     height: 300px;
     background-repeat: no-repeat;
-/*    background: center;*/
     background-size: cover;
-
     text-align:center;
-
 }
 
 .altGridItem {
@@ -247,6 +292,16 @@ btn-default:focus {
     justify-content: space-between;
 }
 
+.altDetailGrid {
+    display: grid;
+    width: 50%;
+    margin: auto;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto, 20px);
+    align-items: center;
+    justify-content: space-between;
+}
 
 .heading1 {
     font-size: 100px;
@@ -354,15 +409,6 @@ a:hover {
     }
 }
 
-.btn btn-default {
-    transition-duration: 0.4s;
-}
-
-    .btn btn-default:hover {
-        background-color: #4CAF50; /* Green */
-        color: white;
-    }
-
 
 body {
     font-family: 'Lato', sans-serif;
@@ -419,17 +465,17 @@ body {
     left: 0;
     background-color: rgba(0, 140, 186, 0.9);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.75s;
     padding-top: 60px;
 }
     /* Styling for side navigation bar when opened */
     .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 35px;
         color: #b4cce1;
         display: block;
-        transition: 0.5s;
+        transition: 0.75s;
     }
         /* Adds hover color highlight for side navigation bar links */
         .sidenav a:hover {
@@ -440,13 +486,13 @@ body {
         position: absolute;
         top: 0;
         right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
+        font-size: 40px;
+        margin-left: 70px;
     }
 
 /* Style page content - use this id if you want to push the page content to the right when you open the side navigation */
 #sideNavPushes {
-    transition: margin-left .5s;
+    transition: margin-left 0.75s;
 }
 
 @media screen and (max-height: 450px) {
@@ -475,8 +521,8 @@ body {
 }
 
 
-
-#navbar {
+/* Navbar isnt used in MPFP*/
+/*#navbar {
     background-color: #333;
     position: fixed;
     top: -50px;
@@ -498,7 +544,7 @@ body {
         #navbar a:hover {
             background-color: #ddd;
             color: black;
-        }
+        }*/
 
 .img-slider {
     position: relative;
@@ -554,11 +600,12 @@ body {
 
 img.bg {
     /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 1024px;
+   /* min-height: 100%;
+    min-width: 1024px;*/
     /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
+    /*width: 100%;
+    height: auto;*/
+    object-fit: contain;
     /* Set up positioning */
     position: fixed;
     top: 0;

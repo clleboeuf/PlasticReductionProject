@@ -4,33 +4,29 @@
     ViewBag.Title = "Alternatives";
 }
 
-<br />
-<br />
-<br />
-<br />
-<br />
 
+<div style="position:relative; top:130px;">
+   
+    <p class="hero-heading" align="center">
+        <br />
+        Here are some alternatives for popular plastic products<br />
+    </p>
+    <div class="altGrid">
 
-<img class="bg" src="~/Images/SeaBackground.jpg" />
-<p class="hero-heading" align="center">
-    <br />
-    Here are some alternatives for popular plastic products<br />
-</p>
-<div class="altGrid">
+        @foreach (var item in Model)
+        {
+            <div class="altGridItem">
+                <div style="background-image:url(@item.Image.ToString());background-size:cover;height:100%;border-radius:8px;">
 
-    @foreach (var item in Model)
-    {
-        <div class="altGridItem">
-            <div style="background-image:url(@item.Image.ToString());background-size:cover;height:90%;">
+                </div>
+                <p style="margin: 1px">
+                    @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
+                </p>
 
             </div>
-            <span style="margin: 1px">
-                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
-            </span>
 
-        </div>
+        }
 
-    }
-
+    </div>
 </div>
 

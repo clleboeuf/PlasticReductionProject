@@ -74,6 +74,7 @@ namespace PlasticReductionProject.Views.Calculator
             ViewBag.Characters = characterFacts;
             ViewBag.QuestionCounter = "Question " + (this.cr.Increment + 1).ToString() + " of " + this.cr.Results.Count().ToString();
             ViewBag.Page = "Calculator";
+            ViewBag.TimeSelected = " ";
             return View(cr.Results.First());
         }
 

@@ -80,8 +80,8 @@ btn-default:disabled {
     cursor: auto;
 } */
 
-
-/*.btn-default {
+/*
+.btn-default {
     padding: 13px 16px;
     text-align: center;
     transition: 0.5s;
@@ -121,8 +121,8 @@ btn-default:after {
 
 btn-default:focus {
     user-select: auto;
-}*/
-
+}
+*/
 .btn-default {
     align-self: center;
     background-color: #fff;
@@ -138,7 +138,7 @@ btn-default:focus {
     color: black;
     border-color: black;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     font-family: Neucha, sans-serif;
     font-size: 1rem;
     line-height: 23px;
@@ -162,10 +162,12 @@ btn-default:focus {
     .btn-default:hover {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
         transform: translate3d(0, 2px, 0);
+        background-color: royalblue;
     }
 
     .btn-default:focus {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+        background-color: blue;
     }
 
 /*  

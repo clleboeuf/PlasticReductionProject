@@ -4,26 +4,20 @@
 @{
     ViewBag.Title = "Alternatives";
 }
-<img class="bg" src="~/Images/SeaBackground.jpg" />
-<br />
-<br />
-<br />
-<br />
-<br />
+<div style="position:relative; top:130px;">
+    <div class="result">
+        <p class="hero-heading" align="center">
+            Here are some alternatives for @ViewBag.Product
+        </p>
 
-<div class="result">
-    <p class="hero-heading" align="center">
-        Here are some alternatives for @ViewBag.Product
-    </p>
-
-    <div class="altDetailGrid">
+        <div class="altDetailGrid">
 
             @foreach (var item in Model)
             {
                 <div class="altGridItem">
                     <div style="background-image:url(@item.Image.ToString());background-size:cover;height:100%;">
                     </div>
-               
+
                     <p style="margin:5px;text-align:center;">
                         @item.Description
                     </p>
@@ -32,10 +26,12 @@
             }
 
         </div>
-    <br />
-    <div>
+        <br />
+
+    </div>
+    <div style="align-self:center">
         <span style="align-self:center">
-            @Html.ActionLink("Back", "Alternatives", "Alternatives", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Back", "Alternatives", "Alternatives", null, new { @class = "btn-default" })
         </span>
     </div>
 </div>

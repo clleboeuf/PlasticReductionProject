@@ -5,7 +5,7 @@
 }
 
 
-<div>
+<div style="position:relative; top:130px;">
     <img class="bg" src="~/Images/SeaBackground.jpg" />
     <p class="hero-heading" align="center">
         <br />
@@ -19,9 +19,9 @@
                 <div style="background-image:url(@item.Image.ToString());background-size:cover;height:90%;">
 
                 </div>
-                <span style="margin: 1px">
+                <p style="margin: 1px">
                     @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
-                </span>
+                </p>
 
             </div>
 

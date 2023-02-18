@@ -464,17 +464,17 @@ body {
     left: 0;
     background-color: rgba(0, 140, 186, 0.9);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 0.75s;
     padding-top: 60px;
 }
     /* Styling for side navigation bar when opened */
     .sidenav a {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
-        font-size: 25px;
+        font-size: 35px;
         color: #b4cce1;
         display: block;
-        transition: 0.5s;
+        transition: 0.75s;
     }
         /* Adds hover color highlight for side navigation bar links */
         .sidenav a:hover {
@@ -485,13 +485,13 @@ body {
         position: absolute;
         top: 0;
         right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
+        font-size: 40px;
+        margin-left: 70px;
     }
 
 /* Style page content - use this id if you want to push the page content to the right when you open the side navigation */
 #sideNavPushes {
-    transition: margin-left .5s;
+    transition: margin-left 0.75s;
 }
 
 @media screen and (max-height: 450px) {
@@ -520,8 +520,8 @@ body {
 }
 
 
-
-#navbar {
+/* Navbar isnt used in MPFP*/
+/*#navbar {
     background-color: #333;
     position: fixed;
     top: -50px;
@@ -543,7 +543,7 @@ body {
         #navbar a:hover {
             background-color: #ddd;
             color: black;
-        }
+        }*/
 
 .img-slider {
     position: relative;
@@ -599,11 +599,12 @@ body {
 
 img.bg {
     /* Set rules to fill background */
-    min-height: 100%;
-    min-width: 1024px;
+   /* min-height: 100%;
+    min-width: 1024px;*/
     /* Set up proportionate scaling */
-    width: 100%;
-    height: auto;
+    /*width: 100%;
+    height: auto;*/
+    object-fit: contain;
     /* Set up positioning */
     position: fixed;
     top: 0;

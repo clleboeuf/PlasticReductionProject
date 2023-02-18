@@ -15,10 +15,10 @@
             @foreach (var item in Model)
             {
                 <div class="altGridItem">
-                    <div style="background-image:url(@item.Image.ToString());background-size:cover;height:100%;">
+                    <div style="background-image:url(@item.Image.ToString());background-size:contain;height:100%;">
                     </div>
 
-                    <p style="margin:5px;text-align:center;">
+                    <p style="margin:1px;text-align:center;">
                         @item.Description
                     </p>
                 </div>

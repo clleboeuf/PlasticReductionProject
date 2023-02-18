@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PlasticReductionProject.Models.Product>
+
+@{
+    ViewBag.Title = "Alternatives";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<img class="bg" src="~/Images/SeaBackground.jpg" />
+    <p class="hero-heading" align="center">
+        <br />
+        Here are some alternatives for popular plastic products<br />
+    </p><table width="70%" height="70%" align="center"">
+        @if (Model.Count() > 0)
+        {
+            var counter = 1;
+            <tr>
+                @foreach (var item in Model)
+                {
+                    if (counter % 3 > 0)
+                    {
+                        <td class="altTD" style="background-image:url(@item.Image.ToString());">
+                            <span style="margin: 5px">
+                                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
+                            </span>
+
+                        </td>
+                        <td width="2%"></td>
+                    }
+                    else
+                    {
+                        <td class="altTD" style="background-image:url(@item.Image.ToString());">
+                            <span style="margin: 5px">
+                                @Html.ActionLink(item.Description, "AlternativesDetails", "Alternatives", new { ProductID = item.Id }, new { @class = "btn btn-default" })
+                            </span>
+                        </td>
+                        <td width="2%"></td>
+                        @Html.Raw("</tr><tr>");
+                        <td height="20px"></td>
+                        <td height="20px"></td>
+                        <td height="20px"></td>
+                        <td height="20px"></td>
+                        <td height="20px"></td>
+                        @Html.Raw("</tr><tr>");
+
+                    }
+
+                    counter += 1;
+                }
+
+            </tr>
+        }
+    </table>
+

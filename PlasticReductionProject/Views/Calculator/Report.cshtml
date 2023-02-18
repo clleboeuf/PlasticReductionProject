@@ -35,9 +35,9 @@
         <table style="width:90%">
 
             @{
-                var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestProduct);
-                var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestProduct);
-                var multipleScores = (ViewBag.HighestProduct != ViewBag.LowestProduct);
+                var highest = Model.PlasticScores.First(x => x.Name == ViewBag.HighestPlastic);
+                var lowest = Model.PlasticScores.First(x => x.Name == ViewBag.LowestPlastic);
+                var multipleScores = (ViewBag.HighestPlastic != ViewBag.LowestPlastic);
                 var lowScoreComment = "You did well with ";
                 var highScoreComment = "You could do better with ";
                 var firstRowStyle = "width:45%;text-align:center;color:white;font-size:3rem;";

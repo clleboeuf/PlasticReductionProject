@@ -7,7 +7,7 @@ namespace PlasticReductionProject.Models
 {
     public enum FrequencySelection { Never, Sometimes, Often, Always }
 
-    public enum TimePeriodSelection { Day, Week, Month, Year }
+    public enum TimePeriodSelection { Choose, Day, Week, Month, Year }
 
     public class ProductResult
     {

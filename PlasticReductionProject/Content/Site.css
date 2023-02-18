@@ -81,8 +81,8 @@ btn-default:disabled {
     cursor: auto;
 } */
 
-/*
-.btn-default {
+
+/*.btn-default {
     padding: 13px 16px;
     text-align: center;
     transition: 0.5s;
@@ -122,8 +122,8 @@ btn-default:after {
 
 btn-default:focus {
     user-select: auto;
-}
-*/
+}*/
+
 .btn-default {
     align-self: center;
     background-color: #fff;
@@ -136,8 +136,8 @@ btn-default:focus {
     border-width: 2px;
     box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
     box-sizing: border-box;
-    color: black;
-    border-color: black;
+    color: #005E9E;
+    border-color: #A3CCE3;
     cursor: pointer;
     display: block;
     font-family: Neucha, sans-serif;
@@ -158,32 +158,32 @@ btn-default:focus {
     text-decoration: none;
     margin: auto;
     width: fit-content;
+    font-family: 'Franklin Gothic Medium';
 }
 
     .btn-default:hover {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
         transform: translate3d(0, 2px, 0);
-        background-color: royalblue;
+        background-color: #A3CCE3;
     }
 
     .btn-default:focus {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-        background-color: blue;
     }
 
-/*  
-    This is copied from original master for hover over orange effect 
-    In case we want to revert. 
 
-    btn-default:hover:not(:disabled) {
+    /*This is copied from original master for hover over orange effect 
+    In case we want to revert.*/ 
+
+    /*btn-default:hover:not(:disabled) {
     filter: brightness(1.1);
     -webkit-filter: brightness(1.1);
     background-color: orange;
-}*/
-   /* .btn-default:hover {
-        background-position: right center;
-        /* change the direction of the change here 
-        color: #fff;
+} 
+    .btn-default:hover {
+        background-position: right center;*/
+        /*change the direction of the change here*/ 
+        /*color: #fff;
         text-decoration: none;
     }
 

@@ -22,18 +22,18 @@
                         I @Model.Product.UseVerb @Model.Product.Description
                     </p>
                     <p style="font-size: 40px;">
-                        <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100"  oninvalid="this.setCustomValidity('Please enter a number here')"
+                        <input type="number" id="AmountUsed" name="AmountUsed" min="0" max="100" required="required" oninvalid="this.setCustomValidity('Please enter a number here')"
                                oninput="setCustomValidity('')" />
-                        per @Html.EnumDropDownListFor(x => x.PeriodUsed, " ")
-                    <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
+                        per @Html.EnumDropDownListFor(x => x.PeriodUsed, " ", "")
                     </p>
+                    <input type="submit" value="Next" class="btn btn-default" id="btnSubmit" />
                     <input type="hidden" name="Id" value=@Model.Id />
                 </div>
             </div>
         </div>
 
     }
-    </div>
+</div>
 
 <div style="position: absolute; top: 200px; left: 80px;">
     @foreach (var tuple in ViewBag.Characters)
